@@ -1,4 +1,4 @@
-import "../monkey_patch.ts";
+import "https://deno.land/x/generator_helpers/monkey_patch.ts";
 import { powerSet } from "https://deno.land/x/combinatorics/power_set.ts";
 
 export function part1(text: string): number {

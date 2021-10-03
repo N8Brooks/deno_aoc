@@ -1,4 +1,4 @@
-import { Iterator } from "../monkey_patch.ts";
+import { Iterator } from "https://deno.land/x/generator_helpers/monkey_patch.ts";
 import { permutations } from "https://deno.land/x/combinatorics/permutations.ts";
 import { slidingWindows } from "https://deno.land/std/collections/mod.ts";
 

@@ -1,4 +1,4 @@
-import "../monkey_patch.ts";
+import "https://deno.land/x/generator_helpers/monkey_patch.ts";
 import { combinations } from "https://deno.land/x/combinatorics/combinations.ts";
 import { product } from "https://deno.land/x/combinatorics/product.ts";
 
