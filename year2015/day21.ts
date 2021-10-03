@@ -1,3 +1,4 @@
+import "../monkey_patch.ts";
 import { combinations } from "https://deno.land/x/combinatorics/combinations.ts";
 import { product } from "https://deno.land/x/combinatorics/product.ts";
 
@@ -44,11 +45,11 @@ function simulate(text: string, pHealth: number, win: boolean) {
   const rings: Items[] = [
     [0, 0, 0],
     ...RINGS,
-    ...[...combinations(2, RINGS)].map(stats),
+    ...combinations(2, RINGS).map(stats),
   ];
 
-  const equipment = [...product(1, weaps, armor, rings)].map(stats);
-  const costs = equipment
+  const costs = product(1, weaps, armor, rings)
+    .map(stats)
     .filter((items) => battle(items) === win)
     .map(([cost]) => cost);
 
