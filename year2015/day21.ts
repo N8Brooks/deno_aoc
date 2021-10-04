@@ -29,16 +29,16 @@ const RINGS: Items[] = [
   [80, 0, 3],
 ];
 
-export function part1(text: string, pHealth: number) {
-  return simulate(text, pHealth, true);
+export function part1(data: string, pHealth: number) {
+  return simulate(data, pHealth, true);
 }
 
-export function part2(text: string, pHealth: number) {
-  return simulate(text, pHealth, false);
+export function part2(data: string, pHealth: number) {
+  return simulate(data, pHealth, false);
 }
 
-function simulate(text: string, pHealth: number, win: boolean) {
-  const [bHealth, bDamage, bArmor] = [...text.matchAll(/\d+/g)].map((d) => +d);
+function simulate(data: string, pHealth: number, win: boolean) {
+  const [bHealth, bDamage, bArmor] = [...data.matchAll(/\d+/g)].map((d) => +d);
 
   const weaps: Items[] = WEAPS;
   const armor: Items[] = [[0, 0, 0], ...ARMOR];

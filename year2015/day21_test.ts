@@ -1,7 +1,7 @@
 import { assertEquals } from "https://deno.land/std@0.109.0/testing/asserts.ts";
 import { part1, part2 } from "./day21.ts";
 
-const text = await Deno.readTextFile("year2015/day21.txt");
+const text = await Deno.readTextFile("year2015/day21_data.txt");
 
 Deno.test("part1(example)", () => {
   assertEquals(part1("8 5 5", 12), 65);

@@ -2,19 +2,19 @@ import { Iterator } from "https://deno.land/x/generator_helpers/monkey_patch.ts"
 import { permutations } from "https://deno.land/x/combinatorics/permutations.ts";
 import { slidingWindows } from "https://deno.land/std/collections/mod.ts";
 
-export function part1(text: string): number {
-  return Math.min(...distances(text));
+export function part1(data: string): number {
+  return Math.min(...distances(data));
 }
 
-export function part2(text: string): number {
-  return Math.max(...distances(text));
+export function part2(data: string): number {
+  return Math.max(...distances(data));
 }
 
 const pattern = /(\w+) to (\w+) = (\d+)/g;
 
-function distances(text: string): Generator<number> {
+function distances(data: string): Generator<number> {
   const dist: Map<string, Map<string, number>> = new Map();
-  Iterator.from(text.matchAll(pattern)).forEach(set);
+  Iterator.from(data.matchAll(pattern)).forEach(set);
   return permutations(dist.size, dist.keys()).map(distance);
 
   function set([, aKey, bKey, dString]: string[]): void {
