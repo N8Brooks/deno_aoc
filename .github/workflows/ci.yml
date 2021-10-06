@@ -10,13 +10,8 @@ on:
 
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     timeout-minutes: 10
-    strategy:
-      fail-fast: false
-      matrix:
-        deno: [canary]
-        os: [ubuntu-latest]
 
     steps:
       - name: Clone
@@ -25,7 +20,7 @@ jobs:
       - name: Set-up
         uses: denoland/setup-deno@v1.0.0
         with:
-          deno-version: ${{ matrix.deno }}
+          deno-version: canary
 
       - name: Format
         run: deno fmt --check
@@ -34,7 +29,7 @@ jobs:
         run: deno lint
 
       - name: Test
-        run: deno test --unstable --coverage=cov --allow-read
+        run: deno test --unstable --coverage=cov --allow-read --ignore="year2015/day04_test.ts"
 
       - name: Coverage
         run: deno coverage cov
