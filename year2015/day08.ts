@@ -15,7 +15,3 @@ export function part2(data: string): number {
     .map((line) => JSON.stringify(line).length - line.length)
     .reduce((a, b) => a + b, 0);
 }
-// line.replace(/\\"/g, '"').replace(/\\x[0-9a-f]{2}/g, "0").replace(
-//         /\\\\/g,
-//         "\\",
-//       )
