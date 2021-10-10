@@ -7,26 +7,26 @@ const example1 = "abcdef";
 
 const example2 = "pqrstuv";
 
-Deno.test("part1(example1)", () => {
-  assertEquals(part1(example1), 609043);
+Deno.test("part1(example1)", async () => {
+  assertEquals(await part1(example1), 609043);
 });
 
-Deno.test("part1(example2)", () => {
-  assertEquals(part1(example2), 1048970);
+Deno.test("part1(example2)", async () => {
+  assertEquals(await part1(example2), 1048970);
 });
 
-Deno.test("part1(data)", () => {
-  assertEquals(part1(data), 346386);
+Deno.test("part1(data)", async () => {
+  assertEquals(await part1(data), 346386);
 });
 
-Deno.test("part2(example1)", () => {
-  assertEquals(part2(example1), 6742839);
+Deno.test("part2(example1)", async () => {
+  assertEquals(await part2(example1), 6742839);
 });
 
-Deno.test("part2(example2)", () => {
-  assertEquals(part2(example2), 5714438);
+Deno.test("part2(example2)", async () => {
+  assertEquals(await part2(example2), 5714438);
 });
 
-Deno.test("part2(data)", () => {
-  assertEquals(part2(data), 9958218);
+Deno.test("part2(data)", async () => {
+  assertEquals(await part2(data), 9958218);
 });
