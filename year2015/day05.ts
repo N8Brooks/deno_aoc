@@ -11,7 +11,7 @@ const noneOfThese = new Map([
 
 export function part1(data: string): number {
   let nice = 0;
-  for (const word of data.trimEnd().split("\n")) {
+  for (const word of data.split("\n")) {
     if (isNice(word)) {
       nice += 1;
     }
@@ -40,7 +40,7 @@ export function part1(data: string): number {
 
 export function part2(data: string): number {
   let nice = 0;
-  for (const word of data.trimEnd().split("\n")) {
+  for (const word of data.split("\n")) {
     if (isNice(word)) {
       nice += 1;
     }

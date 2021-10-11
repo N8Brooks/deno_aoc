@@ -2,7 +2,7 @@ export function part1(data: string, target: number): number {
   const counter = Array(target + 1).fill(0, 1);
   counter[0] = 1;
 
-  for (const line of data.trimEnd().split("\n")) {
+  for (const line of data.split("\n")) {
     const c = +line;
     for (let t = target; t >= c; t--) {
       counter[t] += counter[t - c];
@@ -16,7 +16,7 @@ export function part2(data: string, target: number): number {
   const counter: number[][][] = Array.from({ length: target + 1 }, () => []);
   counter[0].push([]);
 
-  for (const line of data.trimEnd().split("\n")) {
+  for (const line of data.split("\n")) {
     const c = +line;
     for (let t = target; t >= c; t--) {
       const update = counter[t - c].map((arr) => arr.concat(c));

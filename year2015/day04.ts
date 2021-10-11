@@ -10,7 +10,6 @@ export function part2(data: string): Promise<number> {
 
 /** Flakey way to parallelize hashing. */
 async function process(data: string, start: string): Promise<number> {
-  const prefix = data.trimEnd();
   const { href } = new URL("./day04_worker.ts", import.meta.url);
   const workers = Array.from(
     { length: hardwareConcurrency },
@@ -18,7 +17,7 @@ async function process(data: string, start: string): Promise<number> {
   );
   const promises = workers.map((worker, remainder): Promise<number> => {
     worker.postMessage({
-      prefix,
+      data,
       start,
       remainder,
       hardwareConcurrency,

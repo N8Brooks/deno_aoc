@@ -8,7 +8,6 @@ export function part2(data: string): number {
 
 function processData(data: string): number[][] {
   return data
-    .trimEnd()
     .split("\n")
     .map(processLine);
 }

@@ -6,8 +6,7 @@ const example = `.#.#.#
 #....#
 ..#...
 #.#..#
-####..
-`;
+####..`;
 
 const data = await Deno.readTextFile("year2015/day18_data.txt");
 

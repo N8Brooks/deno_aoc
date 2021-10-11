@@ -71,7 +71,6 @@ class Instructions {
 
   constructor(data: string) {
     this.instructions = data
-      .trimEnd()
       .split("\n")
       .map((line) => new Instruction(this.addresses, line));
   }

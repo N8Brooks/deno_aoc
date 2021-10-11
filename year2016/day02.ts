@@ -32,7 +32,7 @@ export function part2(data: string): string {
 function getKeycode(data: string, keypad: Key[][], start: [number, number]) {
   let [previousRow, previousCol] = start;
   const keycode: string[] = [];
-  for (const line of data.trimEnd().split("\n")) {
+  for (const line of data.split("\n")) {
     for (const char of line) {
       const [rowDelta, colDelta] = directions[char];
       const currentCol = previousCol + colDelta;

@@ -1,5 +1,5 @@
 export function part1(data: string): number {
-  let result = data.trimEnd().split("");
+  let result = data.split("");
   for (let i = 0; i < 40; i++) {
     result = lookSay(result);
   }
@@ -7,7 +7,7 @@ export function part1(data: string): number {
 }
 
 export function part2(data: string): number {
-  let result = data.trimEnd().split("");
+  let result = data.split("");
   for (let i = 0; i < 50; i++) {
     result = lookSay(result);
   }

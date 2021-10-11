@@ -8,7 +8,7 @@ const directions: Record<string, [number, number]> = {
 export function part1(data: string): number {
   let xSanta = 0, ySanta = 0;
   const locations = new Set().add("0,0");
-  data.trimEnd().split("").forEach((direction) => {
+  data.split("").forEach((direction) => {
     const [xDelta, yDelta] = directions[direction];
     locations.add(`${xSanta += xDelta},${ySanta += yDelta}`);
   });
@@ -19,7 +19,7 @@ export function part2(data: string): number {
   let xSanta = 0, ySanta = 0;
   let xRobot = 0, yRobot = 0;
   const locations = new Set().add("0,0");
-  data.trimEnd().split("").forEach((direction, i) => {
+  data.split("").forEach((direction, i) => {
     const [xDelta, yDelta] = directions[direction];
     if (i % 2) {
       locations.add(`${xRobot += xDelta},${yRobot += yDelta}`);

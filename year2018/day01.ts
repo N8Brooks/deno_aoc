@@ -3,7 +3,7 @@ export function part1(data: string): number {
 }
 
 export function part2(data: string): number {
-  const frequencyChanges = data.trimEnd().split(/\s+/).map(Number);
+  const frequencyChanges = data.split(/\s+/).map(Number);
   const seenFrequencies: boolean[] = [true];
   let currentFrequency = 0;
   while (true) {

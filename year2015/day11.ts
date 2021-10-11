@@ -2,7 +2,7 @@ const pool = "abcdefghjkmnpqrstuvwxyz";
 const charCodes = pool.split("").map((char) => char.charCodeAt(0));
 
 export function part1(data: string): string {
-  const indices = data.trimEnd().split("").map((char) => pool.indexOf(char));
+  const indices = data.split("").map((char) => pool.indexOf(char));
   while (true) {
     loop: {
       for (let i = indices.length - 1; i >= 0; i--) {

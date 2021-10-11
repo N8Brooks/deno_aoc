@@ -1,6 +1,5 @@
 export function part1(data: string, steps: number): number {
   const state = data
-    .trimEnd()
     .split("\n")
     .map((line) => line.split("").map((char) => char === "#"));
   const rows = state.length;
@@ -107,7 +106,6 @@ export function part1(data: string, steps: number): number {
 
 export function part2(data: string, steps: number): number {
   const state = data
-    .trimEnd()
     .split("\n")
     .map((line) => line.split("").map((char) => char === "#"));
   const rows = state.length;

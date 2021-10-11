@@ -13,7 +13,7 @@ function family(data: string, buffer: number): number {
   const individuals: Map<string, number> = new Map();
   const pairs: Map<number, number> = new Map();
 
-  for (const [, aName, sign, val, bName] of data.trimEnd().matchAll(pattern)) {
+  for (const [, aName, sign, val, bName] of data.matchAll(pattern)) {
     const a = defaultIndividual(aName);
     const b = defaultIndividual(bName);
     const pair = (1 << a) | (1 << b);

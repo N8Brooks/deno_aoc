@@ -1,5 +1,5 @@
 export function part1(data: string): number {
-  const digits = data.trimEnd();
+  const digits = data;
   let previousDigit = digits.at(-1);
   let sum = 0;
   for (const currentDigit of digits) {
@@ -13,7 +13,7 @@ export function part1(data: string): number {
 }
 
 export function part2(data: string): number {
-  const digits = data.trimEnd();
+  const digits = data;
   const halfway = Math.floor(digits.length / 2);
   let sum = 0;
   for (let i = 0; i < halfway; i++) {

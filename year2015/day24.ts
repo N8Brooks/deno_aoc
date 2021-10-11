@@ -10,7 +10,7 @@ export function part2(text: string): number {
 }
 
 function partition(text: string, k: number) {
-  const population = text.trimEnd().split(/\W/).map((value) => +value);
+  const population = text.split(/\W/).map((value) => +value);
   const target = sum(population) / k;
   const sample = powerSet(population).find((sample) => target === sum(sample));
   if (sample === undefined) {
