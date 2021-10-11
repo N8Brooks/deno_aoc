@@ -16,18 +16,16 @@ async function process(data: string, start: string): Promise<number> {
     { length: hardwareConcurrency },
     () => new Worker(href, { type: "module" }),
   );
-  const promises = workers.map((worker): Promise<number> => {
-    return new Promise((resolve, reject) => {
-      worker.onmessage = (message) => resolve(message.data);
-      worker.onerror = (error) => reject(error);
-    });
-  });
-  workers.forEach((worker, remainder) => {
+  const promises = workers.map((worker, remainder): Promise<number> => {
     worker.postMessage({
       prefix,
       start,
       remainder,
       hardwareConcurrency,
+    });
+    return new Promise((resolve, reject) => {
+      worker.onmessage = (message) => resolve(message.data);
+      worker.onerror = (error) => reject(error);
     });
   });
   const suffix = await Promise.race(promises);
