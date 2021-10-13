@@ -8,18 +8,24 @@ London to Belfast = 518
 Dublin to Belfast = 141
 `;
 
-Deno.test("part1(example)", () => {
-  assertEquals(part1(example), 605);
-});
+Deno.test("day09", async (t) => {
+  await t.step("part1", async (t) => {
+    await t.step("example", () => {
+      assertEquals(part1(example), 605);
+    });
 
-Deno.test("part1(data)", () => {
-  assertEquals(part1(data), 117);
-});
+    await t.step("data", () => {
+      assertEquals(part1(data), 117);
+    });
+  });
 
-Deno.test("part2(example)", () => {
-  assertEquals(part2(example), 982);
-});
+  await t.step("part2", async (t) => {
+    await t.step("example", () => {
+      assertEquals(part2(example), 982);
+    });
 
-Deno.test("part2(data)", () => {
-  assertEquals(part2(data), 909);
+    await t.step("data", () => {
+      assertEquals(part2(data), 909);
+    });
+  });
 });

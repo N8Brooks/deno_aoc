@@ -7,18 +7,24 @@ const example =
   `Butterscotch: capacity -1, durability -2, flavor 6, texture 3, calories 8
 Cinnamon: capacity 2, durability 3, flavor -2, texture -1, calories 3`;
 
-Deno.test("part1(example)", () => {
-  assertEquals(part1(example), 62842880);
-});
+Deno.test("day15", async (t) => {
+  await t.step("part1", async (t) => {
+    await t.step("example", () => {
+      assertEquals(part1(example), 62842880);
+    });
 
-Deno.test("part1(data)", () => {
-  assertEquals(part1(data), 18965440);
-});
+    await t.step("data", () => {
+      assertEquals(part1(data), 18965440);
+    });
+  });
 
-Deno.test("part2(example)", () => {
-  assertEquals(part2(example), 57600000);
-});
+  await t.step("part2", async (t) => {
+    await t.step("example", () => {
+      assertEquals(part2(example), 57600000);
+    });
 
-Deno.test("part2(data)", () => {
-  assertEquals(part2(data), 15862900);
+    await t.step("data", () => {
+      assertEquals(part2(data), 15862900);
+    });
+  });
 });

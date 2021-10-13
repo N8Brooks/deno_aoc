@@ -16,18 +16,24 @@ David would gain 46 happiness units by sitting next to Alice.
 David would lose 7 happiness units by sitting next to Bob.
 David would gain 41 happiness units by sitting next to Carol.`;
 
-Deno.test("part1(example)", () => {
-  assertEquals(part1(example), 330);
-});
+Deno.test("day13", async (t) => {
+  await t.step("part1", async (t) => {
+    await t.step("example", () => {
+      assertEquals(part1(example), 330);
+    });
 
-Deno.test("part1(data)", () => {
-  assertEquals(part1(data), 709);
-});
+    await t.step("data", () => {
+      assertEquals(part1(data), 709);
+    });
+  });
 
-Deno.test("part2(example)", () => {
-  assertEquals(part2(example), 286);
-});
+  await t.step("part2", async (t) => {
+    await t.step("example", () => {
+      assertEquals(part2(example), 286);
+    });
 
-Deno.test("part2(data)", () => {
-  assertEquals(part2(data), 668);
+    await t.step("data", () => {
+      assertEquals(part2(data), 668);
+    });
+  });
 });

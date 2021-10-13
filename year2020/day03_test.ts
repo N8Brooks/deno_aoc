@@ -15,18 +15,24 @@ const example = `..##.......
 
 const data = await Deno.readTextFile("year2020/day03_data.txt");
 
-Deno.test("part1(example)", () => {
-  assertEquals(part1(example), 7);
-});
+Deno.test("day03", async (t) => {
+  await t.step("part1", async (t) => {
+    await t.step("example", () => {
+      assertEquals(part1(example), 7);
+    });
 
-Deno.test("part1(data)", () => {
-  assertEquals(part1(data), 207);
-});
+    await t.step("data", () => {
+      assertEquals(part1(data), 207);
+    });
+  });
 
-Deno.test("part2(example)", () => {
-  assertEquals(part2(example), 336);
-});
+  await t.step("part2", async (t) => {
+    await t.step("example", () => {
+      assertEquals(part2(example), 336);
+    });
 
-Deno.test("part2(data)", () => {
-  assertEquals(part2(data), 2655892800);
+    await t.step("data", () => {
+      assertEquals(part2(data), 2655892800);
+    });
+  });
 });

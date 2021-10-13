@@ -8,18 +8,24 @@ RRDDD
 LURDL
 UUUUD`;
 
-Deno.test("part1(example)", () => {
-  assertEquals(part1(example), "1985");
-});
+Deno.test("day02", async (t) => {
+  await t.step("part1", async (t) => {
+    await t.step("example", () => {
+      assertEquals(part1(example), "1985");
+    });
 
-Deno.test("part1(data)", () => {
-  assertEquals(part1(data), "24862");
-});
+    await t.step("data", () => {
+      assertEquals(part1(data), "24862");
+    });
+  });
 
-Deno.test("part2(example)", () => {
-  assertEquals(part2(example), "5DB3");
-});
+  await t.step("part2", async (t) => {
+    await t.step("example", () => {
+      assertEquals(part2(example), "5DB3");
+    });
 
-Deno.test("part2(data)", () => {
-  assertEquals(part2(data), "46C91");
+    await t.step("data", () => {
+      assertEquals(part2(data), "46C91");
+    });
+  });
 });

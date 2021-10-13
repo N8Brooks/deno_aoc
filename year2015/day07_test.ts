@@ -1,6 +1,8 @@
 import { assertEquals } from "https://deno.land/std@0.109.0/testing/asserts.ts";
 import { part1, part2 } from "./day07.ts";
 
+let exampleIndex = 1;
+
 const example = `123 -> x
 456 -> y
 x AND y -> d
@@ -23,16 +25,22 @@ const part1Examples = {
 
 const data = await Deno.readTextFile("year2015/day07_data.txt");
 
-for (const [wire, signal] of Object.entries(part1Examples)) {
-  Deno.test(`part1(example, ${wire})`, () => {
-    assertEquals(part1(example, wire), signal);
+Deno.test("day07", async (t) => {
+  await t.step("part1", async (t) => {
+    for (const [wire, signal] of Object.entries(part1Examples)) {
+      await t.step(`part1(example${exampleIndex++})`, () => {
+        assertEquals(part1(example, wire), signal);
+      });
+    }
+
+    await t.step("data", () => {
+      assertEquals(part1(data, "a"), 16076);
+    });
   });
-}
 
-Deno.test("part1(data)", () => {
-  assertEquals(part1(data, "a"), 16076);
-});
-
-Deno.test("part2(data)", () => {
-  assertEquals(part2(data), 2797);
+  await t.step("part2", async (t) => {
+    await t.step("data", () => {
+      assertEquals(part2(data), 2797);
+    });
+  });
 });

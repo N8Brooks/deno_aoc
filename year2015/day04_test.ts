@@ -7,26 +7,32 @@ const example1 = "abcdef";
 
 const example2 = "pqrstuv";
 
-Deno.test("part1(example1)", async () => {
-  assertEquals(await part1(example1), 609043);
-});
+Deno.test("day04", async (t) => {
+  await t.step("example1", async (t) => {
+    await t.step("example1", async () => {
+      assertEquals(await part1(example1), 609043);
+    });
 
-Deno.test("part1(example2)", async () => {
-  assertEquals(await part1(example2), 1048970);
-});
+    await t.step("example2", async () => {
+      assertEquals(await part1(example1), 609043);
+    });
 
-Deno.test("part1(data)", async () => {
-  assertEquals(await part1(data), 346386);
-});
+    await t.step("data", async () => {
+      assertEquals(await part1(data), 346386);
+    });
+  });
 
-Deno.test("part2(example1)", async () => {
-  assertEquals(await part2(example1), 6742839);
-});
+  await t.step("example1", async (t) => {
+    await t.step("example1", async () => {
+      assertEquals(await part2(example1), 6742839);
+    });
 
-Deno.test("part2(example2)", async () => {
-  assertEquals(await part2(example2), 5714438);
-});
+    await t.step("example2", async () => {
+      assertEquals(await part2(example2), 5714438);
+    });
 
-Deno.test("part2(data)", async () => {
-  assertEquals(await part2(data), 9958218);
+    await t.step("data", async () => {
+      assertEquals(await part2(data), 9958218);
+    });
+  });
 });

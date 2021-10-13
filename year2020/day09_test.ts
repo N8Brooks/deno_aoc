@@ -54,26 +54,32 @@ const example2 = `35
 
 const data = await Deno.readTextFile("year2020/day09_data.txt");
 
-Deno.test("part1(example1)", () => {
-  assertEquals(part1(example1, 25), 100);
-});
+Deno.test("day09", async (t) => {
+  await t.step("part1", async (t) => {
+    await t.step("example1", () => {
+      assertEquals(part1(example1, 25), 100);
+    });
 
-Deno.test("part1(example2)", () => {
-  assertEquals(part1(example2, 5), 127);
-});
+    await t.step("example2", () => {
+      assertEquals(part1(example2, 5), 127);
+    });
 
-Deno.test("part1(data)", () => {
-  assertEquals(part1(data, 25), 22477624);
-});
+    await t.step("data", () => {
+      assertEquals(part1(data, 25), 22477624);
+    });
+  });
 
-Deno.test("part2(example1)", () => {
-  assertEquals(part2(example1, 25), 61);
-});
+  await t.step("part2", async (t) => {
+    await t.step("example1", () => {
+      assertEquals(part2(example1, 25), 61);
+    });
 
-Deno.test("part2(example2)", () => {
-  assertEquals(part2(example2, 5), 62);
-});
+    await t.step("example2", () => {
+      assertEquals(part2(example2, 5), 62);
+    });
 
-Deno.test("part2(data)", () => {
-  assertEquals(part2(data, 25), 2980044);
+    await t.step("data", () => {
+      assertEquals(part2(data, 25), 2980044);
+    });
+  });
 });

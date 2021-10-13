@@ -44,22 +44,40 @@ iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719`;
 
 const data = await Deno.readTextFile("year2020/day04_data.txt");
 
-Deno.test("part1(example)", () => {
-  assertEquals(part1(example1), 2);
-});
+Deno.test("day04", async (t) => {
+  await t.step("part1", async (t) => {
+    await t.step("example1", () => {
+      assertEquals(part1(example1), 2);
+    });
 
-Deno.test("part1(data)", () => {
-  assertEquals(part1(data), 190);
-});
+    await t.step("example2", () => {
+      assertEquals(part1(example2), 4);
+    });
 
-Deno.test("part2(example2)", () => {
-  assertEquals(part2(example2), 0);
-});
+    await t.step("example3", () => {
+      assertEquals(part1(example3), 4);
+    });
 
-Deno.test("part2(example3)", () => {
-  assertEquals(part2(example3), 4);
-});
+    await t.step("data", () => {
+      assertEquals(part1(data), 190);
+    });
+  });
 
-Deno.test("part2(data)", () => {
-  assertEquals(part2(data), 121);
+  await t.step("part2", async (t) => {
+    await t.step("example1", () => {
+      assertEquals(part2(example1), 2);
+    });
+
+    await t.step("example2", () => {
+      assertEquals(part2(example2), 0);
+    });
+
+    await t.step("example3", () => {
+      assertEquals(part2(example3), 4);
+    });
+
+    await t.step("data", () => {
+      assertEquals(part2(data), 121);
+    });
+  });
 });

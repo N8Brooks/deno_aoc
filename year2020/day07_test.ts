@@ -22,26 +22,32 @@ dark violet bags contain no other bags.`;
 
 const data = await Deno.readTextFile("year2020/day07_data.txt");
 
-Deno.test("part1(example1)", () => {
-  assertEquals(part1(example1), 4);
-});
+Deno.test("day07", async (t) => {
+  await t.step("part1", async (t) => {
+    await t.step("example1", () => {
+      assertEquals(part1(example1), 4);
+    });
 
-Deno.test("part1(example2)", () => {
-  assertEquals(part1(example2), 0);
-});
+    await t.step("example2", () => {
+      assertEquals(part1(example2), 0);
+    });
 
-Deno.test("part1(data)", () => {
-  assertEquals(part1(data), 205);
-});
+    await t.step("data", () => {
+      assertEquals(part1(data), 205);
+    });
+  });
 
-Deno.test("part2(example1)", () => {
-  assertEquals(part2(example1), 32);
-});
+  await t.step("part2", async (t) => {
+    await t.step("example1", () => {
+      assertEquals(part2(example1), 32);
+    });
 
-Deno.test("part2(example2)", () => {
-  assertEquals(part2(example2), 126);
-});
+    await t.step("example2", () => {
+      assertEquals(part2(example2), 126);
+    });
 
-Deno.test("part2(data)", () => {
-  assertEquals(part2(data), 80902);
+    await t.step("data", () => {
+      assertEquals(part2(data), 80902);
+    });
+  });
 });
