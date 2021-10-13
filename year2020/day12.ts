@@ -11,7 +11,7 @@ export function part1(data: string): number {
   const position: Complex = [0, 0];
   let direction: Complex = [1, 0];
 
-  for (const line of data.trim().split("\n")) {
+  for (const line of data.split("\n")) {
     const num = +line.slice(1);
     switch (line[0]) {
       case "N":
@@ -46,7 +46,7 @@ export function part2(data: string): number {
   const position: Complex = [0, 0];
   let waypoint: Complex = [10, 1];
 
-  for (const line of data.trim().split("\n")) {
+  for (const line of data.split("\n")) {
     const num = +line.slice(1);
     switch (line[0]) {
       case "N":

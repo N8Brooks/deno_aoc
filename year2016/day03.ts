@@ -25,7 +25,7 @@ export function part2(data: string): number {
 }
 
 function parseRow(row: string): [number, number, number] {
-  const [a, b, c] = row.trim().split(/\s+/);
+  const [a, b, c] = row.trimStart().split(/\s+/);
   return [+a, +b, +c];
 }
 
