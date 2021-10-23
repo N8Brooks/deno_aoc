@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std@0.108.0/testing/asserts.ts";
+import { expect } from "../test/setup.ts";
 import { part1, part2 } from "./day13.ts";
 
 const data = await Deno.readTextFile("year2015/day13_data.txt");
@@ -16,24 +16,24 @@ David would gain 46 happiness units by sitting next to Alice.
 David would lose 7 happiness units by sitting next to Bob.
 David would gain 41 happiness units by sitting next to Carol.`;
 
-Deno.test("day13", async (t) => {
-  await t.step("part1", async (t) => {
-    await t.step("example", () => {
-      assertEquals(part1(example), 330);
+describe("day13", () => {
+  describe("part1", () => {
+    it("example", () => {
+      expect(part1(example)).to.equal(330);
     });
 
-    await t.step("data", () => {
-      assertEquals(part1(data), 709);
+    it("data", () => {
+      expect(part1(data)).to.equal(709);
     });
   });
 
-  await t.step("part2", async (t) => {
-    await t.step("example", () => {
-      assertEquals(part2(example), 286);
+  describe("part2", () => {
+    it("example", () => {
+      expect(part2(example)).to.equal(286);
     });
 
-    await t.step("data", () => {
-      assertEquals(part2(data), 668);
+    it("data", () => {
+      expect(part2(data)).to.equal(668);
     });
   });
 });

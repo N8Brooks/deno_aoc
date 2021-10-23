@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std@0.109.0/testing/asserts.ts";
+import { expect } from "../test/setup.ts";
 import { part1, part2 } from "./day05.ts";
 
 let exampleIndex = 1;
@@ -26,40 +26,40 @@ const part2NaughtyExamples = [
 
 const data = await Deno.readTextFile("year2015/day05_data.txt");
 
-Deno.test("day05", async (t) => {
-  await t.step("part1", async (t) => {
+describe("day05", () => {
+  describe("part1", () => {
     for (const nice of part1NiceExamples) {
-      await t.step(`part1(example${exampleIndex++})`, () => {
-        assertEquals(part1(nice), 1);
+      it(`part1(example${exampleIndex++})`, () => {
+        expect(part1(nice)).to.equal(1);
       });
     }
 
     for (const naughty of part1NaughtyExamples) {
-      await t.step(`part1(example${exampleIndex++})`, () => {
-        assertEquals(part1(naughty), 0);
+      it(`part1(example${exampleIndex++})`, () => {
+        expect(part1(naughty)).to.equal(0);
       });
     }
 
-    await t.step("part1(data)", () => {
-      assertEquals(part1(data), 238);
+    it("part1(data)", () => {
+      expect(part1(data)).to.equal(238);
     });
   });
 
-  await t.step("part2", async (t) => {
+  describe("part2", () => {
     for (const nice of part2NiceExamples) {
-      await t.step(`part1(example${exampleIndex++})`, () => {
-        assertEquals(part2(nice), 1);
+      it(`part1(example${exampleIndex++})`, () => {
+        expect(part2(nice)).to.equal(1);
       });
     }
 
     for (const naughty of part2NaughtyExamples) {
-      await t.step(`part1(example${exampleIndex++})`, () => {
-        assertEquals(part2(naughty), 0);
+      it(`part1(example${exampleIndex++})`, () => {
+        expect(part2(naughty)).to.equal(0);
       });
     }
 
-    await t.step("part2(data)", () => {
-      assertEquals(part2(data), 69);
+    it("part2(data)", () => {
+      expect(part2(data)).to.equal(69);
     });
   });
 });

@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std@0.108.0/testing/asserts.ts";
+import { expect } from "../test/setup.ts";
 import { part1, part2 } from "./day04.ts";
 
 const data = await Deno.readTextFile("year2016/day04_data.txt");
@@ -8,20 +8,20 @@ a-b-c-d-e-f-g-h-987[abcde]
 not-a-real-room-404[oarel]
 totally-real-room-200[decoy]`;
 
-Deno.test("day04", async (t) => {
-  await t.step("part1", async (t) => {
-    await t.step("example1", () => {
-      assertEquals(part1(example1), 1514);
+describe("day04", () => {
+  describe("part1", () => {
+    it("example1", () => {
+      expect(part1(example1)).to.equal(1514);
     });
 
-    await t.step("data", () => {
-      assertEquals(part1(data), 361724);
+    it("data", () => {
+      expect(part1(data)).to.equal(361724);
     });
   });
 
-  await t.step("part2", async (t) => {
-    await t.step("data", () => {
-      assertEquals(part2(data), 482);
+  describe("part2", () => {
+    it("data", () => {
+      expect(part2(data)).to.equal(482);
     });
   });
 });

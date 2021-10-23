@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std@0.108.0/testing/asserts.ts";
+import { expect } from "../test/setup.ts";
 import { part1, part2 } from "./day06.ts";
 
 const example1 = `abcx
@@ -23,32 +23,32 @@ b`;
 
 const data = await Deno.readTextFile("year2020/day06_data.txt");
 
-Deno.test("day06", async (t) => {
-  await t.step("part1", async (t) => {
-    await t.step("example1", () => {
-      assertEquals(part1(example1), 6);
+describe("day06", () => {
+  describe("part1", () => {
+    it("example1", () => {
+      expect(part1(example1)).to.equal(6);
     });
 
-    await t.step("example2", () => {
-      assertEquals(part1(example2), 11);
+    it("example2", () => {
+      expect(part1(example2)).to.equal(11);
     });
 
-    await t.step("data", () => {
-      assertEquals(part1(data), 6532);
+    it("data", () => {
+      expect(part1(data)).to.equal(6532);
     });
   });
 
-  await t.step("part2", async (t) => {
-    await t.step("example1", () => {
-      assertEquals(part2(example1), 3);
+  describe("part2", () => {
+    it("example1", () => {
+      expect(part2(example1)).to.equal(3);
     });
 
-    await t.step("example2", () => {
-      assertEquals(part2(example2), 6);
+    it("example2", () => {
+      expect(part2(example2)).to.equal(6);
     });
 
-    await t.step("data", () => {
-      assertEquals(part2(data), 3427);
+    it("data", () => {
+      expect(part2(data)).to.equal(3427);
     });
   });
 });

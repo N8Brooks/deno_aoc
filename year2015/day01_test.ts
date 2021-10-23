@@ -1,69 +1,66 @@
-import {
-  assertEquals,
-  assertThrows,
-} from "https://deno.land/std@0.109.0/testing/asserts.ts";
+import { expect } from "../test/setup.ts";
 import { part1, part2 } from "./day01.ts";
 
 const data = await Deno.readTextFile("year2015/day01_data.txt");
 
-Deno.test("day01", async (t) => {
-  await t.step("part1", async (t) => {
-    await t.step("example1", () => {
-      assertEquals(part1("(())"), 0);
+describe("day01", () => {
+  describe("part1", () => {
+    it("example1", () => {
+      expect(part1("(())")).to.equal(0);
     });
 
-    await t.step("example2", () => {
-      assertEquals(part1("()()"), 0);
+    it("example2", () => {
+      expect(part1("()()")).to.equal(0);
     });
 
-    await t.step("example3", () => {
-      assertEquals(part1("((("), 3);
+    it("example3", () => {
+      expect(part1("(((")).to.equal(3);
     });
 
-    await t.step("example4", () => {
-      assertEquals(part1("(()(()("), 3);
+    it("example4", () => {
+      expect(part1("(()(()(")).to.equal(3);
     });
 
-    await t.step("example5", () => {
-      assertEquals(part1("))((((("), 3);
+    it("example5", () => {
+      expect(part1("))(((((")).to.equal(3);
     });
 
-    await t.step("example6", () => {
-      assertEquals(part1("())"), -1);
+    it("example6", () => {
+      expect(part1("())")).to.equal(-1);
     });
 
-    await t.step("example7", () => {
-      assertEquals(part1("))("), -1);
+    it("example7", () => {
+      expect(part1("))(")).to.equal(-1);
     });
 
-    await t.step("example8", () => {
-      assertEquals(part1(")))"), -3);
+    it("example8", () => {
+      expect(part1(")))")).to.equal(-3);
     });
 
-    await t.step("example9", () => {
-      assertEquals(part1(")())())"), -3);
+    it("example9", () => {
+      expect(part1(")())())")).to.equal(-3);
     });
 
-    await t.step("data", () => {
-      assertEquals(part1(data), 232);
+    it("data", () => {
+      expect(part1(data)).to.equal(232);
     });
   });
 
-  await t.step("part2", async (t) => {
-    await t.step("example10", () => {
-      assertEquals(part2(")"), 1);
+  describe("part2", () => {
+    it("example10", () => {
+      expect(part2(")")).to.equal(1);
     });
 
-    await t.step("example11", () => {
-      assertEquals(part2("()())"), 5);
+    it("example11", () => {
+      expect(part2("()())")).to.equal(5);
     });
 
-    await t.step("invalid", () => {
-      assertThrows(() => part2("(((("));
+    it("invalid", () => {
+      expect(() => part2("((((")).to.throw();
     });
 
-    await t.step("data", () => {
-      assertEquals(part2(data), 1783);
+    it("data", () => {
+      expect(part2(data)).to.equal(1783);
     });
   });
 });
