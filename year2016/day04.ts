@@ -14,7 +14,7 @@ export function part1(data: string): number {
 }
 
 export function part2(data: string): number {
-  for (const [, encryptedName, sectorId, checksum] of data.matchAll(PATTERN)) {
+  for (const [, encryptedName, sectorId] of data.matchAll(PATTERN)) {
     const n = +sectorId;
     const name = encryptedName
       .split("")
