@@ -15,7 +15,7 @@ const pattern = /(\w+) to (\w+) = (\d+)/g;
 function distances(data: string): Generator<number> {
   const dist: Map<string, Map<string, number>> = new Map();
   Iterator.from(data.matchAll(pattern)).forEach(set);
-  return permutations(dist.size, dist.keys()).map(distance);
+  return permutations(dist.keys(), dist.size).map(distance);
 
   function set([, aKey, bKey, dString]: string[]): void {
     const aMap = dist.get(aKey);

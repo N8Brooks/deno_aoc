@@ -1,6 +1,6 @@
 import "https://deno.land/x/generator_helpers/monkey_patch.ts";
 import { combinations } from "https://deno.land/x/combinatorics/combinations.ts";
-import { product } from "https://deno.land/x/combinatorics/product.ts";
+import { cartesianProduct } from "https://deno.land/x/combinatorics/cartesian_product.ts";
 
 type Items = [number, number, number];
 
@@ -45,10 +45,10 @@ function simulate(data: string, pHealth: number, win: boolean) {
   const rings: Items[] = [
     [0, 0, 0],
     ...RINGS,
-    ...combinations(2, RINGS).map(stats),
+    ...combinations(RINGS, 2).map(stats),
   ];
 
-  const costs = product(1, weaps, armor, rings)
+  const costs = cartesianProduct(weaps, armor, rings)
     .map(stats)
     .filter((items) => battle(items) === win)
     .map(([cost]) => cost);
