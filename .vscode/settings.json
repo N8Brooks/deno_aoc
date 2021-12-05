@@ -6,6 +6,7 @@
   "editor.formatOnSave": true,
   "cSpell.words": [
     "deno",
+    "denoland",
     "testdata"
   ],
   "deno.suggest.imports.hosts": {

@@ -29,12 +29,4 @@ jobs:
         run: deno lint
 
       - name: Test
-        run: deno test --unstable --coverage=cov --allow-read --ignore="year2015/day04_test.ts,year2016/day05_test.ts"
-
-      - name: Coverage
-        run: deno coverage cov
-
-      - name: Remove Coverage
-        shell: bash
-        run: |
-          rm -rf cov
+        run: deno test --unstable -A --ignore="year2015/day04_test.ts,year2016/day05_test.ts"
