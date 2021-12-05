@@ -1,4 +1,4 @@
-# aoc_ts
+# deno_aoc
 
 [![ci](https://github.com/N8Brooks/aoc_ts/actions/workflows/ci.yml/badge.svg)](https://github.com/N8Brooks/aoc_ts/actions/workflows/ci.yml)
 
