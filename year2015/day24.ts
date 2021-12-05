@@ -1,5 +1,4 @@
-import "https://deno.land/x/generator_helpers/monkey_patch.ts";
-import { powerSet } from "https://deno.land/x/combinatorics/power_set.ts";
+import { powerSet } from "../deps.ts";
 
 export function part1(text: string): number {
   return partition(text, 3);

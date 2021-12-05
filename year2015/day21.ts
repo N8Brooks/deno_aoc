@@ -1,6 +1,4 @@
-import "https://deno.land/x/generator_helpers/monkey_patch.ts";
-import { combinations } from "https://deno.land/x/combinatorics/combinations.ts";
-import { cartesianProduct } from "https://deno.land/x/combinatorics/cartesian_product.ts";
+import { cartesianProduct, combinations } from "../deps.ts";
 
 type Items = [number, number, number];
 

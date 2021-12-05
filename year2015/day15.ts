@@ -1,4 +1,4 @@
-import "https://deno.land/x/generator_helpers@0.0.0/monkey_patch.ts";
+import "../deps.ts";
 
 const pattern =
   /[a-z]+: capacity (-?\d+), durability (-?\d+), flavor (-?\d+), texture (-?\d+), calories (\d+)/g;
