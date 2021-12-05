@@ -1,4 +1,4 @@
-import { expect } from "../test/setup.ts";
+import { expect } from "../test_deps.ts";
 import { part1, part2 } from "./day05.ts";
 
 let exampleIndex = 1;

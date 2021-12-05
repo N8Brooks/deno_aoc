@@ -1,4 +1,4 @@
-import { expect } from "../test/setup.ts";
+import { expect } from "../test_deps.ts";
 import { part1, part2 } from "./day02.ts";
 
 const example = `1-3 a: abcde

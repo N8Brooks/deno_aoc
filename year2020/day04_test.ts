@@ -1,4 +1,4 @@
-import { expect } from "../test/setup.ts";
+import { expect } from "../test_deps.ts";
 import { part1, part2 } from "./day04.ts";
 
 const example1 = `ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
