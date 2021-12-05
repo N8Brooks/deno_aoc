@@ -1,5 +1,3 @@
-import { slidingWindows } from "https://deno.land/std/collections/mod.ts";
-
 const vowels = new Set(["a", "e", "i", "o", "u"]);
 
 const noneOfThese = new Map([
@@ -9,65 +7,68 @@ const noneOfThese = new Map([
   ["x", "y"],
 ]);
 
+const isNicePart1 = (word: string): boolean => {
+  let vowelCount = 0;
+  let letterTwice = false;
+  let previousChar = "";
+  for (const currentChar of word) {
+    if (noneOfThese.get(previousChar) === currentChar) {
+      return false;
+    }
+    if (previousChar === currentChar) {
+      letterTwice = true;
+    }
+    if (vowels.has(currentChar)) {
+      vowelCount += 1;
+    }
+    previousChar = currentChar;
+  }
+  return vowelCount >= 3 && letterTwice;
+};
+
 export function part1(input: string): number {
   let nice = 0;
   for (const word of input.split("\n")) {
-    if (isNice(word)) {
+    if (isNicePart1(word)) {
       nice += 1;
     }
   }
   return nice;
-
-  function isNice(word: string): boolean {
-    let vowelCount = 0;
-    let letterTwice = false;
-    let previousChar = "";
-    for (const currentChar of word) {
-      if (noneOfThese.get(previousChar) === currentChar) {
-        return false;
-      }
-      if (previousChar === currentChar) {
-        letterTwice = true;
-      }
-      if (vowels.has(currentChar)) {
-        vowelCount += 1;
-      }
-      previousChar = currentChar;
-    }
-    return vowelCount >= 3 && letterTwice;
-  }
 }
+
+const isNicePart2 = (word: string): boolean => {
+  const pairs: Set<string> = new Set();
+  let paired = false;
+  let split = false;
+  let a = word[0], b = word[1];
+  for (let i = 2; i < word.length; i++) {
+    const c = word[i];
+    if (pairs.has(`${b}${c}`)) {
+      if (split) {
+        return true;
+      } else {
+        paired = true;
+      }
+    }
+    pairs.add(`${a}${b}`);
+    if (a === c) {
+      if (paired) {
+        return true;
+      } else {
+        split = true;
+      }
+    }
+    [a, b] = [b, c];
+  }
+  return false;
+};
 
 export function part2(input: string): number {
   let nice = 0;
   for (const word of input.split("\n")) {
-    if (isNice(word)) {
-      nice += 1;
+    if (isNicePart2(word)) {
+      nice++;
     }
   }
   return nice;
-
-  function isNice(word: string): boolean {
-    const pairs: Set<string> = new Set();
-    let paired = false;
-    let split = false;
-    for (const [a, b, c] of slidingWindows(word.split(""), 3)) {
-      if (pairs.has(`${b}${c}`)) {
-        if (split) {
-          return true;
-        } else {
-          paired = true;
-        }
-      }
-      if (a === c) {
-        if (paired) {
-          return true;
-        } else {
-          split = true;
-        }
-      }
-      pairs.add(`${a}${b}`);
-    }
-    return false;
-  }
 }
