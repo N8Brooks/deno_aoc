@@ -1,8 +1,8 @@
 export function part1(
-  data: string,
+  input: string,
   [targetX, targetY]: [number, number],
 ): number {
-  const isWall = isWallFactory(+data);
+  const isWall = isWallFactory(+input);
   const queue: number[][] = [[1, 1, 0]];
   const seen = [[], [false, true]];
   while (true) {
@@ -46,8 +46,8 @@ export function part1(
   }
 }
 
-export function part2(data: string): number {
-  const isWall = isWallFactory(+data);
+export function part2(input: string): number {
+  const isWall = isWallFactory(+input);
   const queue: number[][] = [[1, 1, 0]];
   let count = 1;
   const seen = [[], [false, true]];

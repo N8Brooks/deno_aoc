@@ -1,5 +1,5 @@
-export function part1(data: string, preamble: number) {
-  const numbers = data.split("\n").map(Number);
+export function part1(input: string, preamble: number) {
+  const numbers = input.split("\n").map(Number);
   const history: Map<number, number> = new Map();
   for (let i = 0; i < preamble; i++) {
     const num = numbers[i];
@@ -32,9 +32,9 @@ export function part1(data: string, preamble: number) {
   throw Error("no invalid number found");
 }
 
-export function part2(data: string, preamble: number) {
-  const num = part1(data, preamble);
-  const numbers = data.split("\n").map(Number);
+export function part2(input: string, preamble: number) {
+  const num = part1(input, preamble);
+  const numbers = input.split("\n").map(Number);
   let i, j;
   for (i = 0; i < numbers.length; i++) {
     let sum = numbers[i] + numbers[i + 1];

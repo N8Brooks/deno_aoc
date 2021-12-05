@@ -1,10 +1,10 @@
 const pattern =
   /((?:turn on)|(?:toggle)|(?:turn off)) (\d+),(\d+) through (\d+),(\d+)/g;
 
-export function part1(data: string): number {
+export function part1(input: string): number {
   const lights: boolean[][] = Array.from({ length: 1000 }, () => []);
 
-  for (const [, instruction, x0, y0, x1, y1] of data.matchAll(pattern)) {
+  for (const [, instruction, x0, y0, x1, y1] of input.matchAll(pattern)) {
     for (let x = +x0; x <= +x1; x++) {
       for (let y = +y0; y <= +y1; y++) {
         if (instruction === "turn on") {
@@ -25,13 +25,13 @@ export function part1(data: string): number {
   }
 }
 
-export function part2(data: string): number {
+export function part2(input: string): number {
   const brightness: number[][] = Array.from(
     { length: 1000 },
     () => Array(1000).fill(0),
   );
 
-  for (const [, instruction, x0, y0, x1, y1] of data.matchAll(pattern)) {
+  for (const [, instruction, x0, y0, x1, y1] of input.matchAll(pattern)) {
     for (let x = +x0; x <= +x1; x++) {
       for (let y = +y0; y <= +y1; y++) {
         if (instruction === "turn on") {

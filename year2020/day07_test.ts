@@ -20,7 +20,7 @@ dark green bags contain 2 dark blue bags.
 dark blue bags contain 2 dark violet bags.
 dark violet bags contain no other bags.`;
 
-const data = await Deno.readTextFile("year2020/testdata/day07.txt");
+const input = await Deno.readTextFile("year2020/testdata/day07.txt");
 
 describe("day07", () => {
   describe("part1", () => {
@@ -32,8 +32,8 @@ describe("day07", () => {
       expect(part1(example2)).to.equal(0);
     });
 
-    it("data", () => {
-      expect(part1(data)).to.equal(205);
+    it("input", () => {
+      expect(part1(input)).to.equal(205);
     });
   });
 
@@ -46,8 +46,8 @@ describe("day07", () => {
       expect(part2(example2)).to.equal(126);
     });
 
-    it("data", () => {
-      expect(part2(data)).to.equal(80902);
+    it("input", () => {
+      expect(part2(input)).to.equal(80902);
     });
   });
 });

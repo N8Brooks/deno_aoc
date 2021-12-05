@@ -1,5 +1,5 @@
-export function part1(data: string): number {
-  const nums = data.split("\n").map((line) => line.split(" -> "));
+export function part1(input: string): number {
+  const nums = input.split("\n").map((line) => line.split(" -> "));
 
   const coords: Map<string, number> = new Map();
   for (const [a, b] of nums) {
@@ -33,8 +33,8 @@ export function part1(data: string): number {
   return count;
 }
 
-export function part2(data: string): number {
-  const nums = data.split("\n").map((line) => line.split(" -> "));
+export function part2(input: string): number {
+  const nums = input.split("\n").map((line) => line.split(" -> "));
 
   const coords: Map<string, number> = new Map();
   for (const [a, b] of nums) {

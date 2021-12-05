@@ -2,9 +2,9 @@ const PATTERN = /([a-z\-]+)-(\d+)\[([a-z]+)\]/g;
 
 const A_CHAR_CODE = "a".charCodeAt(0);
 
-export function part1(data: string): number {
+export function part1(input: string): number {
   let sum = 0;
-  for (const [, encryptedName, sectorId, checksum] of data.matchAll(PATTERN)) {
+  for (const [, encryptedName, sectorId, checksum] of input.matchAll(PATTERN)) {
     const counts = counter(encryptedName.replaceAll("-", ""));
     if (checksum === nMostCommon(counts, 5)) {
       sum = +sectorId + sum;
@@ -13,8 +13,8 @@ export function part1(data: string): number {
   return sum;
 }
 
-export function part2(data: string): number {
-  for (const [, encryptedName, sectorId] of data.matchAll(PATTERN)) {
+export function part2(input: string): number {
+  for (const [, encryptedName, sectorId] of input.matchAll(PATTERN)) {
     const n = +sectorId;
     const name = encryptedName
       .split("")

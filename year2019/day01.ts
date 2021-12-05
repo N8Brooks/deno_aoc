@@ -1,11 +1,11 @@
-export function part1(data: string): number {
-  return data
+export function part1(input: string): number {
+  return input
     .split("\n")
     .reduce((sum, mass) => sum + Math.floor(+mass / 3) - 2, 0);
 }
 
-export function part2(data: string): number {
-  return data
+export function part2(input: string): number {
+  return input
     .split("\n")
     .reduce((sum, line) => {
       let fuel = 0;

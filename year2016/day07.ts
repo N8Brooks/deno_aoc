@@ -2,9 +2,9 @@ const HYPER_NET_SEQUENCE = /\[([a-z]+)\]/g;
 
 const SUPER_NET_SEQUENCE = /(?:^|\])([a-z]+)(?:\[|$)/g;
 
-export function part1(data: string): number {
+export function part1(input: string): number {
   let count = 0;
-  for (const line of data.split("\n")) {
+  for (const line of input.split("\n")) {
     loop: {
       for (const [, inside] of line.matchAll(HYPER_NET_SEQUENCE)) {
         if (hasAbba(inside)) {
@@ -22,9 +22,9 @@ export function part1(data: string): number {
   return count;
 }
 
-export function part2(data: string): number {
+export function part2(input: string): number {
   let count = 0;
-  for (const line of data.split("\n")) {
+  for (const line of input.split("\n")) {
     const abas: Set<string> = new Set();
     for (const [, inside] of line.matchAll(HYPER_NET_SEQUENCE)) {
       for (const [a, b] of getAbas(inside)) {

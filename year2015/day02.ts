@@ -1,13 +1,13 @@
-export function part1(data: string): number {
-  return processData(data).reduce((sum, d) => sum + paper(d), 0);
+export function part1(input: string): number {
+  return processinput(input).reduce((sum, d) => sum + paper(d), 0);
 }
 
-export function part2(data: string): number {
-  return processData(data).reduce((sum, d) => sum + ribbon(d), 0);
+export function part2(input: string): number {
+  return processinput(input).reduce((sum, d) => sum + ribbon(d), 0);
 }
 
-function processData(data: string): number[][] {
-  return data
+function processinput(input: string): number[][] {
+  return input
     .split("\n")
     .map(processLine);
 }

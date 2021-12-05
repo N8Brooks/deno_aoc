@@ -1,19 +1,19 @@
 const pattern =
   /(\w+) would (\w+) (\d+) happiness units by sitting next to (\w+)./g;
 
-export function part1(data: string): number {
-  return family(data, 0);
+export function part1(input: string): number {
+  return family(input, 0);
 }
 
-export function part2(data: string): number {
-  return family(data, 1);
+export function part2(input: string): number {
+  return family(input, 1);
 }
 
-function family(data: string, buffer: number): number {
+function family(input: string, buffer: number): number {
   const individuals: Map<string, number> = new Map();
   const pairs: Map<number, number> = new Map();
 
-  for (const [, aName, sign, val, bName] of data.matchAll(pattern)) {
+  for (const [, aName, sign, val, bName] of input.matchAll(pattern)) {
     const a = defaultIndividual(aName);
     const b = defaultIndividual(bName);
     const pair = (1 << a) | (1 << b);

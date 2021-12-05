@@ -1,7 +1,7 @@
 import { expect } from "../test/setup.ts";
 import { part1, part2 } from "./day15.ts";
 
-const data = await Deno.readTextFile("year2015/testdata/day15.txt");
+const input = await Deno.readTextFile("year2015/testdata/day15.txt");
 
 const example =
   `Butterscotch: capacity -1, durability -2, flavor 6, texture 3, calories 8
@@ -13,8 +13,8 @@ describe("day15", () => {
       expect(part1(example)).to.equal(62842880);
     });
 
-    it("data", () => {
-      expect(part1(data)).to.equal(18965440);
+    it("input", () => {
+      expect(part1(input)).to.equal(18965440);
     });
   });
 
@@ -23,8 +23,8 @@ describe("day15", () => {
       expect(part2(example)).to.equal(57600000);
     });
 
-    it("data", () => {
-      expect(part2(data)).to.equal(15862900);
+    it("input", () => {
+      expect(part2(input)).to.equal(15862900);
     });
   });
 });

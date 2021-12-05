@@ -1,9 +1,9 @@
 const rulePattern = /([a-z]+ [a-z]+) bags contain ([^\.]+)\./g;
 const childPattern = /(\d+) ([a-z]+ [a-z]+) bag/g;
 
-export function part1(data: string): number {
+export function part1(input: string): number {
   const parents: Map<string, string[]> = new Map();
-  for (const [, parent, rest] of data.matchAll(rulePattern)) {
+  for (const [, parent, rest] of input.matchAll(rulePattern)) {
     for (const [, , child] of rest.matchAll(childPattern)) {
       const array = parents.get(child) ?? [];
       array.push(parent);
@@ -25,10 +25,10 @@ export function part1(data: string): number {
   return memo.size - 1;
 }
 
-export function part2(data: string): number {
+export function part2(input: string): number {
   const memo: Map<string, number> = new Map();
   const children: Map<string, [string, number][]> = new Map();
-  for (const [, parent, rest] of data.matchAll(rulePattern)) {
+  for (const [, parent, rest] of input.matchAll(rulePattern)) {
     if (rest === "no other bags") {
       memo.set(parent, 0);
       continue;

@@ -9,8 +9,8 @@ const DIRECTIONS = [
   [1, 1],
 ];
 
-export function part1(data: string): number {
-  const [seats] = indexSeats(data);
+export function part1(input: string): number {
+  const [seats] = indexSeats(input);
   const neighbors: number[][] = [];
   for (const [y, row] of seats.entries()) {
     for (const x of row.keys()) {
@@ -24,8 +24,8 @@ export function part1(data: string): number {
   return simulate(neighbors, 4);
 }
 
-export function part2(data: string): number {
-  const [seats, height, width] = indexSeats(data);
+export function part2(input: string): number {
+  const [seats, height, width] = indexSeats(input);
   const neighbors: number[][] = [];
   for (const [y1, row] of seats.entries()) {
     for (const x1 of row.keys()) {
@@ -54,9 +54,9 @@ export function part2(data: string): number {
 }
 
 function indexSeats(
-  data: string,
+  input: string,
 ): [Map<number, Map<number, number>>, number, number] {
-  const processed = data.split("\n");
+  const processed = input.split("\n");
   let count = 0;
 
   return [

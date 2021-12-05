@@ -24,7 +24,7 @@ const part2NaughtyExamples = [
   "ieodomkazucvgmuy",
 ];
 
-const data = await Deno.readTextFile("year2015/testdata/day05.txt");
+const input = await Deno.readTextFile("year2015/testdata/day05.txt");
 
 describe("day05", () => {
   describe("part1", () => {
@@ -40,8 +40,8 @@ describe("day05", () => {
       });
     }
 
-    it("part1(data)", () => {
-      expect(part1(data)).to.equal(238);
+    it("part1(input)", () => {
+      expect(part1(input)).to.equal(238);
     });
   });
 
@@ -58,8 +58,8 @@ describe("day05", () => {
       });
     }
 
-    it("part2(data)", () => {
-      expect(part2(data)).to.equal(69);
+    it("part2(input)", () => {
+      expect(part2(input)).to.equal(69);
     });
   });
 });

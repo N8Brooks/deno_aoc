@@ -1,5 +1,5 @@
-export function part1(data: string): string {
-  const messages = data.split("\n");
+export function part1(input: string): string {
+  const messages = input.split("\n");
   const width = messages[0].length;
   const result = Array(width);
   for (let col = 0; col < width; col++) {
@@ -13,8 +13,8 @@ export function part1(data: string): string {
   return result.join("");
 }
 
-export function part2(data: string): string {
-  const messages = data.split("\n");
+export function part2(input: string): string {
+  const messages = input.split("\n");
   const width = messages[0].length;
   const result = Array(width);
   for (let col = 0; col < width; col++) {

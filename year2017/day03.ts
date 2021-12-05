@@ -9,15 +9,15 @@ const NEIGHBORS = [
   [1, -1],
 ];
 
-export function part1(data: string): number {
-  const n = +data;
+export function part1(input: string): number {
+  const n = +input;
   const row = Math.ceil((n + 1) ** 0.5 / 2 - 0.5);
   const col = Math.abs(n % (row + row) - row);
   return row + col - 1;
 }
 
-export function part2(data: string): number {
-  const n = +data;
+export function part2(input: string): number {
+  const n = +input;
   let [x, y] = [0, 0];
   let key = `${x},${y}`;
   let val = 1;

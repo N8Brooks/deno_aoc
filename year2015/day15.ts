@@ -3,8 +3,8 @@ import "https://deno.land/x/generator_helpers@0.0.0/monkey_patch.ts";
 const pattern =
   /[a-z]+: capacity (-?\d+), durability (-?\d+), flavor (-?\d+), texture (-?\d+), calories (\d+)/g;
 
-export function part1(data: string): number {
-  const ingredients = [...data.matchAll(pattern)]
+export function part1(input: string): number {
+  const ingredients = [...input.matchAll(pattern)]
     .map((line) => line.slice(1, -1).map(Number));
 
   return allocation(ingredients.length, 100)
@@ -12,8 +12,8 @@ export function part1(data: string): number {
     .reduce((a, b) => a > b ? a : b, -Infinity);
 }
 
-export function part2(data: string): number {
-  const ingredients = [...data.matchAll(pattern)]
+export function part2(input: string): number {
+  const ingredients = [...input.matchAll(pattern)]
     .map((line) => line.slice(1).map(Number));
 
   return allocation(ingredients.length, 100)

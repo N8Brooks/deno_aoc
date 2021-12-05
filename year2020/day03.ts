@@ -1,6 +1,6 @@
-export function part1(data: string): number {
+export function part1(input: string): number {
   let trees = 0;
-  data.split("\n").forEach((line, row) => {
+  input.split("\n").forEach((line, row) => {
     if (line[3 * row % line.length] === "#") {
       trees++;
     }
@@ -8,9 +8,9 @@ export function part1(data: string): number {
   return trees;
 }
 
-export function part2(data: string): number {
+export function part2(input: string): number {
   let a = 0, b = 0, c = 0, d = 0, e = 0;
-  data.split("\n").forEach((line, row) => {
+  input.split("\n").forEach((line, row) => {
     if (line[row % line.length] === "#") {
       a++;
     }

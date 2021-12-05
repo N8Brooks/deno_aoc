@@ -9,7 +9,7 @@ describe("day21", () => {
       expect(part1("8 5 5", 12), 65);
     });
 
-    it("data", () => {
+    it("input", () => {
       expect(part1(text, 100), 111);
     });
   });
@@ -19,7 +19,7 @@ describe("day21", () => {
       expect(part2("6 7 2", 8), 88);
     });
 
-    it("data", () => {
+    it("input", () => {
       expect(part2(text, 100), 188);
     });
   });

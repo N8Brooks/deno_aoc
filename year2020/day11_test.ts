@@ -12,7 +12,7 @@ LLLLLLLLLL
 L.LLLLLL.L
 L.LLLLL.LL`;
 
-const data = await Deno.readTextFile("year2020/testdata/day11.txt");
+const input = await Deno.readTextFile("year2020/testdata/day11.txt");
 
 describe("day11", () => {
   describe("part1", () => {
@@ -20,8 +20,8 @@ describe("day11", () => {
       expect(part1(example)).to.equal(37);
     });
 
-    it("data", () => {
-      expect(part1(data)).to.equal(2178);
+    it("input", () => {
+      expect(part1(input)).to.equal(2178);
     });
   });
 
@@ -30,8 +30,8 @@ describe("day11", () => {
       expect(part2(example)).to.equal(26);
     });
 
-    it("data", () => {
-      expect(part2(data)).to.equal(1978);
+    it("input", () => {
+      expect(part2(input)).to.equal(1978);
     });
   });
 });

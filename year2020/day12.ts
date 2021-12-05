@@ -7,11 +7,11 @@ const ROTATION: Complex[] = [
   [0, 1],
 ];
 
-export function part1(data: string): number {
+export function part1(input: string): number {
   const position: Complex = [0, 0];
   let direction: Complex = [1, 0];
 
-  for (const line of data.split("\n")) {
+  for (const line of input.split("\n")) {
     const num = +line.slice(1);
     switch (line[0]) {
       case "N":
@@ -42,11 +42,11 @@ export function part1(data: string): number {
   return Math.abs(position[0]) + Math.abs(position[1]);
 }
 
-export function part2(data: string): number {
+export function part2(input: string): number {
   const position: Complex = [0, 0];
   let waypoint: Complex = [10, 1];
 
-  for (const line of data.split("\n")) {
+  for (const line of input.split("\n")) {
     const num = +line.slice(1);
     switch (line[0]) {
       case "N":

@@ -1,9 +1,9 @@
-export function part1(data: string): number {
-  return Math.max(...data.split("\n").map(getSeatId));
+export function part1(input: string): number {
+  return Math.max(...input.split("\n").map(getSeatId));
 }
 
-export function part2(data: string): number {
-  const seatIds = data
+export function part2(input: string): number {
+  const seatIds = input
     .split("\n")
     .map(getSeatId)
     .sort((a, b) => a - b);

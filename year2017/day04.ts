@@ -1,6 +1,6 @@
-export function part1(data: string): number {
+export function part1(input: string): number {
   let valid = 0;
-  for (const passphrase of data.split("\n")) {
+  for (const passphrase of input.split("\n")) {
     const words = new Set();
     loop: {
       for (const word of passphrase.split(" ")) {
@@ -15,9 +15,9 @@ export function part1(data: string): number {
   return valid;
 }
 
-export function part2(data: string): number {
+export function part2(input: string): number {
   let valid = 0;
-  for (const passphrase of data.split("\n")) {
+  for (const passphrase of input.split("\n")) {
     const words = new Set();
     loop: {
       for (const word of passphrase.split(" ")) {

@@ -1,7 +1,7 @@
-export function part1(data: string): number {
+export function part1(input: string): number {
   let previousDepth = Infinity;
   let depthIncreaseCount = 0;
-  for (const currentDepth of data.split("\n").map(Number)) {
+  for (const currentDepth of input.split("\n").map(Number)) {
     if (currentDepth > previousDepth) {
       depthIncreaseCount++;
     }
@@ -10,8 +10,8 @@ export function part1(data: string): number {
   return depthIncreaseCount;
 }
 
-export function part2(data: string): number {
-  const nums = data.split("\n").map(Number);
+export function part2(input: string): number {
+  const nums = input.split("\n").map(Number);
   let previousSum = nums[0] + nums[1] + nums[2];
   let depthIncreaseCount = 0;
   for (let i = 3; i < nums.length; i++) {

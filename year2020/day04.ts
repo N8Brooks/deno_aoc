@@ -20,10 +20,10 @@ const eyeColors = {
   oth: true,
 };
 
-export function part1(data: string): number {
+export function part1(input: string): number {
   let valid = 0;
-  for (const passportData of data.split("\n\n")) {
-    const passport = getPassportObject(passportData);
+  for (const passportinput of input.split("\n\n")) {
+    const passport = getPassportObject(passportinput);
     if (passportFields.every((field) => field in passport)) {
       valid++;
     }
@@ -31,9 +31,9 @@ export function part1(data: string): number {
   return valid;
 }
 
-export function part2(data: string): number {
+export function part2(input: string): number {
   let valid = 0;
-  for (const passportData of data.split("\n\n")) {
+  for (const passportinput of input.split("\n\n")) {
     const {
       byr = "",
       iyr = "",
@@ -42,7 +42,7 @@ export function part2(data: string): number {
       hcl = "",
       ecl = "",
       pid = "",
-    } = getPassportObject(passportData);
+    } = getPassportObject(passportinput);
 
     if (+byr < 1920 || 2002 < +byr) {
       continue;
@@ -76,7 +76,7 @@ export function part2(data: string): number {
   return valid;
 }
 
-function getPassportObject(passportData: string) {
-  return Object.fromEntries([...passportData.matchAll(pattern)]
+function getPassportObject(passportinput: string) {
+  return Object.fromEntries([...passportinput.matchAll(pattern)]
     .map(([, field, value]) => [field, value]));
 }

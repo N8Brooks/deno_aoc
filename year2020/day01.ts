@@ -1,6 +1,6 @@
-export function part1(data: string): number {
+export function part1(input: string): number {
   const seen: boolean[] = [];
-  for (const x of data.split("\n").map(Number)) {
+  for (const x of input.split("\n").map(Number)) {
     if (2020 - x in seen) {
       return (2020 - x) * x;
     } else {
@@ -10,11 +10,11 @@ export function part1(data: string): number {
   throw Error("no sum of 2020 was found.");
 }
 
-export function part2(data: string): number {
+export function part2(input: string): number {
   const ones: boolean[] = [];
   const twos: [number, number][] = [];
 
-  for (const x of data.split("\n").map(Number)) {
+  for (const x of input.split("\n").map(Number)) {
     if (2020 - x in twos) {
       const [y, z] = twos[2020 - x];
       return x * y * z;

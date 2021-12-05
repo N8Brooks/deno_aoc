@@ -1,8 +1,8 @@
 const pattern = /(\d+)-(\d+) ([a-z]): ([a-z]+)/g;
 
-export function part1(data: string): number {
+export function part1(input: string): number {
   let valid = 0;
-  for (const [, lo, hi, char, password] of data.matchAll(pattern)) {
+  for (const [, lo, hi, char, password] of input.matchAll(pattern)) {
     const lowerBound = +lo, upperBound = +hi;
     let count = 0;
     for (const p of password) {
@@ -17,9 +17,9 @@ export function part1(data: string): number {
   return valid;
 }
 
-export function part2(data: string): number {
+export function part2(input: string): number {
   let valid = 0;
-  for (const [, i, j, char, password] of data.matchAll(pattern)) {
+  for (const [, i, j, char, password] of input.matchAll(pattern)) {
     if ((password[+i - 1] === char) !== (password[+j - 1] === char)) {
       valid++;
     }

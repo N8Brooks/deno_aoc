@@ -1,14 +1,14 @@
-export function part1(data: string): number {
-  return data
+export function part1(input: string): number {
+  return input
     .split("\n")
     .map((row) => isTriangle(parseRow(row)))
     .reduce((sum, tri) => tri ? sum + 1 : sum, 0);
 }
 
-export function part2(data: string): number {
+export function part2(input: string): number {
   let total = 0;
   const sides: [number[], number[], number[]] = [[], [], []];
-  data
+  input
     .split("\n")
     .forEach((row, i) => {
       parseRow(row).forEach((abc, i) => sides[i].push(abc));

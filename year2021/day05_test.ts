@@ -12,7 +12,7 @@ const example = `0,9 -> 5,9
 0,0 -> 8,8
 5,5 -> 8,2`;
 
-const data = await Deno.readTextFile("year2021/testdata/day05.txt");
+const input = await Deno.readTextFile("year2021/testdata/day05.txt");
 
 describe("day05", () => {
   describe("part1", () => {
@@ -20,8 +20,8 @@ describe("day05", () => {
       expect(part1(example)).to.equal(5);
     });
 
-    it("data", () => {
-      expect(part1(data)).to.equal(5167);
+    it("input", () => {
+      expect(part1(input)).to.equal(5167);
     });
   });
 
@@ -30,8 +30,8 @@ describe("day05", () => {
       expect(part2(example)).to.equal(12);
     });
 
-    it("data", () => {
-      expect(part2(data)).to.equal(17604);
+    it("input", () => {
+      expect(part2(input)).to.equal(17604);
     });
   });
 });

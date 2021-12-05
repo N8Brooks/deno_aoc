@@ -1,17 +1,17 @@
 const pattern =
   /\w+ can fly (\d+) km\/s for (\d+) seconds, but then must rest for (\d+) seconds./g;
 
-export function part1(data: string, finishTime: number): number {
+export function part1(input: string, finishTime: number): number {
   let maxDistance = 0;
-  for (const [, speed, flyTime, restTime] of data.matchAll(pattern)) {
+  for (const [, speed, flyTime, restTime] of input.matchAll(pattern)) {
     const distance = getDistance(finishTime, +speed, +flyTime, +restTime);
     maxDistance = Math.max(maxDistance, distance);
   }
   return maxDistance;
 }
 
-export function part2(data: string, finishTime: number): number {
-  const reindeer = [...data.matchAll(pattern)]
+export function part2(input: string, finishTime: number): number {
+  const reindeer = [...input.matchAll(pattern)]
     .map((line) => {
       const [, speed, flyTime, restTime] = line.map(Number);
       return { points: 0, speed, flyTime, restTime };

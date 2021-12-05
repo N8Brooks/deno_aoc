@@ -10,8 +10,8 @@ const iMax = (array: number[]): [number, number] => {
   return [maxValue, maxIndex];
 };
 
-export function part1(data: string): number {
-  const banks = data.split("\t").map(Number);
+export function part1(input: string): number {
+  const banks = input.split("\t").map(Number);
   const states: Set<string> = new Set();
   let key = banks.join();
   do {
@@ -45,8 +45,8 @@ export function part1(data: string): number {
   return states.size;
 }
 
-export function part2(data: string): number {
-  const banks = data.split("\t").map(Number);
+export function part2(input: string): number {
+  const banks = input.split("\t").map(Number);
   const states: Map<string, number> = new Map();
   let key = banks.join();
   do {

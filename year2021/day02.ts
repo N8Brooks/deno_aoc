@@ -1,8 +1,8 @@
-export function part1(data: string): number {
+export function part1(input: string): number {
   let horizontalPosition = 0;
   let depth = 0;
 
-  for (const instruction of data.split("\n")) {
+  for (const instruction of input.split("\n")) {
     const [command, units] = instruction.split(" ");
     if (command === "forward") {
       horizontalPosition += +units;
@@ -14,12 +14,12 @@ export function part1(data: string): number {
   return horizontalPosition * depth;
 }
 
-export function part2(data: string): number {
+export function part2(input: string): number {
   let horizontalPosition = 0;
   let depth = 0;
   let aim = 0;
 
-  for (const instruction of data.split("\n")) {
+  for (const instruction of input.split("\n")) {
     const [command, units] = instruction.split(" ");
     if (command === "forward") {
       horizontalPosition += +units;

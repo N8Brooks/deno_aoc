@@ -13,9 +13,9 @@ const targetSueEntries: Record<string, number> = {
   perfumes: 1,
 };
 
-export function part1(data: string): number {
-  for (const [, sueNumber, sueData] of data.matchAll(pattern)) {
-    const sueEntries = sueData.split(", ").map((entry) => entry.split(": "));
+export function part1(input: string): number {
+  for (const [, sueNumber, sueinput] of input.matchAll(pattern)) {
+    const sueEntries = sueinput.split(", ").map((entry) => entry.split(": "));
     const sueObject = Object.fromEntries(sueEntries);
     loop: {
       for (const [targetKey, targetValue] of Object.entries(targetSueEntries)) {
@@ -30,9 +30,9 @@ export function part1(data: string): number {
   throw Error("no sue detected");
 }
 
-export function part2(data: string): number {
-  for (const [, sueNumber, sueData] of data.matchAll(pattern)) {
-    const sueEntries = sueData.split(", ").map((entry) => entry.split(": "));
+export function part2(input: string): number {
+  for (const [, sueNumber, sueinput] of input.matchAll(pattern)) {
+    const sueEntries = sueinput.split(", ").map((entry) => entry.split(": "));
     const {
       cats = Infinity,
       trees = Infinity,

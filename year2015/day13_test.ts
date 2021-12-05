@@ -1,7 +1,7 @@
 import { expect } from "../test/setup.ts";
 import { part1, part2 } from "./day13.ts";
 
-const data = await Deno.readTextFile("year2015/testdata/day13.txt");
+const input = await Deno.readTextFile("year2015/testdata/day13.txt");
 
 const example = `Alice would gain 54 happiness units by sitting next to Bob.
 Alice would lose 79 happiness units by sitting next to Carol.
@@ -22,8 +22,8 @@ describe("day13", () => {
       expect(part1(example)).to.equal(330);
     });
 
-    it("data", () => {
-      expect(part1(data)).to.equal(709);
+    it("input", () => {
+      expect(part1(input)).to.equal(709);
     });
   });
 
@@ -32,8 +32,8 @@ describe("day13", () => {
       expect(part2(example)).to.equal(286);
     });
 
-    it("data", () => {
-      expect(part2(data)).to.equal(668);
+    it("input", () => {
+      expect(part2(input)).to.equal(668);
     });
   });
 });

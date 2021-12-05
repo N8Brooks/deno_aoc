@@ -69,8 +69,8 @@ class Instructions {
   addresses: Map<string, number> = new Map();
   instructions: Instruction[];
 
-  constructor(data: string) {
-    this.instructions = data
+  constructor(input: string) {
+    this.instructions = input
       .split("\n")
       .map((line) => new Instruction(this.addresses, line));
   }
@@ -100,14 +100,14 @@ class Instructions {
   }
 }
 
-export function part1(data: string, wire: string): number {
-  const instructions = new Instructions(data);
+export function part1(input: string, wire: string): number {
+  const instructions = new Instructions(input);
   return instructions.compute(wire);
 }
 
-export function part2(data: string): number {
-  const instructions = new Instructions(data);
-  const line = `${part1(data, "a")} -> b`;
+export function part2(input: string): number {
+  const instructions = new Instructions(input);
+  const line = `${part1(input, "a")} -> b`;
   const { addresses } = instructions;
   const instruction = new Instruction(addresses, line);
   instructions.remove("b");

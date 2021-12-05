@@ -1,8 +1,8 @@
 const pool = "abcdefghjkmnpqrstuvwxyz";
 const charCodes = pool.split("").map((char) => char.charCodeAt(0));
 
-export function part1(data: string): string {
-  const indices = data.split("").map((char) => pool.indexOf(char));
+export function part1(input: string): string {
+  const indices = input.split("").map((char) => pool.indexOf(char));
   while (true) {
     loop: {
       for (let i = indices.length - 1; i >= 0; i--) {
@@ -49,6 +49,6 @@ export function part1(data: string): string {
   }
 }
 
-export function part2(data: string): string {
-  return part1(part1(data));
+export function part2(input: string): string {
+  return part1(part1(input));
 }

@@ -1,13 +1,13 @@
-export function part1(data: string): number {
-  let result = data.split("");
+export function part1(input: string): number {
+  let result = input.split("");
   for (let i = 0; i < 40; i++) {
     result = lookSay(result);
   }
   return result.length;
 }
 
-export function part2(data: string): number {
-  let result = data.split("");
+export function part2(input: string): number {
+  let result = input.split("");
   for (let i = 0; i < 50; i++) {
     result = lookSay(result);
   }

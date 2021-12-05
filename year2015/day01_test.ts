@@ -1,7 +1,7 @@
 import { expect } from "../test/setup.ts";
 import { part1, part2 } from "./day01.ts";
 
-const data = await Deno.readTextFile("year2015/testdata/day01.txt");
+const input = await Deno.readTextFile("year2015/testdata/day01.txt");
 
 describe("day01", () => {
   describe("part1", () => {
@@ -41,8 +41,8 @@ describe("day01", () => {
       expect(part1(")())())")).to.equal(-3);
     });
 
-    it("data", () => {
-      expect(part1(data)).to.equal(232);
+    it("input", () => {
+      expect(part1(input)).to.equal(232);
     });
   });
 
@@ -59,8 +59,8 @@ describe("day01", () => {
       expect(() => part2("((((")).to.throw();
     });
 
-    it("data", () => {
-      expect(part2(data)).to.equal(1783);
+    it("input", () => {
+      expect(part2(input)).to.equal(1783);
     });
   });
 });

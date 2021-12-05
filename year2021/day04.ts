@@ -1,4 +1,4 @@
-/** Data and functionality associated with a bingo board */
+/** input and functionality associated with a bingo board */
 class Board {
   /** The bingo board with undefined if the number is 'marked' */
   #board: (number | undefined)[][];
@@ -6,8 +6,8 @@ class Board {
   /** Has this bingo board won? */
   #won = false;
 
-  constructor(data: string) {
-    this.#board = data.split("\n").map((row) => {
+  constructor(input: string) {
+    this.#board = input.split("\n").map((row) => {
       return row.trimLeft().split(/\ +/).map(Number);
     });
   }
@@ -73,10 +73,10 @@ class Board {
   }
 }
 
-export function part1(data: string): number {
-  const [numsData, ...boardsData] = data.split("\n\n");
-  const nums = numsData.split(",").map(Number);
-  const boards = boardsData.map((boardDatum) => new Board(boardDatum));
+export function part1(input: string): number {
+  const [numsinput, ...boardsinput] = input.split("\n\n");
+  const nums = numsinput.split(",").map(Number);
+  const boards = boardsinput.map((boardDatum) => new Board(boardDatum));
   for (const num of nums) {
     for (const board of boards) {
       if (board.isWinner(num)) {
@@ -87,10 +87,10 @@ export function part1(data: string): number {
   return NaN;
 }
 
-export function part2(data: string): number {
-  const [numsData, ...boardsData] = data.split("\n\n");
-  const nums = numsData.split(",").map(Number);
-  let boards = boardsData.map((boardDatum) => new Board(boardDatum));
+export function part2(input: string): number {
+  const [numsinput, ...boardsinput] = input.split("\n\n");
+  const nums = numsinput.split(",").map(Number);
+  let boards = boardsinput.map((boardDatum) => new Board(boardDatum));
   let score = NaN;
   for (const num of nums) {
     for (const board of boards) {

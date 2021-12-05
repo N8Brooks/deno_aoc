@@ -1,5 +1,5 @@
-export function part1(data: string, steps: number): number {
-  const state = data
+export function part1(input: string, steps: number): number {
+  const state = input
     .split("\n")
     .map((line) => line.split("").map((char) => char === "#"));
   const rows = state.length;
@@ -104,8 +104,8 @@ export function part1(data: string, steps: number): number {
   return count;
 }
 
-export function part2(data: string, steps: number): number {
-  const state = data
+export function part2(input: string, steps: number): number {
+  const state = input
     .split("\n")
     .map((line) => line.split("").map((char) => char === "#"));
   const rows = state.length;

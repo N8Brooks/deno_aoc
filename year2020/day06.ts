@@ -1,6 +1,6 @@
-export function part1(data: string): number {
+export function part1(input: string): number {
   let sum = 0;
-  for (const group of data.split("\n\n")) {
+  for (const group of input.split("\n\n")) {
     const counts: Set<string> = new Set();
     for (const response of group.split("\n")) {
       for (const question of response) {
@@ -12,9 +12,9 @@ export function part1(data: string): number {
   return sum;
 }
 
-export function part2(data: string): number {
+export function part2(input: string): number {
   let sum = 0;
-  for (const group of data.split("\n\n")) {
+  for (const group of input.split("\n\n")) {
     const [response0, ...responses] = group.split("\n");
     const questions = new Set(response0);
     for (const response of responses) {

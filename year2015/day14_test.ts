@@ -1,7 +1,7 @@
 import { expect } from "../test/setup.ts";
 import { part1, part2 } from "./day14.ts";
 
-const data = await Deno.readTextFile("year2015/testdata/day14.txt");
+const input = await Deno.readTextFile("year2015/testdata/day14.txt");
 
 const example =
   `Comet can fly 14 km/s for 10 seconds, but then must rest for 127 seconds.
@@ -13,8 +13,8 @@ describe("day14", () => {
       expect(part1(example, 1000), 1120);
     });
 
-    it("data", () => {
-      expect(part1(data, 2503), 2696);
+    it("input", () => {
+      expect(part1(input, 2503), 2696);
     });
   });
 
@@ -23,8 +23,8 @@ describe("day14", () => {
       expect(part2(example, 1000), 689);
     });
 
-    it("data", () => {
-      expect(part2(data, 2503), 1084);
+    it("input", () => {
+      expect(part2(input, 2503), 1084);
     });
   });
 });

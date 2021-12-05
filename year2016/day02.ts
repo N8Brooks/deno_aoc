@@ -21,18 +21,18 @@ const keypad2: Key[][] = [
   [undefined, undefined, "D"],
 ];
 
-export function part1(data: string): string {
-  return getKeycode(data, keypad1, [1, 1]);
+export function part1(input: string): string {
+  return getKeycode(input, keypad1, [1, 1]);
 }
 
-export function part2(data: string): string {
-  return getKeycode(data, keypad2, [0, 2]);
+export function part2(input: string): string {
+  return getKeycode(input, keypad2, [0, 2]);
 }
 
-function getKeycode(data: string, keypad: Key[][], start: [number, number]) {
+function getKeycode(input: string, keypad: Key[][], start: [number, number]) {
   let [previousRow, previousCol] = start;
   const keycode: string[] = [];
-  for (const line of data.split("\n")) {
+  for (const line of input.split("\n")) {
     for (const char of line) {
       const [rowDelta, colDelta] = directions[char];
       const currentCol = previousCol + colDelta;

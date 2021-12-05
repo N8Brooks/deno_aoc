@@ -2,8 +2,8 @@ type Operation = typeof add | typeof mul;
 
 type Stack = (number | undefined | Operation)[];
 
-export function part1(data: string): number {
-  return data
+export function part1(input: string): number {
+  return input
     .split("\n")
     .reduce((sum, expression) => sum + evaluate(expression), 0);
 
@@ -38,8 +38,8 @@ export function part1(data: string): number {
   }
 }
 
-export function part2(data: string): number {
-  return data
+export function part2(input: string): number {
+  return input
     .split("\n")
     .reduce((sum, expression) => sum + evaluate(expression), 0);
 

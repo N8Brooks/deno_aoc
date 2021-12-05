@@ -11,7 +11,7 @@ xyx[xyx]xyx
 aaa[kek]eke
 zazbz[bzb]cdb`;
 
-const data = await Deno.readTextFile("year2016/testdata/day07.txt");
+const input = await Deno.readTextFile("year2016/testdata/day07.txt");
 
 describe("day07", () => {
   describe("part1", () => {
@@ -23,8 +23,8 @@ describe("day07", () => {
       expect(part1(example2)).to.equal(0);
     });
 
-    it("data", () => {
-      expect(part1(data)).to.equal(115);
+    it("input", () => {
+      expect(part1(input)).to.equal(115);
     });
   });
 
@@ -37,8 +37,8 @@ describe("day07", () => {
       expect(part2(example2)).to.equal(3);
     });
 
-    it("data", () => {
-      expect(part2(data)).to.equal(231);
+    it("input", () => {
+      expect(part2(input)).to.equal(231);
     });
   });
 });

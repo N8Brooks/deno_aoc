@@ -9,9 +9,9 @@ const noneOfThese = new Map([
   ["x", "y"],
 ]);
 
-export function part1(data: string): number {
+export function part1(input: string): number {
   let nice = 0;
-  for (const word of data.split("\n")) {
+  for (const word of input.split("\n")) {
     if (isNice(word)) {
       nice += 1;
     }
@@ -38,9 +38,9 @@ export function part1(data: string): number {
   }
 }
 
-export function part2(data: string): number {
+export function part2(input: string): number {
   let nice = 0;
-  for (const word of data.split("\n")) {
+  for (const word of input.split("\n")) {
     if (isNice(word)) {
       nice += 1;
     }

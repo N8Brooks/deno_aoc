@@ -1,5 +1,5 @@
-export function part1(data: string): number {
-  const numbers = data
+export function part1(input: string): number {
+  const numbers = input
     .split("\n")
     .map(Number)
     .sort((a, b) => a - b);
@@ -19,8 +19,8 @@ export function part1(data: string): number {
   return one * three;
 }
 
-export function part2(data: string): number {
-  const numbers = data
+export function part2(input: string): number {
+  const numbers = input
     .split("\n")
     .map(Number)
     .sort((a, b) => a - b);

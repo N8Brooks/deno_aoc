@@ -42,7 +42,7 @@ eyr:2022
 
 iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719`;
 
-const data = await Deno.readTextFile("year2020/testdata/day04.txt");
+const input = await Deno.readTextFile("year2020/testdata/day04.txt");
 
 describe("day04", () => {
   describe("part1", () => {
@@ -58,8 +58,8 @@ describe("day04", () => {
       expect(part1(example3)).to.equal(4);
     });
 
-    it("data", () => {
-      expect(part1(data)).to.equal(190);
+    it("input", () => {
+      expect(part1(input)).to.equal(190);
     });
   });
 
@@ -76,8 +76,8 @@ describe("day04", () => {
       expect(part2(example3)).to.equal(4);
     });
 
-    it("data", () => {
-      expect(part2(data)).to.equal(121);
+    it("input", () => {
+      expect(part2(input)).to.equal(121);
     });
   });
 });

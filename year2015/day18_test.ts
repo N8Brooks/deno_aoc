@@ -8,7 +8,7 @@ const example = `.#.#.#
 #.#..#
 ####..`;
 
-const data = await Deno.readTextFile("year2015/testdata/day18.txt");
+const input = await Deno.readTextFile("year2015/testdata/day18.txt");
 
 describe("day18", () => {
   describe("part1", () => {
@@ -16,8 +16,8 @@ describe("day18", () => {
       expect(part1(example, 4), 4);
     });
 
-    it("data", () => {
-      expect(part1(data, 100), 1061);
+    it("input", () => {
+      expect(part1(input, 100), 1061);
     });
   });
 
@@ -26,8 +26,8 @@ describe("day18", () => {
       expect(part2(example, 5), 17);
     });
 
-    it("data", () => {
-      expect(part2(data, 100), 1006);
+    it("input", () => {
+      expect(part2(input, 100), 1006);
     });
   });
 });

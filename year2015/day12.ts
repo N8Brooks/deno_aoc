@@ -1,5 +1,5 @@
-export function part1(data: string): number {
-  const stack = [JSON.parse(data)];
+export function part1(input: string): number {
+  const stack = [JSON.parse(input)];
   let total = 0;
   while (stack.length) {
     const node = stack.pop();
@@ -14,8 +14,8 @@ export function part1(data: string): number {
   return total;
 }
 
-export function part2(data: string): number {
-  const stack = [JSON.parse(data)];
+export function part2(input: string): number {
+  const stack = [JSON.parse(input)];
   let total = 0;
   while (stack.length) {
     const node = stack.pop();

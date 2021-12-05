@@ -18,7 +18,7 @@ vrdear
 dvrsen
 enarar`;
 
-const data = await Deno.readTextFile("year2016/testdata/day06.txt");
+const input = await Deno.readTextFile("year2016/testdata/day06.txt");
 
 describe("day06", () => {
   describe("part1", () => {
@@ -26,8 +26,8 @@ describe("day06", () => {
       expect(part1(example)).to.equal("easter");
     });
 
-    it("data", () => {
-      expect(part1(data)).to.equal("gyvwpxaz");
+    it("input", () => {
+      expect(part1(input)).to.equal("gyvwpxaz");
     });
   });
 
@@ -36,8 +36,8 @@ describe("day06", () => {
       expect(part2(example)).to.equal("advent");
     });
 
-    it("data", () => {
-      expect(part2(data)).to.equal("jucfoary");
+    it("input", () => {
+      expect(part2(input)).to.equal("jucfoary");
     });
   });
 });

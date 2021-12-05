@@ -1,5 +1,5 @@
-export function part1(data: string): number {
-  const report = data.split("\n").map((line) => line.split("").map(Number));
+export function part1(input: string): number {
+  const report = input.split("\n").map((line) => line.split("").map(Number));
   let gamma = 0;
   let epsilon = 0;
   for (let j = 0; j < report[0].length; j++) {
@@ -14,8 +14,8 @@ export function part1(data: string): number {
   return gamma * epsilon;
 }
 
-export function part2(data: string): number {
-  const report = data.split("\n").map((line) => line.split("").map(Number));
+export function part2(input: string): number {
+  const report = input.split("\n").map((line) => line.split("").map(Number));
   const oxygen = criteriaCompliant(report, oneMostCommon);
   const co2 = criteriaCompliant(report, zeroMostCommon);
   return oxygen * co2;
