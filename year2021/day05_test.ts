@@ -12,7 +12,7 @@ const example = `0,9 -> 5,9
 0,0 -> 8,8
 5,5 -> 8,2`;
 
-const data = await Deno.readTextFile("year2021/day05_data.txt");
+const data = await Deno.readTextFile("year2021/testdata/day05.txt");
 
 describe("day05", () => {
   describe("part1", () => {

@@ -45,7 +45,7 @@ const example2 = `28
 10
 3`;
 
-const data = await Deno.readTextFile("year2020/day10_data.txt");
+const data = await Deno.readTextFile("year2020/testdata/day10.txt");
 
 describe("day10", () => {
   describe("part1", () => {

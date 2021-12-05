@@ -1,7 +1,7 @@
 import { expect } from "../test/setup.ts";
 import { part1, part2 } from "./day03.ts";
 
-const data = await Deno.readTextFile("year2017/day03_data.txt");
+const data = await Deno.readTextFile("year2017/testdata/day03.txt");
 
 describe("day03", () => {
   describe("part1", () => {

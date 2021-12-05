@@ -14,7 +14,7 @@ const example = `00100
 00010
 01010`;
 
-const data = await Deno.readTextFile("year2021/day03_data.txt");
+const data = await Deno.readTextFile("year2021/testdata/day03.txt");
 
 describe("day03", () => {
   describe("part1", () => {

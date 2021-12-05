@@ -1,7 +1,7 @@
 import { expect } from "../test/setup.ts";
 import { part1, part2 } from "./day13.ts";
 
-const data = await Deno.readTextFile("year2015/day13_data.txt");
+const data = await Deno.readTextFile("year2015/testdata/day13.txt");
 
 const example = `Alice would gain 54 happiness units by sitting next to Bob.
 Alice would lose 79 happiness units by sitting next to Carol.

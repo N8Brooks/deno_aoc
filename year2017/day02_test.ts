@@ -9,7 +9,7 @@ const example2 = `5 9 2 8
 9 4 7 3
 3 8 6 5`;
 
-const data = await Deno.readTextFile("year2017/day02_data.txt");
+const data = await Deno.readTextFile("year2017/testdata/day02.txt");
 
 describe("day02", () => {
   describe("part1", () => {

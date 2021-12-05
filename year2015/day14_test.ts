@@ -1,7 +1,7 @@
 import { expect } from "../test/setup.ts";
 import { part1, part2 } from "./day14.ts";
 
-const data = await Deno.readTextFile("year2015/day14_data.txt");
+const data = await Deno.readTextFile("year2015/testdata/day14.txt");
 
 const example =
   `Comet can fly 14 km/s for 10 seconds, but then must rest for 127 seconds.

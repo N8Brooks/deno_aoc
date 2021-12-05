@@ -12,7 +12,7 @@ const example = `199
 260
 263`;
 
-const data = await Deno.readTextFile("year2021/day01_data.txt");
+const data = await Deno.readTextFile("year2021/testdata/day01.txt");
 
 describe("day01", () => {
   describe("part1", () => {

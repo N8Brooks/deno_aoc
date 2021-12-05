@@ -13,7 +13,7 @@ const example = `..##.......
 #...##....#
 .#..#...#.#`;
 
-const data = await Deno.readTextFile("year2020/day03_data.txt");
+const data = await Deno.readTextFile("year2020/testdata/day03.txt");
 
 describe("day03", () => {
   describe("part1", () => {

@@ -8,7 +8,7 @@ up 3
 down 8
 forward 2`;
 
-const data = await Deno.readTextFile("year2021/day02_data.txt");
+const data = await Deno.readTextFile("year2021/testdata/day02.txt");
 
 describe("day02", () => {
   describe("part1", () => {

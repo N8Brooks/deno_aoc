@@ -7,7 +7,7 @@ F7
 R90
 F11`;
 
-const data = await Deno.readTextFile("year2020/day12_data.txt");
+const data = await Deno.readTextFile("year2020/testdata/day12.txt");
 
 describe("day12", () => {
   describe("part1", () => {

@@ -5,7 +5,8 @@
   "editor.defaultFormatter": "denoland.vscode-deno",
   "editor.formatOnSave": true,
   "cSpell.words": [
-    "deno"
+    "deno",
+    "testdata"
   ],
   "deno.suggest.imports.hosts": {
     "https://deno.land": true,

@@ -1,7 +1,7 @@
 import { expect } from "../test/setup.ts";
 import { part1, part2 } from "./day24.ts";
 
-const data = await Deno.readTextFile("year2015/day24_data.txt");
+const data = await Deno.readTextFile("year2015/testdata/day24.txt");
 
 const example = "1 2 3 4 5 7 8 9 10 11";
 

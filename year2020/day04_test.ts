@@ -42,7 +42,7 @@ eyr:2022
 
 iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719`;
 
-const data = await Deno.readTextFile("year2020/day04_data.txt");
+const data = await Deno.readTextFile("year2020/testdata/day04.txt");
 
 describe("day04", () => {
   describe("part1", () => {
