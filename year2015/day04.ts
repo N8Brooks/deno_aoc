@@ -1,33 +1,24 @@
-const { hardwareConcurrency } = navigator;
+import { decode } from "../util.ts";
+import { crypto } from "../deps.ts";
 
-export function part1(data: string): Promise<number> {
-  return process(data, "00000");
+const textEncoder = new TextEncoder();
+
+/** Returns the `nonce` of the `hash` that begins with `prefix` */
+const mine = async (input: string, prefix: string): Promise<number> => {
+  let nonce = -1;
+  let hash: string;
+  do {
+    const data = textEncoder.encode(input + ++nonce);
+    const hashBuffer = await crypto.subtle.digest("MD5", data);
+    hash = decode(hashBuffer);
+  } while (!hash.startsWith(prefix));
+  return nonce;
+};
+
+export function part1(input: string): Promise<number> {
+  return mine(input, "00000");
 }
 
-export function part2(data: string): Promise<number> {
-  return process(data, "000000");
-}
-
-/** Flakey way to parallelize hashing. */
-async function process(data: string, start: string): Promise<number> {
-  const { href } = new URL("./day04_worker.ts", import.meta.url);
-  const workers = Array.from(
-    { length: hardwareConcurrency },
-    () => new Worker(href, { type: "module" }),
-  );
-  const promises = workers.map((worker, remainder): Promise<number> => {
-    worker.postMessage({
-      data,
-      start,
-      remainder,
-      hardwareConcurrency,
-    });
-    return new Promise((resolve, reject) => {
-      worker.onmessage = (message) => resolve(message.data);
-      worker.onerror = (error) => reject(error);
-    });
-  });
-  const suffix = await Promise.race(promises);
-  workers.forEach((worker) => worker.terminate());
-  return suffix;
+export function part2(input: string): Promise<number> {
+  return mine(input, "000000");
 }

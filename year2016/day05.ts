@@ -1,12 +1,15 @@
-import { Md5 } from "../deps.ts";
+import { crypto } from "../deps.ts";
+import { decode } from "../util.ts";
 
-export function part1(input: string): string {
+const textEncoder = new TextEncoder();
+
+export async function part1(input: string): Promise<string> {
   let index = 0;
   const password: string[] = [];
   while (password.length < 8) {
-    const hash = new Md5()
-      .update(input + index++)
-      .toString();
+    const data = textEncoder.encode(input + index++);
+    const hashBuffer = await crypto.subtle.digest("MD5", data);
+    const hash = decode(hashBuffer);
     if (hash.startsWith("00000")) {
       password.push(hash[5]);
     }
@@ -14,14 +17,14 @@ export function part1(input: string): string {
   return password.join("");
 }
 
-export function part2(input: string): string {
+export async function part2(input: string): Promise<string> {
   let count = 0;
   let index = 0;
   const password: string[] = Array(8);
   while (count < 8) {
-    const hash = new Md5()
-      .update(input + index++)
-      .toString();
+    const data = textEncoder.encode(input + index++);
+    const hashBuffer = await crypto.subtle.digest("MD5", data);
+    const hash = decode(hashBuffer);
     if (!hash.startsWith("00000")) {
       continue;
     }
