@@ -18,13 +18,15 @@ deno test --allow-read --unstable --ignore="year2015/day04_test.ts,year2016/day0
 
 ## Styling
 
-This project follows the
-[Deno Style Guide](https://deno.land/manual/contributing/style_guide).
-Dependencies are managed in the `deps.ts` and `test_deps.ts` file as recommended
-by the
-[Managing Dependencies](https://deno.land/manual@v1.16.4/examples/manage_dependencies)
-section of the Deno Manual. Linting and formatting are done with no arguments
-using Deno.
+- This project follows the
+  [Deno Style Guide](https://deno.land/manual/contributing/style_guide).
+- Dependencies are managed in the `deps.ts` and `test_deps.ts` file as
+  recommended by the
+  [Managing Dependencies](https://deno.land/manual@v1.16.4/examples/manage_dependencies)
+  section of the Deno Manual.
+- Project structure follows a year20XX/dayXX.ts pattern that contains a `part1`
+  and a `part2` function.
+- Linting and formatting are done with no arguments using Deno.
 
 ```bash
 deno lint
