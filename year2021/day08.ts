@@ -1,5 +1,3 @@
-import { permutations } from "../deps.ts";
-
 const EASY_DIGIT_LENGTHS = [2, 3, 4, 7];
 
 export function part1(input: string): number {
@@ -16,52 +14,59 @@ export function part1(input: string): number {
     }, 0);
 }
 
-const CHAR_CODES = "abcdefg".split("").map((char) => char.charCodeAt(0));
-
-const keyFromCharCodes = (...chars: number[]): string => {
-  return chars.sort((a, b) => a - b).join();
-};
-
-const mapKeysToDigits = (
-  [a, b, c, d, e, f, g]: number[],
-): Record<string, number> => {
-  return {
-    [keyFromCharCodes(a, b, c, e, f, g)]: 0,
-    [keyFromCharCodes(c, f)]: 1,
-    [keyFromCharCodes(a, c, d, e, g)]: 2,
-    [keyFromCharCodes(a, c, d, f, g)]: 3,
-    [keyFromCharCodes(b, c, d, f)]: 4,
-    [keyFromCharCodes(a, b, d, f, g)]: 5,
-    [keyFromCharCodes(a, b, d, e, f, g)]: 6,
-    [keyFromCharCodes(a, c, f)]: 7,
-    [keyFromCharCodes(a, b, c, d, e, f, g)]: 8,
-    [keyFromCharCodes(a, b, c, d, f, g)]: 9,
-  };
-};
-
-const keyFromChars = (chars: string): string => {
-  return chars
-    .split("")
-    .map((char) => char.charCodeAt(0))
-    .sort((a, b) => a - b)
-    .join();
+const intersection = (a: string, b: string): number => {
+  let count = 0;
+  for (const char of a) {
+    if (b.includes(char)) {
+      count++;
+    }
+  }
+  return count;
 };
 
 export function part2(input: string): number {
   let outputValuesTotal = 0;
   for (const line of input.split("\n")) {
     const [inputs, outputs] = line.split(" | ").map((part) => part.split(" "));
-    for (const permutation of permutations(CHAR_CODES)) {
-      const keyToDigits = mapKeysToDigits(permutation);
-      if (inputs.some((chars) => !(keyFromChars(chars) in keyToDigits))) {
-        continue;
+    const signalPatterns = inputs.concat(outputs);
+    const one = signalPatterns.find(({ length }) => length === 2) ?? "";
+    const four = signalPatterns.find(({ length }) => length === 4) ?? "";
+    let outputValue = 0;
+    for (const output of outputs) {
+      let digit: number;
+      switch (output.length) {
+        case 2:
+          digit = 1;
+          break;
+        case 3:
+          digit = 7;
+          break;
+        case 4:
+          digit = 4;
+          break;
+        case 7:
+          digit = 8;
+          break;
+        case 5:
+          digit = intersection(output, one) === 2
+            ? 3
+            : intersection(output, four) === 2
+            ? 2
+            : 5;
+          break;
+        case 6:
+          digit = intersection(output, four) === 4
+            ? 9
+            : intersection(output, one) === 2
+            ? 0
+            : 6;
+          break;
+        default:
+          throw new Error("No compatible digit");
       }
-      outputValuesTotal += +outputs
-        .map((chars) => keyFromChars(chars))
-        .map((key) => keyToDigits[key])
-        .join("");
-      break;
+      outputValue = 10 * outputValue + digit;
     }
+    outputValuesTotal += outputValue;
   }
   return outputValuesTotal;
 }
