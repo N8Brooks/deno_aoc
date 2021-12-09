@@ -1,18 +1,18 @@
 const vowels = new Set(["a", "e", "i", "o", "u"]);
 
-const noneOfThese = new Map([
-  ["a", "b"],
-  ["c", "d"],
-  ["p", "q"],
-  ["x", "y"],
-]);
+const noneOfThese: Record<string, string> = {
+  a: "b",
+  c: "d",
+  p: "q",
+  x: "y",
+};
 
 const isNicePart1 = (word: string): boolean => {
   let vowelCount = 0;
   let letterTwice = false;
   let previousChar = "";
   for (const currentChar of word) {
-    if (noneOfThese.get(previousChar) === currentChar) {
+    if (noneOfThese[previousChar] === currentChar) {
       return false;
     }
     if (previousChar === currentChar) {
