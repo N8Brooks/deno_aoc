@@ -1,12 +1,12 @@
 export function part1(input: string): number {
-  return processinput(input).reduce((sum, d) => sum + paper(d), 0);
+  return processInput(input).reduce((sum, d) => sum + paper(d), 0);
 }
 
 export function part2(input: string): number {
-  return processinput(input).reduce((sum, d) => sum + ribbon(d), 0);
+  return processInput(input).reduce((sum, d) => sum + ribbon(d), 0);
 }
 
-function processinput(input: string): number[][] {
+function processInput(input: string): number[][] {
   return input
     .split("\n")
     .map(processLine);
