@@ -14,8 +14,8 @@ const targetSueEntries: Record<string, number> = {
 };
 
 export function part1(input: string): number {
-  for (const [, sueNumber, sueinput] of input.matchAll(pattern)) {
-    const sueEntries = sueinput.split(", ").map((entry) => entry.split(": "));
+  for (const [, sueNumber, sueInput] of input.matchAll(pattern)) {
+    const sueEntries = sueInput.split(", ").map((entry) => entry.split(": "));
     const sueObject = Object.fromEntries(sueEntries);
     loop: {
       for (const [targetKey, targetValue] of Object.entries(targetSueEntries)) {
@@ -31,8 +31,8 @@ export function part1(input: string): number {
 }
 
 export function part2(input: string): number {
-  for (const [, sueNumber, sueinput] of input.matchAll(pattern)) {
-    const sueEntries = sueinput.split(", ").map((entry) => entry.split(": "));
+  for (const [, sueNumber, sueInput] of input.matchAll(pattern)) {
+    const sueEntries = sueInput.split(", ").map((entry) => entry.split(": "));
     const {
       cats = Infinity,
       trees = Infinity,
