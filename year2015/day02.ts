@@ -17,9 +17,9 @@ function processLine(line: string): number[] {
 }
 
 function paper([a, b, c]: number[]): number {
-  return 3 * a * b + 2 * (a * c + b * c);
+  return 3 * a * b + 2 * (a + b) * c;
 }
 
 function ribbon([a, b, c]: number[]): number {
-  return a + a + b + b + a * b * c;
+  return 2 * (a + b) + a * b * c;
 }
