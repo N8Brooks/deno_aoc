@@ -26,7 +26,7 @@ export function part1(input: string): number {
 export function part2(input: string): number {
   const [replacements, targetMolecule] = input.split("\n\n");
   const tokenCount = (targetMolecule.match(TOKEN) ?? []).length;
-  const replace1 = 1 - (replacements.match(REPLACE_1) ?? []).length;
+  const replace1 = 1 + -!!(replacements.match(REPLACE_1) ?? []).length;
   const replace4 = (targetMolecule.match(REPLACE_4) ?? []).length;
   const replace6 = (targetMolecule.match(REPLACE_6) ?? []).length;
   const replace8 = (targetMolecule.match(REPLACE_8) ?? []).length;
