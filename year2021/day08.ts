@@ -48,18 +48,10 @@ export function part2(input: string): number {
           digit = 8;
           break;
         case 5:
-          digit = intersection(output, one) === 2
-            ? 3
-            : intersection(output, four) === 2
-            ? 2
-            : 5;
+          digit = digitFor5(output);
           break;
         case 6:
-          digit = intersection(output, four) === 4
-            ? 9
-            : intersection(output, one) === 2
-            ? 0
-            : 6;
+          digit = digitFor6(output);
           break;
         default:
           throw new Error("No compatible digit");
@@ -69,4 +61,24 @@ export function part2(input: string): number {
     outputValuesTotal += outputValue;
   }
   return outputValuesTotal;
+  
+  function digitFor5(output: string): number {
+    if (intersection(output, one) === 2) {
+      return 3;
+    } else if (intersection(output, four) === 2) {
+      return 2;
+    } else {
+      return 5;
+    }
+  }
+  
+  function digitFor6(output: string): number {
+    if (intersection(output, four) === 4) {
+      return 4;
+    } else if (intersection(output, one) === 2) {
+      return 0;
+    } else {
+      return 6;
+    }
+  }
 }
