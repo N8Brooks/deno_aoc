@@ -26,7 +26,7 @@ export function part1(input: string): number {
     for (const char of line) {
       if (char in CLOSING_CHARS) {
         stack.push(char);
-      } else if (char !== CLOSING_CHARS[stack.pop() as string]) {
+      } else if (char !== CLOSING_CHARS[stack.pop()!]) {
         score += POINTS_PART_1[char];
         break;
       }
@@ -43,7 +43,7 @@ export function part2(input: string): number {
       for (const char of line) {
         if (char in CLOSING_CHARS) {
           stack.push(char);
-        } else if (char !== CLOSING_CHARS[stack.pop() as string]) {
+        } else if (char !== CLOSING_CHARS[stack.pop()!]) {
           break loop;
         }
       }
