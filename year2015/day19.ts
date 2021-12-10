@@ -1,3 +1,11 @@
+const TOKEN = /[A-Z][a-z]?/g;
+
+const REPLACE_4 = /[A-Z][a-z]?Rn[A-Z][a-z]?Ar/g;
+
+const REPLACE_6 = /[A-Z][a-z]?Rn[A-Z][a-z]?Y[A-Z][a-z]?Ar/g;
+
+const REPLACE_8 = /[A-Z][a-z]?Rn[A-Z][a-z]?Y[A-Z][a-z]?Y[A-Z][a-z]?Ar/g;
+
 export function part1(input: string): number {
   const [replacements, molecule] = input.split("\n\n");
   const distinctMolecules: Set<string> = new Set();
@@ -14,26 +22,10 @@ export function part1(input: string): number {
 }
 
 export function part2(input: string): number {
-  const [replacementsInput, targetMolecule] = input.split("\n\n");
-  const replacements = replacementsInput
-    .split("\n")
-    .map((replacement) => replacement.split(" => "));
-  let currentMolecule = targetMolecule;
-  let stepCount = 0;
-  do {
-    loop: {
-      for (const [from, to] of replacements) {
-        if (!currentMolecule.includes(to)) {
-          continue;
-        }
-        currentMolecule = currentMolecule.replace(to, from);
-        stepCount++;
-        break loop;
-      }
-      replacements.sort(() => Math.random() - 0.5);
-      currentMolecule = targetMolecule;
-      stepCount = 0;
-    }
-  } while (currentMolecule !== "e");
-  return stepCount;
+  const [_replacements, targetMolecule] = input.split("\n\n");
+  const tokenCount = (targetMolecule.match(TOKEN) ?? []).length;
+  const replace4 = (targetMolecule.match(REPLACE_4) ?? []).length;
+  const replace6 = (targetMolecule.match(REPLACE_6) ?? []).length;
+  const replace8 = (targetMolecule.match(REPLACE_8) ?? []).length;
+  return tokenCount - 4 * replace4 - 6 * replace6 - 8 * replace8;
 }
