@@ -54,9 +54,7 @@ export function part2(input: string): number {
         }
       }
       scores.push(
-        stack
-          .reverse()
-          .reduce((score, char) => 5 * score + POINTS_PART_2[char], 0),
+        stack.reduceRight((score, char) => 5 * score + POINTS_PART_2[char], 0),
       );
     }
   }
