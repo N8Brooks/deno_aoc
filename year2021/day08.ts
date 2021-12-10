@@ -49,10 +49,10 @@ export function part2(input: string): number {
           digit = 8;
           break;
         case 5:
-          digit = digitFor5(output, one, four);
+          digit = digitFor5(output);
           break;
         case 6:
-          digit = digitFor6(output, one, four);
+          digit = digitFor6(output);
           break;
         default:
           throw new Error("No compatible digit");
