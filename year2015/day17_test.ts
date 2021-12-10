@@ -12,21 +12,21 @@ const input = await Deno.readTextFile("year2015/testdata/day17.txt");
 describe("day17", () => {
   describe("part1", () => {
     it("example", () => {
-      expect(part1(example, 25), 4);
+      expect(part1(example, 25)).to.equal(4);
     });
 
     it("input", () => {
-      expect(part1(input, 150), 654);
+      expect(part1(input, 150)).to.equal(654);
     });
   });
 
   describe("part2", () => {
     it("example", () => {
-      expect(part2(example, 25), 3);
+      expect(part2(example, 25)).to.equal(3);
     });
 
     it("input", () => {
-      expect(part2(input, 150), 57);
+      expect(part2(input, 150)).to.equal(57);
     });
   });
 });

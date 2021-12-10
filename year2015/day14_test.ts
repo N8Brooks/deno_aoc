@@ -10,21 +10,21 @@ Dancer can fly 16 km/s for 11 seconds, but then must rest for 162 seconds.`;
 describe("day14", () => {
   describe("part1", () => {
     it("example", () => {
-      expect(part1(example, 1000), 1120);
+      expect(part1(example, 1000)).to.equal(1120);
     });
 
     it("input", () => {
-      expect(part1(input, 2503), 2696);
+      expect(part1(input, 2503)).to.equal(2696);
     });
   });
 
   describe("part2", () => {
     it("example", () => {
-      expect(part2(example, 1000), 689);
+      expect(part2(example, 1000)).to.equal(689);
     });
 
     it("input", () => {
-      expect(part2(input, 2503), 1084);
+      expect(part2(input, 2503)).to.equal(1084);
     });
   });
 });
