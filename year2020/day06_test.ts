@@ -1,11 +1,11 @@
 import { expect } from "../test_deps.ts";
 import { part1, part2 } from "./day06.ts";
 
-const example1 = `abcx
+const EXAMPLE_1 = `abcx
 abcy
 abcz`;
 
-const example2 = `abc
+const EXAMPLE_2 = `abc
 
 a
 b
@@ -26,11 +26,11 @@ const input = await Deno.readTextFile("year2020/testdata/day06.txt");
 describe("day06", () => {
   describe("part1", () => {
     it("example1", () => {
-      expect(part1(example1)).to.equal(6);
+      expect(part1(EXAMPLE_1)).to.equal(6);
     });
 
     it("example2", () => {
-      expect(part1(example2)).to.equal(11);
+      expect(part1(EXAMPLE_2)).to.equal(11);
     });
 
     it("input", () => {
@@ -40,11 +40,11 @@ describe("day06", () => {
 
   describe("part2", () => {
     it("example1", () => {
-      expect(part2(example1)).to.equal(3);
+      expect(part2(EXAMPLE_1)).to.equal(3);
     });
 
     it("example2", () => {
-      expect(part2(example2)).to.equal(6);
+      expect(part2(EXAMPLE_2)).to.equal(6);
     });
 
     it("input", () => {

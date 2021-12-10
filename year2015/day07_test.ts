@@ -1,9 +1,7 @@
 import { expect } from "../test_deps.ts";
 import { part1, part2 } from "./day07.ts";
 
-let exampleIndex = 1;
-
-const example = `123 -> x
+const EXAMPLE = `123 -> x
 456 -> y
 x AND y -> d
 x OR y -> e
@@ -12,7 +10,7 @@ y RSHIFT 2 -> g
 NOT x -> h
 NOT y -> i`;
 
-const part1Examples = {
+const PART_1_EXAMPLES = {
   d: 72,
   e: 507,
   f: 492,
@@ -27,9 +25,10 @@ const input = await Deno.readTextFile("year2015/testdata/day07.txt");
 
 describe("day07", () => {
   describe("part1", () => {
-    for (const [wire, signal] of Object.entries(part1Examples)) {
+    let exampleIndex = 1;
+    for (const [wire, signal] of Object.entries(PART_1_EXAMPLES)) {
       it(`part1(example${exampleIndex++})`, () => {
-        expect(part1(example, wire)).to.equal(signal);
+        expect(part1(EXAMPLE, wire)).to.equal(signal);
       });
     }
 

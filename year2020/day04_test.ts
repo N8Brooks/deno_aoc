@@ -1,7 +1,7 @@
 import { expect } from "../test_deps.ts";
 import { part1, part2 } from "./day04.ts";
 
-const example1 = `ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
+const EXAMPLE_1 = `ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
 byr:1937 iyr:2017 cid:147 hgt:183cm
 
 iyr:2013 ecl:amb cid:350 eyr:2023 pid:028048884
@@ -15,7 +15,7 @@ hgt:179cm
 hcl:#cfa07d eyr:2025 pid:166559648
 iyr:2011 ecl:brn hgt:59in`;
 
-const example2 = `eyr:1972 cid:100
+const EXAMPLE_2 = `eyr:1972 cid:100
 hcl:#18171d ecl:amb hgt:170 pid:186cm iyr:2018 byr:1926
 
 iyr:2019
@@ -29,7 +29,7 @@ hgt:59cm ecl:zzz
 eyr:2038 hcl:74454a iyr:2023
 pid:3556412378 byr:2007`;
 
-const example3 = `pid:087499704 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:1980
+const EXAMPLE_3 = `pid:087499704 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:1980
 hcl:#623a2f
 
 eyr:2029 ecl:blu cid:129 byr:1989
@@ -47,15 +47,15 @@ const input = await Deno.readTextFile("year2020/testdata/day04.txt");
 describe("day04", () => {
   describe("part1", () => {
     it("example1", () => {
-      expect(part1(example1)).to.equal(2);
+      expect(part1(EXAMPLE_1)).to.equal(2);
     });
 
     it("example2", () => {
-      expect(part1(example2)).to.equal(4);
+      expect(part1(EXAMPLE_2)).to.equal(4);
     });
 
     it("example3", () => {
-      expect(part1(example3)).to.equal(4);
+      expect(part1(EXAMPLE_3)).to.equal(4);
     });
 
     it("input", () => {
@@ -65,15 +65,15 @@ describe("day04", () => {
 
   describe("part2", () => {
     it("example1", () => {
-      expect(part2(example1)).to.equal(2);
+      expect(part2(EXAMPLE_1)).to.equal(2);
     });
 
     it("example2", () => {
-      expect(part2(example2)).to.equal(0);
+      expect(part2(EXAMPLE_2)).to.equal(0);
     });
 
     it("example3", () => {
-      expect(part2(example3)).to.equal(4);
+      expect(part2(EXAMPLE_3)).to.equal(4);
     });
 
     it("input", () => {

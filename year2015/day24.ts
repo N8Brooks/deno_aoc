@@ -1,15 +1,15 @@
 import { powerSet } from "../deps.ts";
 
-export function part1(text: string): number {
-  return partition(text, 3);
+export function part1(input: string): number {
+  return partition(input, 3);
 }
 
-export function part2(text: string): number {
-  return partition(text, 4);
+export function part2(input: string): number {
+  return partition(input, 4);
 }
 
-function partition(text: string, k: number) {
-  const population = text.split(/\W/).map((value) => +value);
+function partition(input: string, k: number) {
+  const population = input.split(/\W/).map((value) => +value);
   const target = sum(population) / k;
   const sample = powerSet(population).find((sample) => target === sum(sample));
   if (sample === undefined) {

@@ -3,7 +3,9 @@ import { part1, part2 } from "./day03.ts";
 
 const input = await Deno.readTextFile("year2016/testdata/day03.txt");
 
-const example2 = `101 301 501
+const EXAMPLE_1 = "5 10 25";
+
+const EXAMPLE_2 = `101 301 501
 102 302 502
 103 303 503
 201 401 601
@@ -13,11 +15,11 @@ const example2 = `101 301 501
 describe("day03", () => {
   describe("part1", () => {
     it("example1", () => {
-      expect(part1("5 10 25")).to.equal(0);
+      expect(part1(EXAMPLE_1)).to.equal(0);
     });
 
     it("example2", () => {
-      expect(part1(example2)).to.equal(3);
+      expect(part1(EXAMPLE_2)).to.equal(3);
     });
 
     it("input", () => {
@@ -27,11 +29,11 @@ describe("day03", () => {
 
   describe("part2", () => {
     it("example1", () => {
-      expect(part2("5 10 25")).to.equal(0);
+      expect(part2(EXAMPLE_1)).to.equal(0);
     });
 
     it("example2", () => {
-      expect(part2(example2)).to.equal(6);
+      expect(part2(EXAMPLE_2)).to.equal(6);
     });
 
     it("input", () => {
