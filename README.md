@@ -32,13 +32,3 @@ deno test --allow-read --unstable --ignore="year2015/day04_test.ts,year2016/day0
 deno lint
 deno fmt
 ```
-
-## Relevant TC39s
-
-- [Proposal Record Tuple](https://github.com/tc39/proposal-record-tuple) - This
-  would be enormously useful for hashing coordinates. There's also a time or two
-  where hash-able `Object`s could be useful for identifying counts.
-- [Proposal Iterator Helpers](https://github.com/tc39/proposal-iterator-helpers) -
-  Bringing `Array` operations to iterables would be a convenience. Right now the
-  `generator_helpers` module is used to achieve this functionality with
-  generators in this project.
