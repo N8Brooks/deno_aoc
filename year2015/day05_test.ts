@@ -3,23 +3,23 @@ import { part1, part2 } from "./day05.ts";
 
 let exampleIndex = 1;
 
-const part1NiceExamples = [
+const PART_1_NICE = [
   "ugknbfddgicrmopn",
   "aaa",
 ];
 
-const part1NaughtyExamples = [
+const PART_1_NAUGHTY = [
   "jchzalrnumimnmhp",
   "haegwjzuvuyypxyu",
   "dvszwmarrgswjxmb",
 ];
 
-const part2NiceExamples = [
+const PART_2_NICE = [
   "qjhvhtzxzqqjkmpb",
   "xxyxx",
 ];
 
-const part2NaughtyExamples = [
+const PART_2_NAUGHTY = [
   "uurcxstgmygtbstg",
   "ieodomkazucvgmuy",
 ];
@@ -28,13 +28,13 @@ const input = await Deno.readTextFile("year2015/testdata/day05.txt");
 
 describe("day05", () => {
   describe("part1", () => {
-    for (const nice of part1NiceExamples) {
+    for (const nice of PART_1_NICE) {
       it(`part1(example${exampleIndex++})`, () => {
         expect(part1(nice)).to.equal(1);
       });
     }
 
-    for (const naughty of part1NaughtyExamples) {
+    for (const naughty of PART_1_NAUGHTY) {
       it(`part1(example${exampleIndex++})`, () => {
         expect(part1(naughty)).to.equal(0);
       });
@@ -46,13 +46,13 @@ describe("day05", () => {
   });
 
   describe("part2", () => {
-    for (const nice of part2NiceExamples) {
+    for (const nice of PART_2_NICE) {
       it(`part1(example${exampleIndex++})`, () => {
         expect(part2(nice)).to.equal(1);
       });
     }
 
-    for (const naughty of part2NaughtyExamples) {
+    for (const naughty of PART_2_NAUGHTY) {
       it(`part1(example${exampleIndex++})`, () => {
         expect(part2(naughty)).to.equal(0);
       });

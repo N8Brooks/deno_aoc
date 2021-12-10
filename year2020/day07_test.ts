@@ -1,7 +1,7 @@
 import { expect } from "../test_deps.ts";
 import { part1, part2 } from "./day07.ts";
 
-const example1 =
+const EXAMPLE_1 =
   `light red bags contain 1 bright white bag, 2 muted yellow bags.
 dark orange bags contain 3 bright white bags, 4 muted yellow bags.
 bright white bags contain 1 shiny gold bag.
@@ -12,7 +12,7 @@ vibrant plum bags contain 5 faded blue bags, 6 dotted black bags.
 faded blue bags contain no other bags.
 dotted black bags contain no other bags.`;
 
-const example2 = `shiny gold bags contain 2 dark red bags.
+const EXAMPLE_2 = `shiny gold bags contain 2 dark red bags.
 dark red bags contain 2 dark orange bags.
 dark orange bags contain 2 dark yellow bags.
 dark yellow bags contain 2 dark green bags.
@@ -25,11 +25,11 @@ const input = await Deno.readTextFile("year2020/testdata/day07.txt");
 describe("day07", () => {
   describe("part1", () => {
     it("example1", () => {
-      expect(part1(example1)).to.equal(4);
+      expect(part1(EXAMPLE_1)).to.equal(4);
     });
 
     it("example2", () => {
-      expect(part1(example2)).to.equal(0);
+      expect(part1(EXAMPLE_2)).to.equal(0);
     });
 
     it("input", () => {
@@ -39,11 +39,11 @@ describe("day07", () => {
 
   describe("part2", () => {
     it("example1", () => {
-      expect(part2(example1)).to.equal(32);
+      expect(part2(EXAMPLE_1)).to.equal(32);
     });
 
     it("example2", () => {
-      expect(part2(example2)).to.equal(126);
+      expect(part2(EXAMPLE_2)).to.equal(126);
     });
 
     it("input", () => {
