@@ -34,30 +34,29 @@ export function part2(input: string): number {
     four = signalPatterns.find(({ length }) => length === 4) ?? "";
     let outputValue = 0;
     for (const output of outputs) {
-      let digit: number;
+      outputValue *= 10;
       switch (output.length) {
         case 2:
-          digit = 1;
+          outputValue += 1;
           break;
         case 3:
-          digit = 7;
+          outputValue += 7;
           break;
         case 4:
-          digit = 4;
+          outputValue += 4;
           break;
         case 7:
-          digit = 8;
+          outputValue += 8;
           break;
         case 5:
-          digit = digitFor5(output);
+          outputValue += digitFor5(output);
           break;
         case 6:
-          digit = digitFor6(output);
+          outputValue += digitFor6(output);
           break;
         default:
           throw new Error("No compatible digit");
       }
-      outputValue = 10 * outputValue + digit;
     }
     outputValuesTotal += outputValue;
   }
