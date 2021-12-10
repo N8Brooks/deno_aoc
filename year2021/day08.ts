@@ -26,11 +26,12 @@ const intersection = (a: string, b: string): number => {
 
 export function part2(input: string): number {
   let outputValuesTotal = 0;
+  let one: string, four: string;
   for (const line of input.split("\n")) {
     const [inputs, outputs] = line.split(" | ").map((part) => part.split(" "));
     const signalPatterns = inputs.concat(outputs);
-    const one = signalPatterns.find(({ length }) => length === 2) ?? "";
-    const four = signalPatterns.find(({ length }) => length === 4) ?? "";
+    one = signalPatterns.find(({ length }) => length === 2) ?? "";
+    four = signalPatterns.find(({ length }) => length === 4) ?? "";
     let outputValue = 0;
     for (const output of outputs) {
       let digit: number;
@@ -48,18 +49,10 @@ export function part2(input: string): number {
           digit = 8;
           break;
         case 5:
-          digit = intersection(output, one) === 2
-            ? 3
-            : intersection(output, four) === 2
-            ? 2
-            : 5;
+          digit = digitFor5(output);
           break;
         case 6:
-          digit = intersection(output, four) === 4
-            ? 9
-            : intersection(output, one) === 2
-            ? 0
-            : 6;
+          digit = digitFor6(output);
           break;
         default:
           throw new Error("No compatible digit");
@@ -69,4 +62,24 @@ export function part2(input: string): number {
     outputValuesTotal += outputValue;
   }
   return outputValuesTotal;
+
+  function digitFor5(output: string): number {
+    if (intersection(output, one) === 2) {
+      return 3;
+    } else if (intersection(output, four) === 2) {
+      return 2;
+    } else {
+      return 5;
+    }
+  }
+
+  function digitFor6(output: string): number {
+    if (intersection(output, four) === 4) {
+      return 9;
+    } else if (intersection(output, one) === 2) {
+      return 0;
+    } else {
+      return 6;
+    }
+  }
 }
