@@ -20,25 +20,19 @@ const POINTS_PART_2: Record<string, number> = {
 };
 
 export function part1(input: string): number {
-  const corrupted: Record<string, number> = {
-    ")": 0,
-    "]": 0,
-    "}": 0,
-    ">": 0,
-  };
+  let score = 0;
   for (const line of input.split("\n")) {
     const stack: string[] = [];
     for (const char of line) {
       if (char in CLOSING_CHARS) {
         stack.push(char);
       } else if (char !== CLOSING_CHARS[stack.pop() as string]) {
-        corrupted[char]++;
+        score += POINTS_PART_1[char];
         break;
       }
     }
   }
-  return Object.entries(corrupted)
-    .reduce((sum, [char, count]) => sum + POINTS_PART_1[char] * count, 0);
+  return score;
 }
 
 export function part2(input: string): number {
