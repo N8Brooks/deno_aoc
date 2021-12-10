@@ -2,8 +2,7 @@
 
 [![ci](https://github.com/N8Brooks/aoc_ts/actions/workflows/ci.yml/badge.svg)](https://github.com/N8Brooks/aoc_ts/actions/workflows/ci.yml)
 
-Advent of code solutions written in TypeScript for Deno. Most years are only
-half complete. This is not a compilation of all solutions.
+Advent of Code solutions written in TypeScript for Deno.
 
 ## Testing
 
