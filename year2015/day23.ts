@@ -49,7 +49,6 @@ const compute = (input: string, registers: Registers): Registers => {
     }
     pointer++;
   }
-  console.log(registers);
 
   return registers;
 };
