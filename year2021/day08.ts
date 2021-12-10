@@ -61,7 +61,7 @@ export function part2(input: string): number {
     outputValuesTotal += outputValue;
   }
   return outputValuesTotal;
-  
+
   function digitFor5(output: string): number {
     if (intersection(output, one) === 2) {
       return 3;
@@ -71,7 +71,7 @@ export function part2(input: string): number {
       return 5;
     }
   }
-  
+
   function digitFor6(output: string): number {
     if (intersection(output, four) === 4) {
       return 4;
