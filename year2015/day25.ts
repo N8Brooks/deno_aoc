@@ -1,11 +1,23 @@
-const CODE = 20151125n;
+const CODE = 20151125;
 
-const MULT = 252533n;
+const EXP = 252533;
 
-const MOD = 33554393n;
+const MOD = 33554393;
 
-export function part1(input: string): bigint {
-  const [row, col] = [...input.matchAll(/\d+/g)].map((match) => BigInt(+match));
-  const n = (row + col - 1n) * (row + col - 2n) / 2n + col - 1n;
-  return CODE * MULT ** n % MOD;
+const pow = (base: number, exp: number, mod: number): number => {
+  let res = 1;
+  while (exp > 0) {
+    [base, exp, res] = [
+      base * base % mod,
+      exp >> 1,
+      exp & 1 ? base * res % mod : res,
+    ];
+  }
+  return res;
+};
+
+export function part1(input: string): number {
+  const [row, col] = [...input.matchAll(/\d+/g)].map((d) => +d);
+  const n = (row + col - 1) * (row + col - 2) / 2 + col - 1;
+  return CODE * pow(EXP, n, MOD) % MOD;
 }
