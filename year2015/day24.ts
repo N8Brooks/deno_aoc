@@ -11,10 +11,7 @@ export function part2(input: string): number {
 function partition(input: string, k: number) {
   const population = input.split(/\W/).map((value) => +value);
   const target = sum(population) / k;
-  const sample = powerSet(population).find((sample) => target === sum(sample));
-  if (sample === undefined) {
-    throw Error("no combination was found with targeted value");
-  }
+  const sample = powerSet(population).find((sample) => target === sum(sample))!;
   return sample.reduce((a, b) => a * b, 1);
 }
 

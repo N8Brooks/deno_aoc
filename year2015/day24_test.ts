@@ -11,10 +11,6 @@ describe("day24", () => {
       expect(part1(EXAMPLE)).to.equal(99);
     });
 
-    it("invalid", () => {
-      expect(() => part1("a")).to.throw();
-    });
-
     it("input", () => {
       expect(part1(input)).to.equal(10439961859);
     });
@@ -23,10 +19,6 @@ describe("day24", () => {
   describe("part2", () => {
     it("example", () => {
       expect(part2(EXAMPLE)).to.equal(44);
-    });
-
-    it("invalid", () => {
-      expect(() => part1("a")).to.throw();
     });
 
     it("input", () => {
