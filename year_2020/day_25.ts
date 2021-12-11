@@ -24,6 +24,6 @@ const babyStepGiantStep = (base: number): number => {
 };
 
 export function part1(input: string): number {
-  const [ec, ed] = input.trim().split("\n").map(Number);
+  const [ec, ed] = input.split("\n").map((d) => +d);
   return pow(ec, babyStepGiantStep(ed), N);
 }
