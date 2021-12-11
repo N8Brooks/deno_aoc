@@ -23,8 +23,8 @@ deno test --allow-read --unstable --ignore="year_2015/day_04_test.ts,year_2016/d
   recommended by the
   [Managing Dependencies](https://deno.land/manual@v1.16.4/examples/manage_dependencies)
   section of the Deno Manual.
-- Project structure follows a year20XX/dayXX.ts pattern where each dayXX.ts file
-  has a `part1` and a `part2` named export function.
+- Project structure follows a year_20XX/day_XX.ts pattern where each day_XX.ts
+  file has a `part1` and a `part2` named export function.
 - Linting and formatting are done with no arguments using Deno.
 
 ```bash
