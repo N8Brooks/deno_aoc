@@ -1,5 +1,5 @@
 import { expect } from "../test_deps.ts";
-import { part1, part2 } from "./day04.ts";
+import { part1, part2 } from "./day_04.ts";
 
 const EXAMPLE_1 = `ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
 byr:1937 iyr:2017 cid:147 hgt:183cm
@@ -42,9 +42,9 @@ eyr:2022
 
 iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719`;
 
-const input = await Deno.readTextFile("year2020/testdata/day04.txt");
+const input = await Deno.readTextFile("year_2020/testdata/day_04.txt");
 
-describe("day04", () => {
+describe("day_04", () => {
   describe("part1", () => {
     it("example1", () => {
       expect(part1(EXAMPLE_1)).to.equal(2);

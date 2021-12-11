@@ -1,5 +1,5 @@
 import { expect } from "../test_deps.ts";
-import { part1, part2 } from "./day07.ts";
+import { part1, part2 } from "./day_07.ts";
 
 const EXAMPLE = `123 -> x
 456 -> y
@@ -21,9 +21,9 @@ const PART_1_EXAMPLES = {
   y: 456,
 };
 
-const input = await Deno.readTextFile("year2015/testdata/day07.txt");
+const input = await Deno.readTextFile("year_2015/testdata/day_07.txt");
 
-describe("day07", () => {
+describe("day_07", () => {
   describe("part1", () => {
     let exampleIndex = 1;
     for (const [wire, signal] of Object.entries(PART_1_EXAMPLES)) {

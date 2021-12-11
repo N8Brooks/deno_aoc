@@ -1,7 +1,7 @@
 import { expect } from "../test_deps.ts";
-import { part1, part2 } from "./day03.ts";
+import { part1, part2 } from "./day_03.ts";
 
-const input = await Deno.readTextFile("year2016/testdata/day03.txt");
+const input = await Deno.readTextFile("year_2016/testdata/day_03.txt");
 
 const EXAMPLE_1 = "5 10 25";
 
@@ -12,7 +12,7 @@ const EXAMPLE_2 = `101 301 501
 202 402 602
 203 403 603`;
 
-describe("day03", () => {
+describe("day_03", () => {
   describe("part1", () => {
     it("example1", () => {
       expect(part1(EXAMPLE_1)).to.equal(0);

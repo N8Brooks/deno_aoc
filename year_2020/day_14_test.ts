@@ -1,5 +1,5 @@
 import { expect } from "../test_deps.ts";
-import { part1, part2 } from "./day14.ts";
+import { part1, part2 } from "./day_14.ts";
 
 const EXAMPLE_1 = `mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X
 mem[8] = 11
@@ -11,9 +11,9 @@ mem[42] = 100
 mask = 00000000000000000000000000000000X0XX
 mem[26] = 1`;
 
-const input = await Deno.readTextFile("year2020/testdata/day14.txt");
+const input = await Deno.readTextFile("year_2020/testdata/day_14.txt");
 
-describe("day14", () => {
+describe("day_14", () => {
   describe("part1", () => {
     it("example", () => {
       expect(part1(EXAMPLE_1)).to.equal(165n);

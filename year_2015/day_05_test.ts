@@ -1,5 +1,5 @@
 import { expect } from "../test_deps.ts";
-import { part1, part2 } from "./day05.ts";
+import { part1, part2 } from "./day_05.ts";
 
 let exampleIndex = 1;
 
@@ -24,9 +24,9 @@ const PART_2_NAUGHTY = [
   "ieodomkazucvgmuy",
 ];
 
-const input = await Deno.readTextFile("year2015/testdata/day05.txt");
+const input = await Deno.readTextFile("year_2015/testdata/day_05.txt");
 
-describe("day05", () => {
+describe("day_05", () => {
   describe("part1", () => {
     for (const nice of PART_1_NICE) {
       it(`part1(example${exampleIndex++})`, () => {

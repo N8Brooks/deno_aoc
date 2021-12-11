@@ -1,5 +1,5 @@
 import { expect } from "../test_deps.ts";
-import { part1, part2 } from "./day10.ts";
+import { part1, part2 } from "./day_10.ts";
 
 const EXAMPLE = `[({(<(())[]>[[{[]{<()<>>
 [(()[<>])]({[<{<<[]>>(
@@ -12,9 +12,9 @@ const EXAMPLE = `[({(<(())[]>[[{[]{<()<>>
 <{([([[(<>()){}]>(<<{{
 <{([{{}}[<[[[<>{}]]]>[]]`;
 
-const input = await Deno.readTextFile("year2021/testdata/day10.txt");
+const input = await Deno.readTextFile("year_2021/testdata/day_10.txt");
 
-describe("day10", () => {
+describe("day_10", () => {
   describe("part1", () => {
     it("example", () => {
       expect(part1(EXAMPLE)).to.equal(26397);
