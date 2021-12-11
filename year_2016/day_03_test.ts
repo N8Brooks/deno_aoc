@@ -12,13 +12,13 @@ const EXAMPLE_2 = `101 301 501
 202 402 602
 203 403 603`;
 
-describe("day_03", () => {
-  describe("part1", () => {
-    it("example1", () => {
+describe("day 03", () => {
+  describe("part 1", () => {
+    it("example 1", () => {
       expect(part1(EXAMPLE_1)).to.equal(0);
     });
 
-    it("example2", () => {
+    it("example 2", () => {
       expect(part1(EXAMPLE_2)).to.equal(3);
     });
 
@@ -27,12 +27,12 @@ describe("day_03", () => {
     });
   });
 
-  describe("part2", () => {
-    it("example1", () => {
+  describe("part 2", () => {
+    it("example 1", () => {
       expect(part2(EXAMPLE_1)).to.equal(0);
     });
 
-    it("example2", () => {
+    it("example 2", () => {
       expect(part2(EXAMPLE_2)).to.equal(6);
     });
 

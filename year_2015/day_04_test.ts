@@ -3,13 +3,13 @@ import { part1, part2 } from "./day_04.ts";
 
 const input = await Deno.readTextFile("year_2015/testdata/day_04.txt");
 
-describe("day_04", () => {
-  describe("part1", () => {
-    it("example1", async () => {
+describe("day 04", () => {
+  describe("part 1", () => {
+    it("example 1", async () => {
       expect(await part1("abcdef")).to.equal(609043);
     });
 
-    it("example2", async () => {
+    it("example 2", async () => {
       expect(await part1("pqrstuv")).to.equal(1048970);
     });
 
@@ -18,7 +18,7 @@ describe("day_04", () => {
     });
   });
 
-  describe("part2", () => {
+  describe("part 2", () => {
     it("input", async () => {
       expect(await part2(input)).to.equal(9958218);
     });

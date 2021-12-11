@@ -8,8 +8,8 @@ London to Belfast = 518
 Dublin to Belfast = 141
 `;
 
-describe("day_09", () => {
-  describe("part1", () => {
+describe("day 09", () => {
+  describe("part 1", () => {
     it("example", () => {
       expect(part1(EXAMPLE)).to.equal(605);
     });
@@ -19,7 +19,7 @@ describe("day_09", () => {
     });
   });
 
-  describe("part2", () => {
+  describe("part 2", () => {
     it("example", () => {
       expect(part2(EXAMPLE)).to.equal(982);
     });

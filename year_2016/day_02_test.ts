@@ -8,8 +8,8 @@ RRDDD
 LURDL
 UUUUD`;
 
-describe("day_02", () => {
-  describe("part1", () => {
+describe("day 02", () => {
+  describe("part 1", () => {
     it("example", () => {
       expect(part1(EXAMPLE)).to.equal("1985");
     });
@@ -19,7 +19,7 @@ describe("day_02", () => {
     });
   });
 
-  describe("part2", () => {
+  describe("part 2", () => {
     it("example", () => {
       expect(part2(EXAMPLE)).to.equal("5DB3");
     });

@@ -7,8 +7,8 @@ const EXAMPLE =
   `Butterscotch: capacity -1, durability -2, flavor 6, texture 3, calories 8
 Cinnamon: capacity 2, durability 3, flavor -2, texture -1, calories 3`;
 
-describe("day_15", () => {
-  describe("part1", () => {
+describe("day 15", () => {
+  describe("part 1", () => {
     it("example", () => {
       expect(part1(EXAMPLE)).to.equal(62842880);
     });
@@ -18,7 +18,7 @@ describe("day_15", () => {
     });
   });
 
-  describe("part2", () => {
+  describe("part 2", () => {
     it("example", () => {
       expect(part2(EXAMPLE)).to.equal(57600000);
     });

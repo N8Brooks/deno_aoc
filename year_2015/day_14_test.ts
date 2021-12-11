@@ -7,8 +7,8 @@ const EXAMPLE =
   `Comet can fly 14 km/s for 10 seconds, but then must rest for 127 seconds.
 Dancer can fly 16 km/s for 11 seconds, but then must rest for 162 seconds.`;
 
-describe("day_14", () => {
-  describe("part1", () => {
+describe("day 14", () => {
+  describe("part 1", () => {
     it("example", () => {
       expect(part1(EXAMPLE, 1000)).to.equal(1120);
     });
@@ -18,7 +18,7 @@ describe("day_14", () => {
     });
   });
 
-  describe("part2", () => {
+  describe("part 2", () => {
     it("example", () => {
       expect(part2(EXAMPLE, 1000)).to.equal(689);
     });

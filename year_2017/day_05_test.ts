@@ -9,9 +9,9 @@ const EXAMPLE = `0
 1
 -3`;
 
-describe("day_05", () => {
-  describe("part1", () => {
-    it("example1", () => {
+describe("day 05", () => {
+  describe("part 1", () => {
+    it("example 1", () => {
       expect(part1(EXAMPLE)).to.equal(5);
     });
 
@@ -20,7 +20,7 @@ describe("day_05", () => {
     });
   });
 
-  describe("part2", () => {
+  describe("part 2", () => {
     it("example", () => {
       expect(part2(EXAMPLE)).to.equal(10);
     });

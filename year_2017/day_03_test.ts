@@ -3,21 +3,21 @@ import { part1, part2 } from "./day_03.ts";
 
 const input = await Deno.readTextFile("year_2017/testdata/day_03.txt");
 
-describe("day_03", () => {
-  describe("part1", () => {
-    it("example1", () => {
+describe("day 03", () => {
+  describe("part 1", () => {
+    it("example 1", () => {
       expect(part1("1")).to.equal(0);
     });
 
-    it("example2", () => {
+    it("example 2", () => {
       expect(part1("12")).to.equal(3);
     });
 
-    it("example3", () => {
+    it("example 3", () => {
       expect(part1("23")).to.equal(2);
     });
 
-    it("example4", () => {
+    it("example 4", () => {
       expect(part1("1024")).to.equal(31);
     });
 
@@ -26,7 +26,7 @@ describe("day_03", () => {
     });
   });
 
-  describe("part2", () => {
+  describe("part 2", () => {
     it("input", () => {
       expect(part2(input)).to.equal(349975);
     });

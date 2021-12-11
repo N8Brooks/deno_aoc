@@ -3,21 +3,21 @@ import { part1, part2 } from "./day_01.ts";
 
 const input = await Deno.readTextFile("year_2018/testdata/day_01.txt");
 
-describe("day_01", () => {
-  describe("part1", () => {
-    it("example1", () => {
+describe("day 01", () => {
+  describe("part 1", () => {
+    it("example 1", () => {
       expect(part1("+1 -2 +3 +1")).to.equal(3);
     });
 
-    it("example2", () => {
+    it("example 2", () => {
       expect(part1("+1 +1 +1")).to.equal(3);
     });
 
-    it("example3", () => {
+    it("example 3", () => {
       expect(part1("+1 +1 -2")).to.equal(0);
     });
 
-    it("example4", () => {
+    it("example 4", () => {
       expect(part1("-1 -2 -3")).to.equal(-6);
     });
 
@@ -26,24 +26,24 @@ describe("day_01", () => {
     });
   });
 
-  describe("part2", () => {
-    it("example1", () => {
+  describe("part 2", () => {
+    it("example 1", () => {
       expect(part2("+1 -2 +3 +1")).to.equal(2);
     });
 
-    it("example2", () => {
+    it("example 2", () => {
       expect(part2("+1 -1")).to.equal(0);
     });
 
-    it("example3", () => {
+    it("example 3", () => {
       expect(part2("+3 +3 +4 -2 -4")).to.equal(10);
     });
 
-    it("example4", () => {
+    it("example 4", () => {
       expect(part2("-6 +3 +8 +5 -6")).to.equal(5);
     });
 
-    it("example5", () => {
+    it("example 5", () => {
       expect(part2("+7 +7 -2 -7 -4")).to.equal(14);
     });
 

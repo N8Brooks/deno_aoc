@@ -13,8 +13,8 @@ mem[26] = 1`;
 
 const input = await Deno.readTextFile("year_2020/testdata/day_14.txt");
 
-describe("day_14", () => {
-  describe("part1", () => {
+describe("day 14", () => {
+  describe("part 1", () => {
     it("example", () => {
       expect(part1(EXAMPLE_1)).to.equal(165n);
     });
@@ -24,7 +24,7 @@ describe("day_14", () => {
     });
   });
 
-  describe("part2", () => {
+  describe("part 2", () => {
     it("example", () => {
       expect(part2(EXAMPLE_2)).to.equal(208);
     });

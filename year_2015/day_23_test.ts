@@ -8,8 +8,8 @@ inc a`;
 
 const input = await Deno.readTextFile("year_2015/testdata/day_23.txt");
 
-describe("day_23", () => {
-  describe("part1", () => {
+describe("day 23", () => {
+  describe("part 1", () => {
     it("example", () => {
       expect(part1(example, "a")).to.equal(2);
     });
@@ -19,7 +19,7 @@ describe("day_23", () => {
     });
   });
 
-  describe("part2", () => {
+  describe("part 2", () => {
     it("example", () => {
       expect(part2(example, "a")).to.equal(7);
     });

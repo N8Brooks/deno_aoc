@@ -11,9 +11,9 @@ const EXAMPLE_2 = `5 9 2 8
 
 const input = await Deno.readTextFile("year_2017/testdata/day_02.txt");
 
-describe("day_02", () => {
-  describe("part1", () => {
-    it("example1", () => {
+describe("day 02", () => {
+  describe("part 1", () => {
+    it("example 1", () => {
       expect(part1(EXAMPLE_1)).to.equal(18);
     });
 
@@ -22,8 +22,8 @@ describe("day_02", () => {
     });
   });
 
-  describe("part2", () => {
-    it("example2", () => {
+  describe("part 2", () => {
+    it("example 2", () => {
       expect(part2(EXAMPLE_2)).to.equal(9);
     });
 

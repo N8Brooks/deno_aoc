@@ -26,16 +26,16 @@ const PART_2_NAUGHTY = [
 
 const input = await Deno.readTextFile("year_2015/testdata/day_05.txt");
 
-describe("day_05", () => {
-  describe("part1", () => {
+describe("day 05", () => {
+  describe("part 1", () => {
     for (const nice of PART_1_NICE) {
-      it(`part1(example${exampleIndex++})`, () => {
+      it(`example ${exampleIndex++}`, () => {
         expect(part1(nice)).to.equal(1);
       });
     }
 
     for (const naughty of PART_1_NAUGHTY) {
-      it(`part1(example${exampleIndex++})`, () => {
+      it(`example ${exampleIndex++}`, () => {
         expect(part1(naughty)).to.equal(0);
       });
     }
@@ -45,15 +45,15 @@ describe("day_05", () => {
     });
   });
 
-  describe("part2", () => {
+  describe("part 2", () => {
     for (const nice of PART_2_NICE) {
-      it(`part2(example${exampleIndex++})`, () => {
+      it(`example ${exampleIndex++}`, () => {
         expect(part2(nice)).to.equal(1);
       });
     }
 
     for (const naughty of PART_2_NAUGHTY) {
-      it(`part2(example${exampleIndex++})`, () => {
+      it(`example ${exampleIndex++}`, () => {
         expect(part2(naughty)).to.equal(0);
       });
     }

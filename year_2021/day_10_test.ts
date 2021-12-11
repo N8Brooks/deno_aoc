@@ -14,8 +14,8 @@ const EXAMPLE = `[({(<(())[]>[[{[]{<()<>>
 
 const input = await Deno.readTextFile("year_2021/testdata/day_10.txt");
 
-describe("day_10", () => {
-  describe("part1", () => {
+describe("day 10", () => {
+  describe("part 1", () => {
     it("example", () => {
       expect(part1(EXAMPLE)).to.equal(26397);
     });
@@ -25,7 +25,7 @@ describe("day_10", () => {
     });
   });
 
-  describe("part2", () => {
+  describe("part 2", () => {
     it("example", () => {
       expect(part2(EXAMPLE)).to.equal(288957);
     });

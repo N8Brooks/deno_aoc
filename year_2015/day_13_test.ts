@@ -16,8 +16,8 @@ David would gain 46 happiness units by sitting next to Alice.
 David would lose 7 happiness units by sitting next to Bob.
 David would gain 41 happiness units by sitting next to Carol.`;
 
-describe("day_13", () => {
-  describe("part1", () => {
+describe("day 13", () => {
+  describe("part 1", () => {
     it("example", () => {
       expect(part1(EXAMPLE)).to.equal(330);
     });
@@ -27,7 +27,7 @@ describe("day_13", () => {
     });
   });
 
-  describe("part2", () => {
+  describe("part 2", () => {
     it("example", () => {
       expect(part2(EXAMPLE)).to.equal(286);
     });

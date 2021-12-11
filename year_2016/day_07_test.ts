@@ -13,13 +13,13 @@ zazbz[bzb]cdb`;
 
 const input = await Deno.readTextFile("year_2016/testdata/day_07.txt");
 
-describe("day_07", () => {
-  describe("part1", () => {
-    it("example1", () => {
+describe("day 07", () => {
+  describe("part 1", () => {
+    it("example 1", () => {
       expect(part1(EXAMPLE_1)).to.equal(2);
     });
 
-    it("example2", () => {
+    it("example 2", () => {
       expect(part1(EXAMPLE_2)).to.equal(0);
     });
 
@@ -28,12 +28,12 @@ describe("day_07", () => {
     });
   });
 
-  describe("part2", () => {
-    it("example1", () => {
+  describe("part 2", () => {
+    it("example 1", () => {
       expect(part2(EXAMPLE_1)).to.equal(0);
     });
 
-    it("example2", () => {
+    it("example 2", () => {
       expect(part2(EXAMPLE_2)).to.equal(3);
     });
 

@@ -9,8 +9,8 @@ F11`;
 
 const input = await Deno.readTextFile("year_2020/testdata/day_12.txt");
 
-describe("day_12", () => {
-  describe("part1", () => {
+describe("day 12", () => {
+  describe("part 1", () => {
     it("example", () => {
       expect(part1(EXAMPLE)).to.equal(25);
     });
@@ -20,7 +20,7 @@ describe("day_12", () => {
     });
   });
 
-  describe("part2", () => {
+  describe("part 2", () => {
     it("example", () => {
       expect(part2(EXAMPLE)).to.equal(286);
     });

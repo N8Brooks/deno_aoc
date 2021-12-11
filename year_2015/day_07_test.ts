@@ -23,8 +23,8 @@ const PART_1_EXAMPLES = {
 
 const input = await Deno.readTextFile("year_2015/testdata/day_07.txt");
 
-describe("day_07", () => {
-  describe("part1", () => {
+describe("day 07", () => {
+  describe("part 1", () => {
     let exampleIndex = 1;
     for (const [wire, signal] of Object.entries(PART_1_EXAMPLES)) {
       it(`part1(example${exampleIndex++})`, () => {
@@ -37,7 +37,7 @@ describe("day_07", () => {
     });
   });
 
-  describe("part2", () => {
+  describe("part 2", () => {
     it("input", () => {
       expect(part2(input)).to.equal(2797);
     });
