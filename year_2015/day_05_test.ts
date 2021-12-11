@@ -47,13 +47,13 @@ describe("day_05", () => {
 
   describe("part2", () => {
     for (const nice of PART_2_NICE) {
-      it(`part1(example${exampleIndex++})`, () => {
+      it(`part2(example${exampleIndex++})`, () => {
         expect(part2(nice)).to.equal(1);
       });
     }
 
     for (const naughty of PART_2_NAUGHTY) {
-      it(`part1(example${exampleIndex++})`, () => {
+      it(`part2(example${exampleIndex++})`, () => {
         expect(part2(naughty)).to.equal(0);
       });
     }
