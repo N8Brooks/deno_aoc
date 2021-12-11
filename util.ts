@@ -14,3 +14,16 @@ export const decode = (hashBuffer: ArrayBuffer): string => {
   }
   return hexOctets.join("");
 };
+
+/** Modular power */
+export const pow = (base: number, exp: number, mod: number): number => {
+  let res = 1;
+  while (exp > 0) {
+    [base, exp, res] = [
+      base * base % mod,
+      Math.floor(exp / 2),
+      exp & 1 ? base * res % mod : res,
+    ];
+  }
+  return res;
+};
