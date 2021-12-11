@@ -74,9 +74,9 @@ class Board {
 }
 
 export function part1(input: string): number {
-  const [numsinput, ...boardsinput] = input.split("\n\n");
-  const nums = numsinput.split(",").map(Number);
-  const boards = boardsinput.map((boardDatum) => new Board(boardDatum));
+  const [numsInput, ...boardInput] = input.split("\n\n");
+  const nums = numsInput.split(",").map(Number);
+  const boards = boardInput.map((boardDatum) => new Board(boardDatum));
   for (const num of nums) {
     for (const board of boards) {
       if (board.isWinner(num)) {
@@ -88,9 +88,9 @@ export function part1(input: string): number {
 }
 
 export function part2(input: string): number {
-  const [numsinput, ...boardsinput] = input.split("\n\n");
-  const nums = numsinput.split(",").map(Number);
-  let boards = boardsinput.map((boardDatum) => new Board(boardDatum));
+  const [numsInput, ...boardInput] = input.split("\n\n");
+  const nums = numsInput.split(",").map(Number);
+  let boards = boardInput.map((boardDatum) => new Board(boardDatum));
   let score = NaN;
   for (const num of nums) {
     for (const board of boards) {
