@@ -12,7 +12,7 @@ using the unstable iterative steps API. Testing the mock bitcoin mining problems
 takes a while so it's best to ignore them.
 
 ```bash
-deno test --allow-read --unstable --ignore="year2015/day04_test.ts,year2016/day05_test.ts"
+deno test --allow-read --unstable --ignore="year_2015/day_04_test.ts,year_2016/day_05_test.ts"
 ```
 
 ## Styling
