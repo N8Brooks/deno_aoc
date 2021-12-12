@@ -67,8 +67,7 @@ export function part2(input: string): number {
     .map((nearbyTicket) => nearbyTicket.map((value) => getValidRules(value)))
     .filter((validRules) => validRules.every(({ length }) => !!length));
   zip(...fields)
-    .map(intersection)
-    .map((set, index): [Set<string>, number] => [set, index])
+    .map((sets, index): [Set<string>, number] => [intersection(sets), index])
     .sort(([setA], [setB]) => setA.size - setB.size)
     .forEach(([set, i]) => {
       for (const field of set) {
