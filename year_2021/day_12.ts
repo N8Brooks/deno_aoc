@@ -1,91 +1,98 @@
-/** Creates a graph of cave system from the given input */
-const mapCaveSystem = (input: string): Map<string, string[]> => {
-  const caveSystem: Map<string, string[]> = new Map();
-  input.split("\n")
-    .forEach((line) => {
-      const [nodeA, nodeB] = line.split("-");
-      if (nodeA !== "end" && nodeB !== "start") {
-        const aChildren = caveSystem.get(nodeA) ?? [];
-        aChildren.push(nodeB);
-        caveSystem.set(nodeA, aChildren);
-      }
-      if (nodeA !== "start" && nodeB !== "end") {
-        const bChildren = caveSystem.get(nodeB) ?? [];
-        bChildren.push(nodeA);
-        caveSystem.set(nodeB, bChildren);
-      }
-    });
-  return caveSystem;
+/** The node index for the cave `"start"` */
+const CAVE_START = 0;
+
+/** The node index for the cave `"end"` */
+const CAVE_END = -1;
+
+/** Creates a graph of cave system with `"end"` as `-1` and `"start"` as 0 */
+const mapCaveSystem = (input: string): [number[][], boolean[]] => {
+  const caveNumbers: Record<string, number> = {
+    end: CAVE_END,
+    start: CAVE_START,
+  };
+  let nextCaveNumber = CAVE_START + 1;
+  const isLargeCave = [false];
+  const caveSystem: number[][] = [[]];
+  for (const line of input.split("\n")) {
+    const [caveA, caveB] = line.split("-");
+    const nodeA = getCaveNumber(caveA);
+    const nodeB = getCaveNumber(caveB);
+    if (nodeA !== CAVE_END && nodeB !== CAVE_START) {
+      caveSystem[nodeA].push(nodeB);
+    }
+    if (nodeA !== CAVE_START && nodeB !== CAVE_END) {
+      caveSystem[nodeB].push(nodeA);
+    }
+  }
+  return [caveSystem, isLargeCave];
+
+  function getCaveNumber(cave: string): number {
+    let caveNumber = caveNumbers[cave];
+    if (caveNumber === undefined) {
+      caveNumber = nextCaveNumber++;
+      caveNumbers[cave] = caveNumber;
+      caveSystem[caveNumber] = [];
+      isLargeCave[caveNumber] = /^[A-Z]*$/.test(cave);
+    }
+    return caveNumber;
+  }
 };
 
 export function part1(input: string): number {
-  const caveSystem = mapCaveSystem(input);
-  const incompletePaths = [["start"]];
+  const [caveSystem, isLargeCave] = mapCaveSystem(input);
+  const path: [number, number][] = [[0, 0]];
   let pathCount = 0;
-  while (incompletePaths.length) {
-    const previousNodes = incompletePaths.pop()!;
-    for (const currentNode of caveSystem.get(previousNodes.at(-1)!)!) {
-      if (currentNode === "end") {
-        pathCount++;
-      } else if (/^[A-Z]*$/.test(currentNode)) {
-        incompletePaths.push([...previousNodes, currentNode]);
-      } else if (!previousNodes.includes(currentNode)) {
-        incompletePaths.push([...previousNodes, currentNode]);
-      }
+  while (path.length) {
+    const [cave, index] = path.pop()!;
+    if (cave === CAVE_END) {
+      pathCount++;
+      continue;
+    }
+    const children = caveSystem[cave];
+    const child = children[index];
+    if (child === undefined) {
+      continue;
+    } else if (isLargeCave[child] || !path.some(([cave]) => cave === child)) {
+      path.push([cave, index + 1], [child, 0]);
+    } else {
+      path.push([cave, index + 1]);
     }
   }
   return pathCount;
 }
 
-/** `Array` wrapper to help with cave paths */
-class CavePath {
-  constructor(
-    private readonly caves: string[],
-    readonly hasUniqueSmallCaves: boolean,
-  ) {}
-
-  /** Static factory for a cave path with only one cave */
-  static from(cave: string) {
-    return new CavePath([cave], true);
-  }
-
-  /** Returns whether the given cave is included in this cave path */
-  includes(cave: string): boolean {
-    return this.caves.includes(cave);
-  }
-
-  /** Creates a new cave path that inherits its uniqueness from this one */
-  concat(cave: string): CavePath {
-    return new CavePath([...this.caves, cave], this.hasUniqueSmallCaves);
-  }
-
-  /** Creates a new cave path that is not unique. */
-  concatNonUnique(cave: string): CavePath {
-    return new CavePath([...this.caves, cave], false);
-  }
-
-  /** Returns the most recently visited cave */
-  end(): string {
-    return this.caves.at(-1)!;
-  }
-}
-
 export function part2(input: string): number {
-  const caveSystem = mapCaveSystem(input);
-  const incompletePaths = [CavePath.from("start")];
+  const [caveSystem, isLargeCave] = mapCaveSystem(input);
+  const path: [number, number][] = [[0, 0]];
+  const caveCounts = Array(caveSystem.length).fill(0);
+  caveCounts[CAVE_END] = 0;
   let pathCount = 0;
-  while (incompletePaths.length) {
-    const previousNodes = incompletePaths.pop()!;
-    for (const currentNode of caveSystem.get(previousNodes.end())!) {
-      if (currentNode === "end") {
-        pathCount++;
-      } else if (/^[A-Z]*$/.test(currentNode)) {
-        incompletePaths.push(previousNodes.concat(currentNode));
-      } else if (!previousNodes.includes(currentNode)) {
-        incompletePaths.push(previousNodes.concat(currentNode));
-      } else if (previousNodes.hasUniqueSmallCaves) {
-        incompletePaths.push(previousNodes.concatNonUnique(currentNode));
+  let isUnique = true;
+  while (path.length) {
+    const [cave, index] = path.pop()!;
+    if (cave === CAVE_END) {
+      caveCounts[cave]--;
+      pathCount++;
+      continue;
+    }
+    const children = caveSystem[cave];
+    const child = children[index];
+    if (index === children.length) {
+      const count = caveCounts[cave]--;
+      if (count === 2 && !isLargeCave[child]) {
+        isUnique = true;
       }
+    } else if (isLargeCave[child]) {
+      path.push([cave, index + 1], [child, 0]);
+    } else if (caveCounts[child] === 0) {
+      caveCounts[child] = 1;
+      path.push([cave, index + 1], [child, 0]);
+    } else if (isUnique && caveCounts[child] === 1) {
+      caveCounts[child] = 2;
+      isUnique = false;
+      path.push([cave, index + 1], [child, 0]);
+    } else {
+      path.push([cave, index + 1]);
     }
   }
   return pathCount;
