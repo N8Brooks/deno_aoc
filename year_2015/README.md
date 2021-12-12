@@ -13,7 +13,6 @@ combinatorics.
 This problem involves simulating a battle between a _**magic**_ player and a
 boss. Ironically, it's very similar to Day 21, but the additional complexity of
 giving the player the choice of how to attack each turn makes it more complex.
-I'm still working on a good solution for it.
 
 ## Slowest Problem
 
