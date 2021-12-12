@@ -2,7 +2,7 @@
 const CAVE_START = 0;
 
 /** The node index for the cave `"end"` */
-const CAVE_END = -1;
+const CAVE_END = 1;
 
 /** Creates a graph of cave system with `"end"` as `-1` and `"start"` as 0 */
 const mapCaveSystem = (input: string): [number[][], boolean[]] => {
@@ -10,7 +10,7 @@ const mapCaveSystem = (input: string): [number[][], boolean[]] => {
     end: CAVE_END,
     start: CAVE_START,
   };
-  let nextCaveNumber = CAVE_START + 1;
+  let nextCaveNumber = CAVE_END + 1;
   const isLargeCave = [false];
   const caveSystem: number[][] = [[]];
   for (const line of input.split("\n")) {
@@ -65,7 +65,6 @@ export function part2(input: string): number {
   const [caveSystem, isLargeCave] = mapCaveSystem(input);
   const path: [number, number][] = [[0, 0]];
   const caveCounts = Array(caveSystem.length).fill(0);
-  caveCounts[CAVE_END] = 0;
   let pathCount = 0;
   let isUnique = true;
   while (path.length) {
