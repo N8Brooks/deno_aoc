@@ -22,5 +22,4 @@ possible displays, but that tends to be slow.
 [Others](https://www.reddit.com/r/adventofcode/comments/rbj87a/2021_day_8_solutions/?utm_source=share&utm_medium=web2x&context=3)
 used solutions that determined the identify of the digit by using givens from
 the input. This approach could theoretically fail if a 1, 4, 7, or 8 digit are
-not given for a line in the input although I preferred it because of its
-efficiency.
+not given for a line in the input. I preferred it because of its efficiency.
