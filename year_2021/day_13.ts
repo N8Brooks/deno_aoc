@@ -52,8 +52,11 @@ const foldPaper = (instruction: string, paper: boolean[][]): void => {
   }
 };
 
-/** Total dots on a sheet of `paper` */
-const countDots = (paper: boolean[][]): number => {
+export function part1(input: string): number {
+  const [dotsInput, instructions] = input.split("\n\n");
+  const [instruction] = instructions.split("\n");
+  const paper = parseDotsInput(dotsInput);
+  foldPaper(instruction, paper);
   let dotCount = 0;
   for (const line of paper) {
     for (const dot of line) {
@@ -63,14 +66,6 @@ const countDots = (paper: boolean[][]): number => {
     }
   }
   return dotCount;
-};
-
-export function part1(input: string): number {
-  const [dotsInput, instructions] = input.split("\n\n");
-  const [instruction] = instructions.split("\n");
-  const paper = parseDotsInput(dotsInput);
-  foldPaper(instruction, paper);
-  return countDots(paper);
 }
 
 export function part2(input: string): string {
