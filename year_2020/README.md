@@ -1,5 +1,11 @@
 # year_2020
 
+![](https://img.shields.io/badge/day%20📅-20-blue)
+![](https://img.shields.io/badge/stars%20⭐-40-yellow)
+![](https://img.shields.io/badge/days%20completed-20-red)
+
+Advent of Code solutions for year 2020.
+
 ## Best Solution
 
 [Day 18](https://github.com/N8Brooks/deno_aoc/blob/main/year_2020/day_18.ts).
