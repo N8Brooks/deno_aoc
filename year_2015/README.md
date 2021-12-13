@@ -1,5 +1,11 @@
 # year_2015
 
+![](https://img.shields.io/badge/day%20📅-25-blue)
+![](https://img.shields.io/badge/stars%20⭐-50-yellow)
+![](https://img.shields.io/badge/days%20completed-25-green)
+
+Advent of Code solutions for year 2015.
+
 ## Best Solution
 
 [Day 21](https://github.com/N8Brooks/deno_aoc/blob/main/year_2015/day_21.ts).
