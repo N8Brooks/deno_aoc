@@ -10,9 +10,9 @@ const polymerDifference = (input: string, steps: number): number => {
     rules.map(([a, b]) => [`${a}${b}`, 0]),
   );
   let pairCounts = { ...emptyPairCounts };
-  for (const pair of slidingWindows(template.split(""), 2)) {
+  slidingWindows(template.split(""), 2).forEach((pair) => {
     pairCounts[pair.join("")]++;
-  }
+  });
   for (let step = 0; step < steps; step++) {
     const nextPairCounts = { ...emptyPairCounts };
     for (const [a, b, c] of rules) {
@@ -24,13 +24,11 @@ const polymerDifference = (input: string, steps: number): number => {
   const chars = [...new Set(rules.flat())];
   const charCounts = Object.fromEntries(chars.map((char) => [char, 0]));
   charCounts[template[0]] = 1;
-  charCounts[template.at(-1)!] = 1;
   for (const [pair, count] of Object.entries(pairCounts)) {
-    charCounts[pair[0]] += count;
     charCounts[pair[1]] += count;
   }
   const counts = Object.values(charCounts);
-  return (Math.max(...counts) - Math.min(...counts)) / 2;
+  return Math.max(...counts) - Math.min(...counts);
 };
 
 export function part1(input: string): number {
