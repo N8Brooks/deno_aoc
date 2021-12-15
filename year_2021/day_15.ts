@@ -42,7 +42,6 @@ class Node {
 }
 
 const lowestTotalRisk = (nodes: Node[][]): number => {
-  // Map risk levels to `Node` class
   const length = nodes.length;
   const maxIndex = length - 1;
 
