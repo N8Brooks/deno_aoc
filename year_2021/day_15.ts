@@ -41,13 +41,10 @@ class Node {
   }
 }
 
-const lowestTotalRisk = (riskLevelMap: number[][]): number => {
+const lowestTotalRisk = (nodes: Node[][]): number => {
   // Map risk levels to `Node` class
-  const length = riskLevelMap.length;
+  const length = nodes.length;
   const maxIndex = length - 1;
-  const nodes = riskLevelMap.map((row, y) =>
-    row.map((risk, x) => new Node(y, x, risk, maxIndex))
-  );
 
   // Begin with the first node
   const startingNode = nodes[0][0];
@@ -72,10 +69,12 @@ const lowestTotalRisk = (riskLevelMap: number[][]): number => {
     for (const [y, x] of currentNode) {
       const neighboringNode = nodes[y][x];
       const tentativeGScore = currentNode.gScore + neighboringNode.risk;
+
       // Update g score if lower
       if (tentativeGScore < neighboringNode.gScore) {
         neighboringNode.gScore = tentativeGScore;
         neighboringNode.fScore = tentativeGScore + neighboringNode.heuristic();
+
         // Add to neighboring nodes for investigation
         if (!neighboringNode.open) {
           openHeap.push(neighboringNode);
@@ -89,8 +88,10 @@ const lowestTotalRisk = (riskLevelMap: number[][]): number => {
 };
 
 export function part1(input: string): number {
-  const riskLevelMap = input.split("\n").map((line) =>
-    line.split("").map((d) => +d)
+  const riskLevelMap = input.split("\n").map((line, y) =>
+    line.split("").map((risk, x, { length }) =>
+      new Node(y, x, +risk, length - 1)
+    )
   );
   return lowestTotalRisk(riskLevelMap);
 }
@@ -99,15 +100,17 @@ export function part2(input: string): number {
   const readOnlyMap = input.split("\n").map((line) =>
     line.split("").map((d) => +d)
   );
-  const length = readOnlyMap.length;
+  const divisor = readOnlyMap.length;
+  const length = 5 * divisor;
+  const maxIndex = length - 1;
   const riskLevelMap = Array.from(
-    { length: 5 * length },
+    { length },
     (_, y) =>
-      Array.from({ length: 5 * length }, (_, x) => {
-        const risk = readOnlyMap[y % length][x % length] +
-          Math.floor(y / length) +
-          Math.floor(x / length);
-        return risk > 9 ? risk - 9 : risk;
+      Array.from({ length }, (_, x) => {
+        const risk = readOnlyMap[y % divisor][x % divisor] +
+          Math.floor(y / divisor) +
+          Math.floor(x / divisor);
+        return new Node(y, x, risk > 9 ? risk - 9 : risk, maxIndex);
       }),
   );
   return lowestTotalRisk(riskLevelMap);
