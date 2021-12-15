@@ -27,3 +27,25 @@ export const pow = (base: number, exp: number, mod: number): number => {
   }
   return res;
 };
+
+/** Szudzik's pairing function */
+export const pair = (x: number, y: number) => {
+  const unSignedX = x < 0 ? -2 * x - 1 : 2 * x;
+  const unSignedY = y < 0 ? -2 * y - 1 : 2 * y;
+  return unSignedY > unSignedX
+    ? unSignedY * unSignedY + unSignedX
+    : unSignedX * unSignedX + unSignedX + unSignedY;
+};
+
+/** Inverse Szudzik's pairing function */
+export const unPair = (z: number): [number, number] => {
+  const intSquareRoot = ~~(z ** 0.5);
+  const perfectSquare = intSquareRoot * intSquareRoot;
+  const [ux, uy] = intSquareRoot > z - perfectSquare
+    ? [z - perfectSquare, intSquareRoot]
+    : [intSquareRoot, z - perfectSquare - intSquareRoot];
+  return [
+    ux & 1 ? (ux + 1) / -2 : ux / 2,
+    uy & 1 ? (uy + 1) / -2 : uy / 2,
+  ];
+};
