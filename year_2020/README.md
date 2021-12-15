@@ -1,8 +1,8 @@
 # year_2020
 
 ![](https://img.shields.io/badge/day%20📅-20-blue)
-![](https://img.shields.io/badge/stars%20⭐-40-yellow)
-![](https://img.shields.io/badge/days%20completed-20-red)
+![](https://img.shields.io/badge/stars%20⭐-42-yellow)
+![](https://img.shields.io/badge/days%20completed-21-red)
 
 Advent of Code solutions for year 2020.
 
