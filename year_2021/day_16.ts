@@ -6,14 +6,14 @@ export function part1(input: string): number {
   while (i < binary.length) {
     versionNumberSum += parseInt(binary.substr(i, 3), 2);
     const typeId = parseInt(binary.substr(i + 3, 3), 2);
+    i += 6
     if (typeId === 4) {
-      i += 6;
       while (binary[i] !== "0") {
         i += 5;
       }
       i += 5;
     } else {
-      i += +binary[i + 6] ? 18 : 22;
+      i += +binary[i] ? 12 : 16;
     }
   }
   return versionNumberSum;
