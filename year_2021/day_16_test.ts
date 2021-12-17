@@ -59,9 +59,8 @@ describe("day 16", () => {
       expect(part2("9C0141080250320F1802104A08")).to.equal(1);
     });
 
-    /** Not working */
-    // it("input", () => {
-    //   expect(part2(input)).to.equal(999);
-    // });
+    it("input", () => {
+      expect(part2(input)).to.equal(110434737925);
+    });
   });
 });

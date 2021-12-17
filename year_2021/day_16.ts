@@ -20,15 +20,16 @@ export function part1(input: string): number {
 }
 
 function* evaluate(binary: string, i: number): Generator<[number, number]> {
-  while (i < binary.length) {
+  while (true) {
     const typeId = parseInt(binary.substr(i + 3, 3), 2);
     if (typeId === 4) {
-      let j = i += 6;
-      while (binary[j] !== "0") {
-        j += 5;
-      }
-      j += 5;
-      yield [parseInt(binary.substr(i, j - i), 2), i = j];
+      i += 6;
+      let num = 0;
+      do {
+        num = 16 * num + parseInt(binary.substr(i + 1, 4), 2);
+        i += 5;
+      } while (binary[i - 5] !== "0");
+      yield [num, i];
       continue;
     }
 
