@@ -12,6 +12,15 @@ Advent of Code solutions for year 2021. Currently in progress.
 you are okay with breaking loops then the solution for this can be incredibly
 streamlined.
 
+## Solution with Room for Improvement
+
+[Day 16](https://github.com/N8Brooks/deno_aoc/blob/main/year_2021/day_16.ts).
+This could probably be implemented with the
+[shunting-yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm).
+However, because it requires some nested expressions to be defined by length and
+some by count it would introduce additional complexities as opposed to the
+current solution.
+
 ## Hardest Problem
 
 [Day 8](https://github.com/N8Brooks/deno_aoc/blob/main/year_2021/day_08.ts).
