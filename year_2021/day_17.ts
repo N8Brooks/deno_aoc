@@ -23,6 +23,9 @@ export function part2(input: string): number {
       yVelocity0 <= maximumYVelocity;
       yVelocity0++
     ) {
+      let xVelocity1 = xVelocity0;
+      let yVelocity1 = yVelocity0;
+      let x = 0, y = 0;
       do {
         x += xVelocity1;
         y += yVelocity1;
