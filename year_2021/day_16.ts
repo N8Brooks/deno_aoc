@@ -28,7 +28,7 @@ export function part2(input: string): number {
 
   /** Evaluates `binary` from current `pointer` position */
   function* evaluate(): Generator<number> {
-    while (true) {
+    while (pointer < binary.length) {
       const typeId = parseInt(binary.substr(pointer + 3, 3), 2);
       if (typeId === 4) {
         pointer += 6;
