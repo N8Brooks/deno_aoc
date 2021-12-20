@@ -27,15 +27,7 @@ const RINGS: Items[] = [
   [80, 0, 3],
 ];
 
-export function part1(input: string, pHealth: number) {
-  return simulate(input, pHealth, true);
-}
-
-export function part2(input: string, pHealth: number) {
-  return simulate(input, pHealth, false);
-}
-
-function simulate(input: string, pHealth: number, win: boolean) {
+const simulate = (input: string, pHealth: number, win: boolean) => {
   const [bHealth, bDamage, bArmor] = [...input.matchAll(/\d+/g)].map((d) => +d);
 
   const weaps: Items[] = WEAPS;
@@ -43,10 +35,10 @@ function simulate(input: string, pHealth: number, win: boolean) {
   const rings: Items[] = [
     [0, 0, 0],
     ...RINGS,
-    ...combinations(RINGS, 2).map(stats),
+    ...[...combinations(RINGS, 2)].map(stats),
   ];
 
-  const costs = cartesianProduct(weaps, armor, rings)
+  const costs = [...cartesianProduct(weaps, armor, rings)]
     .map(stats)
     .filter((items) => battle(items) === win)
     .map(([cost]) => cost);
@@ -58,9 +50,9 @@ function simulate(input: string, pHealth: number, win: boolean) {
     const pTurns = turns(bHealth, pDamage - bArmor);
     return pTurns <= bTurns;
   }
-}
+};
 
-function stats(items: Items[]): Items {
+const stats = (items: Items[]): Items => {
   let cost = 0, damage = 0, armor = 0;
   for (const [c, d, a] of items) {
     cost += c;
@@ -68,8 +60,16 @@ function stats(items: Items[]): Items {
     armor += a;
   }
   return [cost, damage, armor];
+};
+
+const turns = (a: number, b: number): number => {
+  return b > 0 ? Math.ceil(a / b) : Infinity;
+};
+
+export function part1(input: string, pHealth: number) {
+  return simulate(input, pHealth, true);
 }
 
-function turns(a: number, b: number): number {
-  return b > 0 ? Math.ceil(a / b) : Infinity;
+export function part2(input: string, pHealth: number) {
+  return simulate(input, pHealth, false);
 }

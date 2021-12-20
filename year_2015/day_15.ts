@@ -1,28 +1,9 @@
 import "../deps.ts";
 
-const pattern =
+const PATTERN =
   /[a-z]+: capacity (-?\d+), durability (-?\d+), flavor (-?\d+), texture (-?\d+), calories (\d+)/g;
 
-export function part1(input: string): number {
-  const ingredients = [...input.matchAll(pattern)]
-    .map((line) => line.slice(1, -1).map(Number));
-
-  return allocation(ingredients.length, 100)
-    .map((ratios) => getScore(ingredients, ratios))
-    .reduce((a, b) => a > b ? a : b, -Infinity);
-}
-
-export function part2(input: string): number {
-  const ingredients = [...input.matchAll(pattern)]
-    .map((line) => line.slice(1).map(Number));
-
-  return allocation(ingredients.length, 100)
-    .filter((ratios) => getCalories(ingredients, ratios) === 500)
-    .map((ratios) => getScore(ingredients, ratios))
-    .reduce((a, b) => a > b ? a : b, -Infinity);
-}
-
-export function* allocation(r: number, n: number): Generator<number[]> {
+export function* allocation(r: number, n = 100): Generator<number[]> {
   if (r === 0) {
     if (n === 0) {
       yield [];
@@ -60,7 +41,7 @@ export function* allocation(r: number, n: number): Generator<number[]> {
   }
 }
 
-function getScore(ingredients: number[][], ratios: number[]): number {
+const getScore = (ingredients: number[][], ratios: number[]): number => {
   let ratioScore = 1;
   for (let propertyIndex = 0; propertyIndex < 4; propertyIndex++) {
     let property = 0;
@@ -79,9 +60,22 @@ function getScore(ingredients: number[][], ratios: number[]): number {
     ratioScore *= property;
   }
   return ratioScore;
+};
+
+export function part1(input: string): number {
+  const ingredients = [...input.matchAll(PATTERN)]
+    .map((line) => line.slice(1, -1).map(Number));
+  let maxScore = -Infinity;
+  for (const ratios of allocation(ingredients.length)) {
+    const score = getScore(ingredients, ratios);
+    if (score > maxScore) {
+      maxScore = score;
+    }
+  }
+  return maxScore;
 }
 
-function getCalories(ingredients: number[][], ratios: number[]): number {
+const getCalories = (ingredients: number[][], ratios: number[]): number => {
   let totalCalories = 0;
   for (
     let ingredientIndex = 0;
@@ -93,4 +87,20 @@ function getCalories(ingredients: number[][], ratios: number[]): number {
     totalCalories += ingredientCalories * ingredientRatio;
   }
   return totalCalories;
+};
+
+export function part2(input: string): number {
+  const ingredients = [...input.matchAll(PATTERN)]
+    .map((line) => line.slice(1).map(Number));
+  let maxScore = -Infinity;
+  for (const ratios of allocation(ingredients.length)) {
+    if (500 !== getCalories(ingredients, ratios)) {
+      continue;
+    }
+    const score = getScore(ingredients, ratios);
+    if (score > maxScore) {
+      maxScore = score;
+    }
+  }
+  return maxScore;
 }
