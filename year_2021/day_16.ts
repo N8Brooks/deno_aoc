@@ -42,18 +42,17 @@ export function part2(input: string): number {
       }
 
       const operands: number[] = [];
+      const it = evaluate();
       if (+binary[pointer + 6]) {
         pointer += 18;
-        const length = parseInt(binary.substr(pointer - 11, 11), 2);
-        const it = evaluate();
-        for (let n = 0; n < length; n++) {
+        const count = parseInt(binary.substr(pointer - 11, 11), 2);
+        for (let n = 0; n < count; n++) {
           operands.push(it.next().value);
         }
       } else {
         pointer += 22;
-        const stop = pointer + parseInt(binary.substr(pointer - 15, 15), 2);
-        const it = evaluate();
-        while (pointer < stop) {
+        const length = pointer + parseInt(binary.substr(pointer - 15, 15), 2);
+        while (pointer < length) {
           operands.push(it.next().value);
         }
       }
