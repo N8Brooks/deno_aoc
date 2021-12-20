@@ -33,6 +33,16 @@ used solutions that determined the identity of the digit by using givens from
 the input. This approach could theoretically fail if a 1, 4, 7, or 8 digit are
 not given for a line in the input. I preferred it because of its efficiency.
 
+## Another Hardest Problem
+
+[Day 19](https://github.com/N8Brooks/deno_aoc/blob/main/year_2021/day_19.ts).
+Involves rotating collections of points in 3 dimensions so that they line up.
+Originally this traversed 48 rotations for each collection of points, although
+now it only traverses the 24 unique rotations. A popular optimization involves
+adding rotation agnostic fingerprints to collections of points to minimize the
+amount of times you need to test two collections that don't end up lining up.
+Between these two things it is messy, but a lot faster.
+
 ## Slowest Problem
 
 [Day 15](https://github.com/N8Brooks/deno_aoc/blob/main/year_2021/day_15.ts).
