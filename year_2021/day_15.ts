@@ -1,5 +1,3 @@
-import { BinaryHeap } from "../deps.ts";
-
 /** Risk map node */
 class Node {
   /** Whether this node is included in the open set */
@@ -16,8 +14,7 @@ class Node {
     public x: number,
     public risk: number,
     private maxIndex: number,
-  ) {
-  }
+  ) {}
 
   /** Iterate this node's neighboring indices */
   *[Symbol.iterator](): Generator<[number, number]> {
@@ -52,13 +49,17 @@ const lowestTotalRisk = (nodes: Node[][]): number => {
   startingNode.open = true;
 
   // Discovered nodes to be investigated for a possibly lower risk path
-  const openHeap = BinaryHeap.from([startingNode], {
-    compare: (a: Node, b: Node) => a.fScore - b.fScore,
-  });
+  const maxPathLength = 2 * 9 * maxIndex;
+  const openSet: Node[][] = Array.from({ length: maxPathLength }, () => []);
+  openSet[0].push(startingNode);
+  let pointer = 0;
 
-  while (openHeap.length) {
+  while (pointer < maxPathLength) {
     // Take next node
-    const currentNode = openHeap.pop()!;
+    const currentNode = openSet[pointer].pop()!;
+    while (pointer < maxPathLength && !openSet[pointer].length) {
+      pointer++;
+    }
     currentNode.open = false;
     if (currentNode.y === maxIndex && currentNode.x === maxIndex) {
       return currentNode.gScore;
@@ -76,7 +77,8 @@ const lowestTotalRisk = (nodes: Node[][]): number => {
 
         // Add to neighboring nodes for investigation
         if (!neighboringNode.open) {
-          openHeap.push(neighboringNode);
+          openSet[neighboringNode.fScore].push(neighboringNode);
+          pointer = Math.min(pointer, neighboringNode.fScore);
           neighboringNode.open = true;
         }
       }
