@@ -41,7 +41,7 @@ used solutions that determined the identity of the digit by using givens from
 the input. This approach could theoretically fail if a 1, 4, 7, or 8 digit are
 not given for a line in the input. I preferred it because of its efficiency.
 
-## Another Hardest Problem
+## Another Hardest Problem that is also the Slowest
 
 [Day 19](https://github.com/N8Brooks/deno_aoc/blob/main/year_2021/day_19.ts).
 Involves rotating collections of points in 3 dimensions so that they line up.
@@ -51,12 +51,12 @@ adding rotation agnostic fingerprints to collections of points to minimize the
 amount of times you need to test two collections that don't end up lining up.
 Between these two things it is messy, but a lot faster.
 
-## Slowest Problem
+## Path Finding Problem
 
 [Day 15](https://github.com/N8Brooks/deno_aoc/blob/main/year_2021/day_15.ts).
-Shortest path finding algorithm. Most people went with
+Most people went with
 [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) or
 the [A* search](https://en.wikipedia.org/wiki/A*_search_algorithm) algorithm.
-With this solution implementing the latter it only take 300-400ms to find the
-solution for all examples and program inputs. For the slowest solution in a
-given year that is not too bad.
+With this solution implementing the latter it only takes 150-200ms to find the
+solution for part 2 with the problem input. This implementation also uses
+buckets instead of a min-heap like Dial's algorithm.
