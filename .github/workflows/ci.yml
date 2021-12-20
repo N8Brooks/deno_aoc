@@ -29,4 +29,4 @@ jobs:
         run: deno lint
 
       - name: Test
-        run: deno test --unstable -A --ignore="year_2015/day_04_test.ts,year_2016/day_05_test.ts,year_2021/day_19_test.ts"
+        run: deno test --unstable -A --ignore="year_2015/day_04_test.ts,year_2016/day_05_test.ts"
