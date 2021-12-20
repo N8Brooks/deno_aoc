@@ -19,67 +19,68 @@ export function part1(input: string): number {
   return versionNumberSum;
 }
 
-function* evaluate(binary: string, i: number): Generator<[number, number]> {
-  while (true) {
-    const typeId = parseInt(binary.substr(i + 3, 3), 2);
-    if (typeId === 4) {
-      i += 6;
-      let num = 0;
-      do {
-        num = 16 * num + parseInt(binary.substr(i + 1, 4), 2);
-        i += 5;
-      } while (binary[i - 5] !== "0");
-      yield [num, i];
-      continue;
-    }
-
-    const nums: number[] = [];
-    let x: number;
-    if (+binary[i + 6]) {
-      const length = parseInt(binary.substr(i + 7, 11), 2);
-      const it = evaluate(binary, i + 18);
-      for (let n = 0; n < length; n++) {
-        [x, i] = it.next().value;
-        nums.push(x);
-      }
-    } else {
-      const j = i + parseInt(binary.substr(i + 7, 15), 2) + 22;
-      const it = evaluate(binary, i + 22);
-      while (i < j) {
-        [x, i] = it.next().value;
-        nums.push(x);
-      }
-    }
-
-    switch (typeId) {
-      case 0:
-        yield [nums.reduce((a, b) => a + b, 0), i];
-        break;
-      case 1:
-        yield [nums.reduce((a, b) => a * b, 1), i];
-        break;
-      case 2:
-        yield [Math.min(...nums), i];
-        break;
-      case 3:
-        yield [Math.max(...nums), i];
-        break;
-      case 5:
-        yield [+(nums[0] > nums[1]), i];
-        break;
-      case 6:
-        yield [+(nums[0] < nums[1]), i];
-        break;
-      case 7:
-        yield [+(nums[0] === nums[1]), i];
-        break;
-    }
-  }
-}
-
 export function part2(input: string): number {
+  let pointer = 0;
   const binary = BigInt(`0x${input}`)
     .toString(2)
     .padStart(4 * input.length, "0");
-  return evaluate(binary, 0).next().value[0];
+  return evaluate().next().value;
+
+  /** Evaluates `binary` from current `pointer` position */
+  function* evaluate(): Generator<number> {
+    while (true) {
+      const typeId = parseInt(binary.substr(pointer + 3, 3), 2);
+      if (typeId === 4) {
+        pointer += 6;
+        let operand = 0;
+        do {
+          operand = 16 * operand + parseInt(binary.substr(pointer + 1, 4), 2);
+          pointer += 5;
+        } while (binary[pointer - 5] !== "0");
+        yield operand;
+        continue;
+      }
+
+      const operands: number[] = [];
+      if (+binary[pointer + 6]) {
+        pointer += 18;
+        const length = parseInt(binary.substr(pointer - 11, 11), 2);
+        const it = evaluate();
+        for (let n = 0; n < length; n++) {
+          operands.push(it.next().value);
+        }
+      } else {
+        pointer += 22;
+        const stop = pointer + parseInt(binary.substr(pointer - 15, 15), 2);
+        const it = evaluate();
+        while (pointer < stop) {
+          operands.push(it.next().value);
+        }
+      }
+
+      switch (typeId) {
+        case 0:
+          yield operands.reduce((a, b) => a + b, 0);
+          break;
+        case 1:
+          yield operands.reduce((a, b) => a * b, 1);
+          break;
+        case 2:
+          yield Math.min(...operands);
+          break;
+        case 3:
+          yield Math.max(...operands);
+          break;
+        case 5:
+          yield +(operands[0] > operands[1]);
+          break;
+        case 6:
+          yield +(operands[0] < operands[1]);
+          break;
+        case 7:
+          yield +(operands[0] === operands[1]);
+          break;
+      }
+    }
+  }
 }
