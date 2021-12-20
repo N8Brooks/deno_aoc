@@ -2,18 +2,17 @@ export function part1(input: string): number {
   const binary = BigInt(`0x${input}`)
     .toString(2)
     .padStart(4 * input.length, "0");
-  let i = 0, versionNumberSum = 0;
-  while (i < binary.length) {
-    versionNumberSum += parseInt(binary.substr(i, 3), 2);
-    const typeId = parseInt(binary.substr(i + 3, 3), 2);
-    i += 6;
+  let pointer = 0, versionNumberSum = 0;
+  while (pointer < binary.length) {
+    versionNumberSum += parseInt(binary.substr(pointer, 3), 2);
+    const typeId = parseInt(binary.substr(pointer + 3, 3), 2);
+    pointer += 6;
     if (typeId === 4) {
-      while (binary[i] !== "0") {
-        i += 5;
-      }
-      i += 5;
+      do {
+        pointer += 5;
+      } while (binary[pointer - 5] !== "0");
     } else {
-      i += +binary[i] ? 12 : 16;
+      pointer += +binary[pointer] ? 12 : 16;
     }
   }
   return versionNumberSum;
