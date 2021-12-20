@@ -12,6 +12,14 @@ Advent of Code solutions for year 2021. Currently in progress.
 you are okay with breaking loops then the solution for this can be incredibly
 streamlined.
 
+## Another Good Solution
+
+[Day 18](https://github.com/N8Brooks/deno_aoc/blob/main/year_2021/day_18.ts).
+Flattening the list and keeping track of left and right depth separately
+enormously simplifies the problem. Finding the indices that an exploded pair
+adds to can be found by adding or subtracting one from the exploded pair. The
+final magnitude can be calculated as `3 ** left * 2 ** right * value`.
+
 ## Solution with Room for Improvement
 
 [Day 16](https://github.com/N8Brooks/deno_aoc/blob/main/year_2021/day_16.ts).
