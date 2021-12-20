@@ -23,7 +23,7 @@ const PART_1_EXAMPLES = {
 
 const input = await Deno.readTextFile("year_2015/testdata/day_07.txt");
 
-describe("day 07", () => {
+describe("day 7", () => {
   describe("part 1", () => {
     let exampleIndex = 1;
     for (const [wire, signal] of Object.entries(PART_1_EXAMPLES)) {

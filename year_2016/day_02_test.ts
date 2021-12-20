@@ -8,7 +8,7 @@ RRDDD
 LURDL
 UUUUD`;
 
-describe("day 02", () => {
+describe("day 2", () => {
   describe("part 1", () => {
     it("example", () => {
       expect(part1(EXAMPLE)).to.equal("1985");

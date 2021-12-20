@@ -26,7 +26,7 @@ const PART_2_NAUGHTY = [
 
 const input = await Deno.readTextFile("year_2015/testdata/day_05.txt");
 
-describe("day 05", () => {
+describe("day 5", () => {
   describe("part 1", () => {
     for (const nice of PART_1_NICE) {
       it(`example ${exampleIndex++}`, () => {

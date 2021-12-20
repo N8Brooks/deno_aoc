@@ -3,7 +3,7 @@ import { part1, part2 } from "./day_06.ts";
 
 const input = await Deno.readTextFile("year_2015/testdata/day_06.txt");
 
-describe("day 06", () => {
+describe("day 6", () => {
   describe("part 1", () => {
     it("example 1", () => {
       expect(part1("turn on 0,0 through 999,999")).to.equal(1000000);

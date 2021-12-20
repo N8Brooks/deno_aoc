@@ -3,7 +3,7 @@ import { part1, part2 } from "./day_02.ts";
 
 const input = await Deno.readTextFile("year_2015/testdata/day_02.txt");
 
-describe("day 02", () => {
+describe("day 2", () => {
   describe("part 1", () => {
     it("example 1", () => {
       expect(part1("2x3x4")).to.equal(58);

@@ -15,7 +15,7 @@ gcafb gcf dcaebfg ecagb gf abcdeg gaef cafbge fdbac fegbdc | fgae cfgab fg bagce
 
 const input = await Deno.readTextFile("year_2021/testdata/day_08.txt");
 
-describe("day 08", () => {
+describe("day 8", () => {
   describe("part 1", () => {
     it("example", () => {
       expect(part1(EXAMPLE)).to.equal(26);

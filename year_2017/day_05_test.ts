@@ -9,7 +9,7 @@ const EXAMPLE = `0
 1
 -3`;
 
-describe("day 05", () => {
+describe("day 5", () => {
   describe("part 1", () => {
     it("example 1", () => {
       expect(part1(EXAMPLE)).to.equal(5);

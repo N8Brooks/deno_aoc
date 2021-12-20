@@ -22,7 +22,7 @@ dark violet bags contain no other bags.`;
 
 const input = await Deno.readTextFile("year_2020/testdata/day_07.txt");
 
-describe("day 07", () => {
+describe("day 7", () => {
   describe("part 1", () => {
     it("example 1", () => {
       expect(part1(EXAMPLE_1)).to.equal(4);

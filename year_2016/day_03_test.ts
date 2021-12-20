@@ -12,7 +12,7 @@ const EXAMPLE_2 = `101 301 501
 202 402 602
 203 403 603`;
 
-describe("day 03", () => {
+describe("day 3", () => {
   describe("part 1", () => {
     it("example 1", () => {
       expect(part1(EXAMPLE_1)).to.equal(0);

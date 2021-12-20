@@ -8,7 +8,7 @@ a-b-c-d-e-f-g-h-987[abcde]
 not-a-real-room-404[oarel]
 totally-real-room-200[decoy]`;
 
-describe("day 04", () => {
+describe("day 4", () => {
   describe("part 1", () => {
     it("example 1", () => {
       expect(part1(EXAMPLE_1)).to.equal(1514);
