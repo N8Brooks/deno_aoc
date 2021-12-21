@@ -8,6 +8,7 @@ export function part1(input: string): number {
   let player2Score = 0;
   let dice = 0;
 
+  // This is a branchless approach where player turns are `0` or `1`
   while (player1Score < 1000 && player2Score < 1000) {
     const player2Turn = 1 - player1Turn;
     const roll = dice++ % 100 + dice++ % 100 + dice++ % 100 + 3;
