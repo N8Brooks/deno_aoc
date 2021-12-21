@@ -48,7 +48,7 @@ export function part2(input: string): number {
     ),
   );
 
-  /** Returns count of wins for player 1 and 2 from the given state */
+  /** Returns count of wins for each player from the given state */
   function diracGame(
     previousPlayerPosition: number, // [0, 9]
     otherPlayerPosition: number, // [0, 9]
@@ -65,9 +65,8 @@ export function part2(input: string): number {
 
     let currentPlayerWins = 0, otherPlayerWins = 0;
     for (const [roll, count] of DIRAC_DICE_ROLLS) {
-      const currentPlayerPosition = (previousPlayerPosition + roll) % 10;
-      const currentPlayerScore = previousPlayerScore +
-        currentPlayerPosition + 1;
+      const currentPlayerPosition = (previousPlayerPosition + roll) % 10 + 1;
+      const currentPlayerScore = previousPlayerScore + currentPlayerPosition;
       if (currentPlayerScore >= 21) {
         currentPlayerWins += count;
         continue;
@@ -77,7 +76,7 @@ export function part2(input: string): number {
         additionalCurrentPlayerWins,
       ] = diracGame(
         otherPlayerPosition,
-        currentPlayerPosition,
+        currentPlayerPosition - 1,
         otherPlayerScore,
         currentPlayerScore,
       );
