@@ -37,10 +37,9 @@ export function part2(input: string): number {
     player1Position,
     player2Position,
   ] = [...input.matchAll(/\d+$/gm)].map((d) => +d - 1);
-  const memo: [number, number][] = Array(88200);
+  const memo: [number, number][] = Array(44100);
   return Math.max(
     ...diracGame(
-      1,
       player1Position,
       player2Position,
       0,
@@ -50,49 +49,41 @@ export function part2(input: string): number {
 
   /** Returns count of wins for player 1 and 2 from the given state */
   function diracGame(
-    player1Turn: number, // [0, 1]
-    previousPlayer1Position: number, // [0, 9]
-    previousPlayer2Position: number, // [0, 9]
-    player1Score: number, // [0, 21)
-    player2Score: number, // [0, 21)
+    previousPlayerPosition: number, // [0, 9]
+    otherPlayerPosition: number, // [0, 9]
+    previousPlayerScore: number, // [0, 21)
+    otherPlayerScore: number, // [0, 21)
   ): [number, number] {
-    if (player1Score >= 21) {
-      return [1, 0];
-    }
-    if (player2Score >= 21) {
-      return [0, 1];
-    }
-
-    const key = 44100 * player1Turn +
-      4410 * previousPlayer1Position +
-      441 * previousPlayer2Position +
-      21 * player1Score +
-      player2Score;
+    const key = 4410 * previousPlayerPosition +
+      441 * otherPlayerPosition +
+      21 * previousPlayerScore +
+      otherPlayerScore;
     if (memo[key]) {
       return memo[key];
     }
 
-    let player1Wins = 0, player2Wins = 0;
-    const player2Turn = 1 - player1Turn;
+    let currentPlayerWins = 0, otherPlayerWins = 0;
     for (const [roll, count] of DIRAC_DICE_ROLLS) {
-      const currentPlayer1Position =
-        (previousPlayer1Position + player1Turn * roll) % 10;
-      const currentPlayer2Position =
-        (previousPlayer2Position + player2Turn * roll) % 10;
+      const currentPlayerPosition = (previousPlayerPosition + roll) % 10;
+      const currentPlayerScore = previousPlayerScore +
+        currentPlayerPosition + 1;
+      if (currentPlayerScore >= 21) {
+        currentPlayerWins += count;
+        continue;
+      }
       const [
-        additionalPlayer1Wins,
-        additionalPlayer2Wins,
+        additionalOtherPlayerWins,
+        additionalCurrentPlayerWins,
       ] = diracGame(
-        player2Turn,
-        currentPlayer1Position,
-        currentPlayer2Position,
-        player1Score + player1Turn * (currentPlayer1Position + 1),
-        player2Score + player2Turn * (currentPlayer2Position + 1),
+        otherPlayerPosition,
+        currentPlayerPosition,
+        otherPlayerScore,
+        currentPlayerScore,
       );
-      player1Wins += count * additionalPlayer1Wins;
-      player2Wins += count * additionalPlayer2Wins;
+      currentPlayerWins += count * additionalCurrentPlayerWins;
+      otherPlayerWins += count * additionalOtherPlayerWins;
     }
 
-    return memo[key] = [player1Wins, player2Wins];
+    return memo[key] = [currentPlayerWins, otherPlayerWins];
   }
 }
