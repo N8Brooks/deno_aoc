@@ -1,4 +1,4 @@
-/** Represents a cube. Must be ordered for identification with parse and stringify */
+/** Represents a cube */
 interface Cube {
   xStart: number;
   xStop: number;
