@@ -23,11 +23,11 @@ abstract class Amphipod {
   /** The x location of the `Amphipod`'s home */
   abstract targetX: number;
 
-  /** The identifiable value designated for the class */
-  abstract char: string;
-
   /** The value id of the class */
   abstract value: number;
+
+  /** Cache value of */
+  #valueOf?: number;
 
   /** Reference to implementations class */
   abstract clone: new (
@@ -109,11 +109,6 @@ abstract class Amphipod {
     return [cost, amphipod];
   }
 
-  /** Character representation of `Amphipod` */
-  toString(): string {
-    return this.char;
-  }
-
   /** Lower bound based on `x` distance required */
   heuristicX(): number {
     return this.energy * Math.abs(this.targetX - this.x);
@@ -121,7 +116,7 @@ abstract class Amphipod {
 
   /** Return the value of this as an integer */
   valueOf(): number {
-    return this.value * 5 ** this.index;
+    return this.#valueOf ??= this.value * 5 ** this.index;
   }
 
   /** The `index` of this where each possible position increments the `index` by 1 */
@@ -134,7 +129,6 @@ class AmberAmphipod extends Amphipod {
   readonly energy = 1;
   readonly targetX = 3;
   readonly clone = AmberAmphipod;
-  readonly char = "A";
   readonly value = 1;
 }
 
@@ -142,7 +136,6 @@ class BronzeAmphipod extends Amphipod {
   readonly energy = 10;
   readonly targetX = 5;
   readonly clone = BronzeAmphipod;
-  readonly char = "B";
   readonly value = 2;
 }
 
@@ -150,7 +143,6 @@ class CopperAmphipod extends Amphipod {
   readonly energy = 100;
   readonly targetX = 7;
   readonly clone = CopperAmphipod;
-  readonly char = "C";
   readonly value = 3;
 }
 
@@ -158,7 +150,6 @@ class DesertAmphipod extends Amphipod {
   readonly energy = 1000;
   readonly targetX = 9;
   readonly clone = DesertAmphipod;
-  readonly char = "D";
   readonly value = 4;
 }
 
@@ -244,10 +235,9 @@ class State {
 
   /** Returns if this is the target positioning of `Amphipod`s */
   isComplete(): boolean {
-    return Object.values(this.halls).every((hall) => hall === undefined) &&
-      Object.values(this.rooms).every((room) =>
-        room.every((amphipod) => amphipod?.position === AmphipodPosition.Stop)
-      );
+    return Object.values(this.rooms).every((room) =>
+      room.every((amphipod) => amphipod?.position === AmphipodPosition.Stop)
+    );
   }
 
   /** Energy to complete state if amphipods can pass through one another */
@@ -323,9 +313,7 @@ const minimumEnergy = (
         if (previousState) {
           const bucket = openHeap[previousState.fScore];
           const i = bucket.findIndex((state) => state === previousState);
-          if (i >= 0) {
-            bucket.splice(i, 1);
-          }
+          bucket.splice(i, 1);
         }
       }
     }
