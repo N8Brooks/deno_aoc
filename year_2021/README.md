@@ -4,7 +4,7 @@
 ![](https://img.shields.io/badge/stars%20⭐-50-yellow)
 ![](https://img.shields.io/badge/days%20completed-25-green)
 
-Advent of Code solutions for year 2021. Currently in progress.
+Advent of Code solutions for year 2021.
 
 ## Best Solution
 
