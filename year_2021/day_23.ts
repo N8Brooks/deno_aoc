@@ -165,13 +165,15 @@ class DesertAmphipod extends Amphipod {
 /** A possible partially or fully complete situation */
 class State {
   /** Current lower bound of completing a path including this `State` */
-  fScore = Infinity;
+  readonly fScore: number;
 
   constructor(
     public readonly halls: Record<number, Amphipod | undefined>,
     public readonly rooms: Record<number, (Amphipod | undefined)[]>,
-    public gScore: number,
-  ) {}
+    public readonly gScore: number,
+  ) {
+    this.fScore = gScore + this.heuristic();
+  }
 
   /** Returns a state from the given problem `input` */
   static from(input: string): State {
@@ -216,7 +218,6 @@ class State {
           rooms[amphipod0.x] = room;
           room[amphipod0.y - 1] = undefined;
           const state = new State(halls, rooms, this.gScore + cost);
-          state.fScore = Infinity;
           yield state;
         }
       }
@@ -237,7 +238,6 @@ class State {
       rooms[amphipod1.x] = room;
       room[amphipod1.y - 1] = amphipod1;
       const state = new State(halls, rooms, this.gScore + cost);
-      state.fScore = Infinity;
       yield state;
     }
   }
@@ -291,10 +291,9 @@ class State {
 
 const minimumEnergy = (
   startingState: State,
-  openHeapLength = 100_000,
+  openHeapLength: number,
 ): number => {
   startingState.amortize();
-  startingState.fScore = 0;
 
   const openSet: Map<number, State> = new Map();
   openSet.set(startingState.valueOf(), startingState);
@@ -318,7 +317,6 @@ const minimumEnergy = (
 
       if (nextState.gScore < (previousState?.gScore ?? Infinity)) {
         openSet.set(nextStateKey, nextState);
-        nextState.fScore = nextState.gScore + nextState.heuristic();
         pointer = Math.min(pointer, nextState.fScore);
         openHeap[nextState.fScore].push(nextState);
 
@@ -336,12 +334,12 @@ const minimumEnergy = (
 
 export function part1(input: string): number {
   const startingState = State.from(input);
-  return minimumEnergy(startingState);
+  return minimumEnergy(startingState, 50_000);
 }
 
 export function part2(input: string): number {
   const rows = input.split("\n");
   rows.splice(3, 0, "  #D#C#B#A#  ", "  #D#B#A#C#  ");
   const startingState = State.from(rows.join("\n"));
-  return minimumEnergy(startingState);
+  return minimumEnergy(startingState, 100_000);
 }
