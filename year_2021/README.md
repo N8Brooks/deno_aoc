@@ -31,18 +31,6 @@ current solution.
 
 ## Hardest Problem
 
-[Day 8](https://github.com/N8Brooks/deno_aoc/blob/main/year_2021/day_08.ts).
-Deciphering what
-[seven-segment display](https://en.wikipedia.org/wiki/Seven-segment_display) was
-used turned out to be incredibly difficult. Some people used permutations of
-possible displays, but that tends to be slow.
-[Others](https://www.reddit.com/r/adventofcode/comments/rbj87a/2021_day_8_solutions/?utm_source=share&utm_medium=web2x&context=3)
-used solutions that determined the identity of the digit by using givens from
-the input. This approach could theoretically fail if a 1, 4, 7, or 8 digit are
-not given for a line in the input. I preferred it because of its efficiency.
-
-## Another Hardest Problem that is also the Slowest
-
 [Day 19](https://github.com/N8Brooks/deno_aoc/blob/main/year_2021/day_19.ts).
 Involves rotating collections of points in 3 dimensions so that they line up.
 Originally this traversed 48 rotations for each collection of points, although
@@ -51,12 +39,12 @@ adding rotation agnostic fingerprints to collections of points to minimize the
 amount of times you need to test two collections that don't end up lining up.
 Between these two things it is messy, but a lot faster.
 
-## Path Finding Problem
+## Slowest Problem
 
-[Day 15](https://github.com/N8Brooks/deno_aoc/blob/main/year_2021/day_15.ts).
+[Day 23](https://github.com/N8Brooks/deno_aoc/blob/main/year_2021/day_23.ts).
 Most people went with
 [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) or
 the [A* search](https://en.wikipedia.org/wiki/A*_search_algorithm) algorithm.
-With this solution implementing the latter it only takes 150-200ms to find the
-solution for part 2 with the problem input. This implementation also uses
-buckets instead of a min-heap like Dial's algorithm.
+With this solution implementing the latter it takes ~1000ms to find the solution
+for part 2 with the problem input. This implementation also uses buckets instead
+of a min-heap like Dial's algorithm.
