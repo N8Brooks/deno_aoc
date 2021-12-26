@@ -1,8 +1,8 @@
 # year_2020
 
-![](https://img.shields.io/badge/day%20📅-20-blue)
-![](https://img.shields.io/badge/stars%20⭐-48-yellow)
-![](https://img.shields.io/badge/days%20completed-24-red)
+![](https://img.shields.io/badge/day%20📅-25-blue)
+![](https://img.shields.io/badge/stars%20⭐-50-yellow)
+![](https://img.shields.io/badge/days%20completed-25-red)
 
 Advent of Code solutions for year 2020.
 
@@ -18,10 +18,8 @@ that allows for efficient evaluation using a stack.
 ## Hardest Problem
 
 [Day 20](https://github.com/N8Brooks/deno_aoc/blob/main/year_2020/day_20.ts).
-Still working on a good solution. Involves choosing 9 tiles from 9 permutations
-with 8 variations each. All told this has a search space of `9**8 * perm(9, 9)`
-which is approximately `1.6e13`. This can probably be cut down using some sort
-of backtracking.
+Involves rotating tiles based on their sides until they match. This solution
+could probably be improved to be more readable and less complex.
 
 ## Second Hardest Problem
 
