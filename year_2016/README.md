@@ -1,8 +1,8 @@
 # year_2016
 
-![](https://img.shields.io/badge/day%20📅-13-blue)
-![](https://img.shields.io/badge/stars%20⭐-26-yellow)
-![](https://img.shields.io/badge/days%20completed-13-red)
+![](https://img.shields.io/badge/day%20📅-15-blue)
+![](https://img.shields.io/badge/stars%20⭐-28-yellow)
+![](https://img.shields.io/badge/days%20completed-14-red)
 
 Advent of Code solutions for year 2016.
 
@@ -15,6 +15,12 @@ a breadth first search is sufficient for the search space.
 
 ## Slowest Problem
 
-[Day 4](https://github.com/N8Brooks/deno_aoc/blob/main/year_2015/day_04.ts).
+[Day 14](https://github.com/N8Brooks/deno_aoc/blob/main/year_2016/day_14.ts).
+This involves finding hashes that match certain criteria. With Part 2 especially
+this take a long while.
+
+## Another Slow Problem
+
+[Day 5](https://github.com/N8Brooks/deno_aoc/blob/main/year_2016/day_05.ts).
 This is a mock bitcoin implementation where you have to find a hash with certain
 criteria. Similar to year 2015 the slowest problem involved MD5 hashes.
