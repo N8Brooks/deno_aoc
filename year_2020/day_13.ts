@@ -1,3 +1,5 @@
+import { modularInverse } from "../util.ts";
+
 export function part1(input: string): number {
   const [notes, schedule] = input.split("\n");
   const timeZero = +notes;
@@ -17,15 +19,6 @@ export function part1(input: string): number {
     });
   return minBus * minTime;
 }
-
-const modularInverse = (n: number, m: number): number => {
-  for (let r = 1; r < m; r++) {
-    if ((n * r) % m === 1) {
-      return r;
-    }
-  }
-  return NaN;
-};
 
 export function part2(input: string): number {
   let time = 0;

@@ -49,3 +49,34 @@ export const unPair = (z: number): [number, number] => {
     uy & 1 ? (uy + 1) / -2 : uy / 2,
   ];
 };
+
+/** Returns `x` such that `a * x` is congruent to 1 mod `b` */
+export const modularInverse = (a: number, b: number): number => {
+  const b0 = b;
+  let [x0, x1] = [0, 1];
+  if (b === 1) {
+    return 1;
+  }
+  while (a > 1) {
+    const q = Math.floor(a / b);
+    [a, b] = [b, a % b];
+    [x0, x1] = [x1 - q * x0, x0];
+  }
+  if (x1 < 0) {
+    x1 += b0;
+  }
+  return x1;
+};
+
+/** Chinese remainder theorem */
+export const crt = (dividends: number[], remainders: number[]): number => {
+  let sum = 0;
+  const prod = dividends.reduce((a, c) => a * c, 1);
+  for (let i = 0; i < dividends.length; i++) {
+    const dividend = dividends[i];
+    const remainder = remainders[i];
+    const p = Math.floor(prod / dividend);
+    sum += remainder * p * modularInverse(p, dividend);
+  }
+  return (sum % prod + prod) % prod;
+};
