@@ -1,6 +1,6 @@
 /** Hex to byte conversion table */
 const BYTE_TO_HEX = Array.from(
-  { length: 0xff },
+  { length: 0x100 },
   (_, i) => i.toString(16).padStart(2, "0"),
 );
 

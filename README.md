@@ -9,12 +9,11 @@ Advent of Code solutions written in TypeScript for Deno.
 - Testing uses a
   [polyfill for mocha](https://gist.github.com/lucacasonato/54c03bb267074aaa9b32415dbfb25522)
   using the unstable iterative steps API.
-- Testing the mock bitcoin mining problems takes a while so it's best to ignore
-  them.
+- Testing the MD5 hashing problems takes a while so it's best to ignore them.
 - Tests are run in the `ci.yml` action.
 
 ```bash
-deno test --allow-read --unstable --ignore="year_2015/day_04_test.ts,year_2016/day_05_test.ts"
+deno test --allow-read --unstable --ignore="year_2015/day_04_test.ts,year_2016/day_05_test.ts,year_2016/day_14_test.ts"
 ```
 
 ## Linting
