@@ -1,8 +1,8 @@
 # year_2016
 
-![](https://img.shields.io/badge/day%20📅-16-blue)
-![](https://img.shields.io/badge/stars%20⭐-30-yellow)
-![](https://img.shields.io/badge/days%20completed-15-red)
+![](https://img.shields.io/badge/day%20📅-17-blue)
+![](https://img.shields.io/badge/stars%20⭐-32-yellow)
+![](https://img.shields.io/badge/days%20completed-16-red)
 
 Advent of Code solutions for year 2016.
 
@@ -24,3 +24,9 @@ this take a long while.
 [Day 5](https://github.com/N8Brooks/deno_aoc/blob/main/year_2016/day_05.ts).
 This is a mock bitcoin implementation where you have to find a hash with certain
 criteria. Similar to year 2015 the slowest problem involved MD5 hashes.
+
+## Problem with Room for Improvement
+
+[Day 16](https://github.com/N8Brooks/deno_aoc/blob/main/year_2016/day_16.ts).
+There are certainly more efficient ways to calculate the end result, but I'm
+okay with this implementation at the moment.
