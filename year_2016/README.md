@@ -6,7 +6,7 @@
 
 Advent of Code solutions for year 2016.
 
-## Object Oriented Style Path Finding
+## Path Finding
 
 [Day 11](https://github.com/N8Brooks/deno_aoc/blob/main/year_2016/day_11.ts).
 Involved finding the shortest path between floors where you can carry up to two
