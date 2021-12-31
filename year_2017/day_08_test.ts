@@ -10,7 +10,7 @@ c inc -20 if c == 10`;
 
 describe("day 8", () => {
   describe("part 1", () => {
-    it("example 1", () => {
+    it("example", () => {
       expect(part1(EXAMPLE)).to.equal(1);
     });
 
