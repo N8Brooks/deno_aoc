@@ -34,9 +34,7 @@ export function part1(input: string, n = 256): number {
 export function part2(input: string): string {
   const charCodes = input.split("").map((char) => char.charCodeAt(0));
   const lengths = [...charCodes, ...ADDITIONAL_LENGTHS];
-  const sparseHash = applyKnotHash(lengths, 256, 64);
-  const denseHash = chunk(sparseHash, 16).map((block) =>
-    block.reduce((a, b) => a ^ b)
-  );
-  return decode(new Uint8Array(denseHash));
+  const sparse = applyKnotHash(lengths, 256, 64);
+  const dense = chunk(sparse, 16).map((block) => block.reduce((a, b) => a ^ b));
+  return decode(new Uint8Array(dense));
 }
