@@ -20,7 +20,7 @@ const EXAMPLE_2 = `<>
 <!!!>>
 <{o"i!a,<{i<a>`;
 
-describe("day 8", () => {
+describe("day 9", () => {
   describe("part 1", () => {
     it("example 1", () => {
       expect(part1(EXAMPLE_1)).to.equal(50);
@@ -32,7 +32,7 @@ describe("day 8", () => {
   });
 
   describe("part 2", () => {
-    it("example", () => {
+    it("example 2", () => {
       expect(part2(EXAMPLE_2)).to.equal(32);
     });
 
