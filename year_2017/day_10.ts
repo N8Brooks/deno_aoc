@@ -3,7 +3,7 @@ import { decode } from "../util.ts";
 
 const ADDITIONAL_LENGTHS = [17, 31, 73, 47, 23];
 
-/** Applies knot hash `rounds` times in-place for an `n` length hash */
+/** Applies knot hash `rounds` times for an `n` length hash with the given `lengths` */
 const applyKnotHash = (lengths: number[], n: number, rounds: number) => {
   const sparseHash = Array.from({ length: n }, (_, i) => i);
   let currentPosition = 0, skipSize = 0;
