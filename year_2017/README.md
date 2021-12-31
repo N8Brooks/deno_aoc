@@ -18,4 +18,6 @@ parent group.
 
 [Day 13](https://github.com/N8Brooks/deno_aoc/blob/main/year_2017/day_13.ts). I
 believe there could be a more efficient way to find this number. Perhaps it
-could iterate based on previous devisors.
+could iterate based on previous divisors. It could read between the lines based
+on what the remainder must be for it to not be evenly divisible by certain
+divisors.
