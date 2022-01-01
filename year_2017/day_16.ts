@@ -68,6 +68,5 @@ export function part2(input: string, length = 16): string {
     previousPrograms.push(programs);
     programs = dance(programs, danceMoves);
   } while (previousPrograms[0] !== programs);
-  console.log(programs.length);
   return previousPrograms[1e9 % previousPrograms.length];
 }
