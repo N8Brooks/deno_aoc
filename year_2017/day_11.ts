@@ -1,4 +1,4 @@
-/** Maps direction to it hexagonal sign */
+/** Maps directions to its hexagonal sign */
 const COMPLEX_DIRECTIONS: Record<string, number[]> = {
   nw: [1, 0],
   n: [0, 1],
