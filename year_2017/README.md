@@ -29,3 +29,11 @@ This is more or less a traditional flood fill implemented using a union find.
 Initially there was some trouble getting the 1-dimensional matrix working with x
 and y coordinates because of how `x - 1` would be the same as `y - 1` at the end
 of the row.
+
+## Slowest Problem
+
+[Day 15](https://github.com/N8Brooks/deno_aoc/blob/main/year_2017/day_15.ts).
+This problem is similar to
+[pseudorandom number generation](https://en.wikipedia.org/wiki/Pseudorandom_number_generator).
+It's a problem involving a lot of computation that finds random numbers that
+match with regard to their last 16 bits.
