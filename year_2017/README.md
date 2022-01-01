@@ -21,3 +21,11 @@ believe there could be a more efficient way to find this number. Perhaps it
 could iterate based on previous divisors. It could read between the lines based
 on what the remainder must be for it to not be evenly divisible by certain
 divisors.
+
+## Flood Fill
+
+[Day 14](https://github.com/N8Brooks/deno_aoc/blob/main/year_2017/day_14.ts).
+This is more or less a traditional flood fill implemented using a union find.
+Initially there was some trouble getting the 1-dimensional matrix working with x
+and y coordinates because of how `x - 1` would be the same as `y - 1` at the end
+of the row.
