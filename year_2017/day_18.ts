@@ -26,6 +26,7 @@ class Program {
         const [operator, register, operand] = this.instructions[this.pointer];
         switch (operator) {
           case "snd":
+            this._sndCount++;
             sndQueue.push(this.valueOf(register));
             break;
           case "rcv":
@@ -55,7 +56,6 @@ class Program {
         this.pointer++;
       }
     }
-    this._sndCount += sndQueue.length;
     return sndQueue;
   }
 
