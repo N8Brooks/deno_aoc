@@ -13,20 +13,20 @@ class Program {
     private registers: Record<string, number>,
   ) {}
 
+  /** Returns `Number` based on value of register or digits cast to `Number` */
+  private valueOf(register: string): number {
+    return /-?\d+/.test(register) ? +register : this.registers[register] ??= 0;
+  }
+
   /** Runs the program with the given received value queue */
   run(rcvQueue: number[]): number[] {
     const sndQueue: number[] = [];
-    const valueOf = (register: string): number => {
-      return /-?\d+/.test(register)
-        ? +register
-        : this.registers[register] ??= 0;
-    };
     loop: {
       while (this.pointer < this.instructions.length) {
         const [operator, register, operand] = this.instructions[this.pointer];
         switch (operator) {
           case "snd":
-            sndQueue.push(valueOf(register));
+            sndQueue.push(this.valueOf(register));
             break;
           case "rcv":
             if (!rcvQueue.length) {
@@ -35,19 +35,21 @@ class Program {
             this.registers[register] = rcvQueue.shift()!;
             break;
           case "set":
-            this.registers[register] = valueOf(operand);
+            this.registers[register] = this.valueOf(operand);
             break;
           case "add":
-            this.registers[register] += valueOf(operand);
+            this.registers[register] += this.valueOf(operand);
             break;
           case "mul":
-            this.registers[register] *= valueOf(operand);
+            this.registers[register] *= this.valueOf(operand);
             break;
           case "mod":
-            this.registers[register] %= valueOf(operand);
+            this.registers[register] %= this.valueOf(operand);
             break;
           case "jgz":
-            this.pointer += valueOf(register) > 0 ? valueOf(operand) : 1;
+            this.pointer += this.valueOf(register) > 0
+              ? this.valueOf(operand)
+              : 1;
             continue;
         }
         this.pointer++;
