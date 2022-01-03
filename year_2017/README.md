@@ -1,8 +1,8 @@
 # year_2017
 
-![](https://img.shields.io/badge/day%20📅-19-blue)
-![](https://img.shields.io/badge/stars%20⭐-36-yellow)
-![](https://img.shields.io/badge/days%20completed-18-red)
+![](https://img.shields.io/badge/day%20📅-20-blue)
+![](https://img.shields.io/badge/stars%20⭐-38-yellow)
+![](https://img.shields.io/badge/days%20completed-19-red)
 
 Advent of Code solutions for year 2017.
 
@@ -37,3 +37,11 @@ This problem is similar to
 [pseudorandom number generation](https://en.wikipedia.org/wiki/Pseudorandom_number_generator).
 It's a problem involving a lot of computation that finds random numbers that
 match with regard to their last 16 bits.
+
+## Best Solution
+
+[Day 19](https://github.com/N8Brooks/deno_aoc/blob/main/year_2017/day_19.ts).
+Involves following a trail given by the problem input. For part 2 the steps of
+the trail are counted. Instead of doing that it is sufficient to count the
+amount of touching characters and add 1. This way no trail needs to actually be
+followed.
