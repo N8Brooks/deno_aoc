@@ -27,8 +27,8 @@ const parseInput = (input: string): Particle[] => {
     });
 };
 
-/** Returns true if particle has passed origin on this axis */
-const isTerminal = (pi: number, vi: number, ai: number): boolean => {
+/** Returns true if particle has not passed origin on this axis */
+const precedesOrigin = (pi: number, vi: number, ai: number): boolean => {
   if (!ai) {
     return false;
   }
@@ -38,8 +38,8 @@ const isTerminal = (pi: number, vi: number, ai: number): boolean => {
   return pSign !== vSign || vSign !== aSign;
 };
 
-/** Returns the index of the particle that is closest to origin in the long term */
-const closestIndex = (particles: Particle[]): number => {
+export function part1(input: string): number {
+  const particles = parseInput(input);
   // Filter particles with shortest acceleration vectors
   const hypot = Math.min(...particles.map(({ hypot }) => hypot));
   // Return particle that passes closest to origin
@@ -47,7 +47,7 @@ const closestIndex = (particles: Particle[]): number => {
     .filter((particle) => particle.hypot === hypot)
     .map(({ p, v, a, i }) => {
       let minDistance = Math.hypot(...p);
-      while (a.some((ai, i) => isTerminal(p[i], v[i], ai))) {
+      while (a.some((ai, i) => precedesOrigin(p[i], v[i], ai))) {
         v = v.map((vx, i) => vx + a[i]);
         p = p.map((px, i) => px + v[i]);
         minDistance = Math.min(minDistance, Math.hypot(...p));
@@ -55,11 +55,6 @@ const closestIndex = (particles: Particle[]): number => {
       return [minDistance, i];
     })
     .reduce((a, b) => a[0] < b[0] ? a : b)[1];
-};
-
-export function part1(input: string): number {
-  const particles = parseInput(input);
-  return closestIndex(particles);
 }
 
 export function part2(input: string): number {
@@ -68,7 +63,7 @@ export function part2(input: string): number {
   const collidedParticles: Set<number> = new Set();
   for (let { p, v, a, i } of particles) {
     particlePositions.set(p.join(), i);
-    while (a.some((ai, i) => isTerminal(p[i], v[i], ai))) {
+    while (a.some((ai, i) => precedesOrigin(p[i], v[i], ai))) {
       v = v.map((vx, i) => vx + a[i]);
       p = p.map((px, i) => px + v[i]);
       const key = p.join();
