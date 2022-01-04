@@ -1,5 +1,3 @@
-// TODO: Array rotation function
-
 /** Hex to byte conversion table */
 const BYTE_TO_HEX = Array.from(
   { length: 0x100 },
