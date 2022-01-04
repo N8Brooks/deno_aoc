@@ -68,6 +68,13 @@ export const modularInverse = (a: number, b: number): number => {
   return x1;
 };
 
+export function multiplyComplex(
+  [aReal, aImag]: [number, number],
+  [bReal, bImag]: [number, number],
+): [number, number] {
+  return [aReal * bReal - aImag * bImag, aReal * bImag + aImag * bReal];
+}
+
 /** Chinese remainder theorem */
 export const crt = (dividends: number[], remainders: number[]): number => {
   let sum = 0;

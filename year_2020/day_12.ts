@@ -1,3 +1,5 @@
+import { multiplyComplex } from "../util.ts";
+
 type Complex = [number, number];
 
 const ROTATION: Complex[] = [
@@ -75,11 +77,4 @@ export function part2(input: string): number {
   }
 
   return Math.abs(position[0]) + Math.abs(position[1]);
-}
-
-export function multiplyComplex(
-  [aReal, aImag]: Complex,
-  [bReal, bImag]: Complex,
-): Complex {
-  return [aReal * bReal - aImag * bImag, aReal * bImag + aImag * bReal];
 }
