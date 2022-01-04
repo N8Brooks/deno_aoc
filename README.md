@@ -1,5 +1,8 @@
 # deno_aoc
 
+[![code_cov](https://codecov.io/gh/N8Brooks/deno_aoc/branch/main/graph/badge.svg?token=7S2WQSKUVD)](https://codecov.io/gh/N8Brooks/deno_aoc)
+[![deno_aoc](https://github.com/N8Brooks/deno_aoc/actions/workflows/deno_aoc.yaml/badge.svg)](https://github.com/N8Brooks/deno_aoc/actions/workflows/deno_aoc.yaml)
+
 Advent of Code solutions written in TypeScript for Deno.
 
 ## Testing
