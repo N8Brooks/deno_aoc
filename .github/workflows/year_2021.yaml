@@ -1,6 +1,10 @@
 name: year_2021
 
 on:
+  push:
+    paths:
+      - "*.ts"
+      - "year_2021/**"
   pull_request:
     paths:
       - "*.ts"
