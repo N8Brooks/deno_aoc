@@ -4,4 +4,11 @@ export {
   slidingWindows,
   zip,
 } from "https://deno.land/std@0.117.0/collections/mod.ts";
-export * from "https://deno.land/x/combinatorics@1.0.1/mod.ts";
+export {
+  cartesianProduct,
+  combinations,
+  combinationsWithReplacement,
+  permutations,
+  permutationsWithReplacement,
+  powerSet,
+} from "https://deno.land/x/combinatorics@1.0.1/mod.ts";
