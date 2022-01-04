@@ -3,11 +3,9 @@ name: year_2015
 on:
   push:
     paths:
-      - "*.ts"
       - "year_2015/**"
   pull_request:
     paths:
-      - "*.ts"
       - "year_2015/**"
 
 jobs:
@@ -25,10 +23,10 @@ jobs:
           deno-version: canary
 
       - name: Format
-        run: deno fmt --check
+        run: deno fmt --check year_2015
 
       - name: Lint
-        run: deno lint
+        run: deno lint year_2015
 
       - name: Test
         run: deno test --allow-read --unstable year_2015

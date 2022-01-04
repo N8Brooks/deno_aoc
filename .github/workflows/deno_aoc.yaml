@@ -1,0 +1,47 @@
+name: deno_aoc
+
+on:
+  push:
+    paths:
+      - "*.ts"
+  pull_request:
+    paths:
+      - "*.ts"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Clone
+        uses: actions/checkout@v2
+
+      - name: Set-up
+        uses: denoland/setup-deno@v1.0.0
+        with:
+          deno-version: canary
+
+      - name: Format
+        run: deno fmt --check
+
+      - name: Lint
+        run: deno lint
+
+      - name: Test
+        run: deno test --allow-read --coverage=cov --unstable
+
+      - name: Generate Coverage
+        shell: bash
+        run: deno coverage cov --lcov --exclude="test\\.(ts|js)" > cov.lcov
+
+      - name: Upload Coverage
+        uses: codecov/codecov-action@v2
+        with:
+          files: cov.lcov
+
+      - name: Remove Coverage
+        shell: bash
+        run: |
+          rm -rf cov
+          rm cov.lcov
