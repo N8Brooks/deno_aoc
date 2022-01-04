@@ -1,17 +1,15 @@
-name: ci
+name: year_2015
 
 on:
-  push:
-    branches: [main]
   pull_request:
-    branches: [main]
-  schedule:
-    - cron: "0 0 * * 0"
+    paths:
+      - "*.ts"
+      - "year_2015/**"
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 60
 
     steps:
       - name: Clone
@@ -29,4 +27,4 @@ jobs:
         run: deno lint
 
       - name: Test
-        run: deno test --unstable -A --ignore="year_2015/day_04_test.ts,year_2016/day_05_test.ts,year_2016/day_14_test.ts"
+        run: deno test --allow-read --unstable
