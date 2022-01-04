@@ -71,6 +71,7 @@ export function part1(input: string): number {
   const rcvQueue = program.run([]);
   return rcvQueue.at(-1)!;
 }
+
 export function part2(input: string): number {
   const instructions = input.split("\n").map((line) => line.split(" "));
   const program0 = new Program(instructions, { p: 0 });
