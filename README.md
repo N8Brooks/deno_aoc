@@ -11,7 +11,7 @@ Advent of Code solutions written in TypeScript for Deno.
   [polyfill for mocha](https://gist.github.com/lucacasonato/54c03bb267074aaa9b32415dbfb25522)
   using the unstable iterative steps API.
 - Testing the MD5 hashing problems takes a while so it's best to ignore them.
-- Tests are run in the `ci.yml` action.
+- Tests are run in the github actions.
 
 ```bash
 deno test --allow-read --unstable --ignore="year_2015/day_04_test.ts,year_2016/day_05_test.ts,year_2016/day_14_test.ts"
@@ -20,7 +20,7 @@ deno test --allow-read --unstable --ignore="year_2015/day_04_test.ts,year_2016/d
 ## Linting
 
 - Linting is done with no arguments using Deno.
-- Linting is checked in the `ci.yml` action.
+- Linting is checked in the github actions.
 
 ```bash
 deno lint
@@ -29,7 +29,7 @@ deno lint
 ## Formatting
 
 - Formatting is done using no arguments with Deno.
-- It is also checked in the `ci.yml` action.
+- It is also checked in the github actions.
 - Running this on windows may cause problems relating to the prefered newline
   character.
 
