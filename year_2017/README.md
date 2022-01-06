@@ -2,8 +2,8 @@
 
 [![year_2017](https://github.com/N8Brooks/deno_aoc/actions/workflows/year_2017.yaml/badge.svg)](https://github.com/N8Brooks/deno_aoc/actions/workflows/year_2017.yaml)
 ![](https://img.shields.io/badge/day%20📅-25-blue)
-![](https://img.shields.io/badge/stars%20⭐-48-yellow)
-![](https://img.shields.io/badge/days%20completed-24-red)
+![](https://img.shields.io/badge/stars%20⭐-50-yellow)
+![](https://img.shields.io/badge/days%20completed-25-green)
 
 Advent of Code solutions for year 2017.
 
