@@ -1,8 +1,8 @@
 import { cartesianProduct, combinations } from "../deps.ts";
 
-type Items = [number, number, number];
+type Stats = [number, number, number];
 
-const WEAPS: Items[] = [
+const WEAPONS: Stats[] = [
   [8, 4, 0],
   [10, 5, 0],
   [25, 6, 0],
@@ -10,7 +10,7 @@ const WEAPS: Items[] = [
   [74, 8, 0],
 ];
 
-const ARMOR: Items[] = [
+const ARMOR: Stats[] = [
   [13, 0, 1],
   [31, 0, 2],
   [53, 0, 3],
@@ -18,7 +18,7 @@ const ARMOR: Items[] = [
   [102, 0, 5],
 ];
 
-const RINGS: Items[] = [
+const RINGS: Stats[] = [
   [25, 1, 0],
   [50, 2, 0],
   [100, 3, 0],
@@ -27,32 +27,8 @@ const RINGS: Items[] = [
   [80, 0, 3],
 ];
 
-const simulate = (input: string, pHealth: number, win: boolean) => {
-  const [bHealth, bDamage, bArmor] = [...input.matchAll(/\d+/g)].map((d) => +d);
-
-  const weaps: Items[] = WEAPS;
-  const armor: Items[] = [[0, 0, 0], ...ARMOR];
-  const rings: Items[] = [
-    [0, 0, 0],
-    ...RINGS,
-    ...[...combinations(RINGS, 2)].map(stats),
-  ];
-
-  const costs = [...cartesianProduct(weaps, armor, rings)]
-    .map(stats)
-    .filter((items) => battle(items) === win)
-    .map(([cost]) => cost);
-
-  return win ? Math.min(...costs) : Math.max(...costs);
-
-  function battle([, pDamage, pArmor]: Items): boolean {
-    const bTurns = turns(pHealth, bDamage - pArmor);
-    const pTurns = turns(bHealth, pDamage - bArmor);
-    return pTurns <= bTurns;
-  }
-};
-
-const stats = (items: Items[]): Items => {
+/** Returns the net `Stats` for multiple items */
+const sumStats = (items: Stats[]): Stats => {
   let cost = 0, damage = 0, armor = 0;
   for (const [c, d, a] of items) {
     cost += c;
@@ -62,14 +38,45 @@ const stats = (items: Items[]): Items => {
   return [cost, damage, armor];
 };
 
-const turns = (a: number, b: number): number => {
-  return b > 0 ? Math.ceil(a / b) : Infinity;
+/** All possible layouts of weapons, armor, and rings */
+const EQUIPMENT = [...cartesianProduct(
+  WEAPONS,
+  [[0, 0, 0], ...ARMOR] as Stats[],
+  [
+    [0, 0, 0],
+    ...RINGS,
+    ...[...combinations(RINGS, 2)].map(sumStats),
+  ] as Stats[],
+)].map(sumStats);
+
+/** The amount of turns for the given damage and health */
+const turns = (health: number, damage: number): number => {
+  return damage > 0 ? Math.ceil(health / damage) : Infinity;
 };
 
-export function part1(input: string, pHealth: number) {
-  return simulate(input, pHealth, true);
+/** Simulates all possible battles */
+const simulate = (input: string, playerHealth: number, win: boolean) => {
+  const [
+    bossHealth,
+    bossDamage,
+    bossArmor,
+  ] = [...input.matchAll(/\d+/g)].map((d) => +d);
+
+  const costs = EQUIPMENT
+    .filter(([, playerDamage, playerArmor]) => {
+      const bTurns = turns(playerHealth, bossDamage - playerArmor);
+      const pTurns = turns(bossHealth, playerDamage - bossArmor);
+      return pTurns <= bTurns === win;
+    })
+    .map(([cost]) => cost);
+
+  return win ? Math.min(...costs) : Math.max(...costs);
+};
+
+export function part1(input: string, playerHealth: number) {
+  return simulate(input, playerHealth, true);
 }
 
-export function part2(input: string, pHealth: number) {
-  return simulate(input, pHealth, false);
+export function part2(input: string, playerHealth: number) {
+  return simulate(input, playerHealth, false);
 }
