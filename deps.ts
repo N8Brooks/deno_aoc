@@ -1,9 +1,9 @@
-export { crypto } from "https://deno.land/std@0.117.0/crypto/mod.ts";
+export { crypto } from "https://deno.land/std@0.125.0/crypto/mod.ts";
 export {
   chunk,
   slidingWindows,
   zip,
-} from "https://deno.land/std@0.117.0/collections/mod.ts";
+} from "https://deno.land/std@0.125.0/collections/mod.ts";
 export {
   cartesianProduct,
   combinations,
