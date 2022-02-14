@@ -29,4 +29,4 @@ jobs:
         run: deno lint year_2018
 
       - name: Test
-        run: deno test --allow-read --unstable year_2018
+        run: deno test --allow-read year_2018

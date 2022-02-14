@@ -14,7 +14,7 @@ Advent of Code solutions written in TypeScript for Deno.
 - Tests are run in the github actions.
 
 ```bash
-deno test --allow-read --unstable --ignore="year_2015/day_04_test.ts,year_2016/day_05_test.ts,year_2016/day_14_test.ts"
+deno test --allow-read --ignore="year_2015/day_04_test.ts,year_2016/day_05_test.ts,year_2016/day_14_test.ts"
 ```
 
 ## Linting
@@ -30,7 +30,7 @@ deno lint
 
 - Formatting is done using no arguments with Deno.
 - It is also checked in the github actions.
-- Running this on windows may cause problems relating to the prefered newline
+- Running this on windows may cause problems relating to the preferred newline
   character.
 
 ```bash
