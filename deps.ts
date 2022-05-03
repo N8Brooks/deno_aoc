@@ -11,4 +11,4 @@ export {
   permutations,
   permutationsWithReplacement,
   powerSet,
-} from "https://deno.land/x/combinatorics@1.0.1/mod.ts";
+} from "https://deno.land/x/combinatorics@1.1.2/mod.ts";
