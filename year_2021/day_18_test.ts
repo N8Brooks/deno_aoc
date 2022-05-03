@@ -1,4 +1,4 @@
-import { expect } from "../test_deps.ts";
+import { describe, expect, it } from "../test_deps.ts";
 import { part1, part2 } from "./day_18.ts";
 
 const EXAMPLE = `[[[0,[5,8]],[[1,7],[9,6]]],[[4,[1,2]],[[1,4],2]]]

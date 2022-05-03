@@ -1,4 +1,4 @@
-import { expect } from "../test_deps.ts";
+import { describe, expect, it } from "../test_deps.ts";
 import { part1, part2 } from "./day_07.ts";
 
 const EXAMPLE_1 = `abba[mnop]qrst

@@ -1,4 +1,4 @@
-import { expect } from "../test_deps.ts";
+import { describe, expect, it } from "../test_deps.ts";
 import { part1, part2 } from "./day_17.ts";
 
 const EXAMPLE = `target area: x=20..30, y=-10..-5`;

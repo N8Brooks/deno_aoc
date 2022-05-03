@@ -1,4 +1,4 @@
-import { expect } from "../test_deps.ts";
+import { describe, expect, it } from "../test_deps.ts";
 import { part1, part2 } from "./day_14.ts";
 
 const input = await Deno.readTextFile("year_2015/testdata/day_14.txt");

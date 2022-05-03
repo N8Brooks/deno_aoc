@@ -1,4 +1,4 @@
-import { expect } from "../test_deps.ts";
+import { describe, expect, it } from "../test_deps.ts";
 import { part1, part2 } from "./day_15.ts";
 
 const EXAMPLE = `Disc #1 has 5 positions; at time=0, it is at position 4.

@@ -1,4 +1,4 @@
-import { expect } from "../test_deps.ts";
+import { describe, expect, it } from "../test_deps.ts";
 import { part1, part2 } from "./day_04.ts";
 
 const EXAMPLE = `[1518-11-01 00:00] Guard #10 begins shift

@@ -1,4 +1,4 @@
-import { expect } from "../test_deps.ts";
+import { describe, expect, it } from "../test_deps.ts";
 import { part1, part2 } from "./day_14.ts";
 
 const EXAMPLE_1 = `mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X

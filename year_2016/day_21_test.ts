@@ -1,4 +1,4 @@
-import { expect } from "../test_deps.ts";
+import { describe, expect, it } from "../test_deps.ts";
 import { evaluate, part1, part2, scramble } from "./day_21.ts";
 
 const EXAMPLE = `swap position 4 with position 0
