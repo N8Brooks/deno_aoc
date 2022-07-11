@@ -8,8 +8,8 @@ Advent of Code solutions written in TypeScript for Deno.
 ## Testing
 
 - Testing uses a
-  [polyfill for mocha](https://gist.github.com/lucacasonato/54c03bb267074aaa9b32415dbfb25522)
-  using the unstable iterative steps API.
+  [BDD](https://deno.land/std@0.147.0/testing#behavior-driven-development) from
+  the Deno standard library. using the unstable iterative steps API.
 - Testing the MD5 hashing problems takes a while so it's best to ignore them.
 - Tests are run in the github actions.
 
