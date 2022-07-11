@@ -1,10 +1,9 @@
 const CHAR_CODE_A = "a".charCodeAt(0);
 
-type DanceMove = (
+type DanceMove =
   | ["s", number]
   | ["x", number, number]
-  | ["p", string, string]
-);
+  | ["p", string, string];
 
 const parseDanceMoves = (input: string): DanceMove[] => {
   return input

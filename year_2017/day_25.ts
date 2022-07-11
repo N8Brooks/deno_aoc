@@ -1,6 +1,6 @@
 interface Body {
-  write: (0 | 1);
-  move: (-1 | 1);
+  write: 0 | 1;
+  move: -1 | 1;
   next: string;
 }
 
