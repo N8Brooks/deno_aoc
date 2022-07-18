@@ -1,4 +1,4 @@
-export function part1(input: string, preamble: number) {
+export function part1(input: string, preamble = 25) {
   const numbers = input.split("\n").map(Number);
   const history: Map<number, number> = new Map();
   for (let i = 0; i < preamble; i++) {
@@ -32,7 +32,7 @@ export function part1(input: string, preamble: number) {
   throw Error("no invalid number found");
 }
 
-export function part2(input: string, preamble: number) {
+export function part2(input: string, preamble = 25) {
   const num = part1(input, preamble);
   const numbers = input.split("\n").map(Number);
   let i, j;
