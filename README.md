@@ -20,9 +20,10 @@ deno test --allow-read --ignore="year_2015/day_04_test.ts,year_2016/day_05_test.
 ## Benchmarking
 
 - Benchmarking is done with the standard `Deno.bench()` function.
+- Like with testing, it's best to ignore the MD5 hash based problems.
 
 ```bash
-deno bench --allow-read --unstable
+deno bench --allow-read --unstable --ignore="year_2015/day_04_test.ts,year_2016/day_05_test.ts,year_2016/day_14_test.ts"
 ```
 
 ## Linting
