@@ -7,7 +7,7 @@ Advent of Code solutions written in TypeScript for Deno.
 
 ## Testing
 
-- Testing uses a
+- Testing uses
   [BDD](https://deno.land/std@0.147.0/testing#behavior-driven-development) from
   the Deno standard library.
 - Testing the MD5 hashing problems takes a while so it's best to ignore them.
